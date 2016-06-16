@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MonsterClicker.Properties
+namespace WindowsFormsApplication1.Properties
 {
 
 
