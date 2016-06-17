@@ -16,6 +16,7 @@ namespace MonsterClicker
         public BigInteger monsterHP = 10;
         public BigInteger damagePerClick = 1;
         public BigInteger money = 0;
+
         public Form1()
         {
             InitializeComponent();
