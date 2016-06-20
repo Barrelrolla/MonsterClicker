@@ -57,10 +57,10 @@
             get { return this.weapon.Damage; }
         }
 
-        public void DealDamage()
+        public BigInteger DealDamage()
         {
             // TODO: Placehodler text, fix to deal damage to monster after getting one
-            this.monsterHealth -= this.damagePerClick;
+            return this.damagePerClick;
         }
 
         public Weapon BuyWeapon(Weapon weaponInStore)
