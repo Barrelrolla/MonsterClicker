@@ -48,6 +48,7 @@
                     this.playerLevelLabel.Text = string.Format("Level: {0}", player.Level);
                     this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
                 }
+                this.monsterButton.BackgroundImage = Properties.Resources.img1;
             }
             this.monsterHPlabel.Text = string.Format("Monster HP: {0}", monster.Health);
 

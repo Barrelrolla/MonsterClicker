@@ -157,6 +157,7 @@
             // 
             // monsterButton
             // 
+            this.monsterButton.AccessibleName = "monsterButton";
             this.monsterButton.BackgroundImage = global::MonsterClicker.Properties.Resources.monster;
             this.monsterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.monsterButton.Location = new System.Drawing.Point(88, 93);
