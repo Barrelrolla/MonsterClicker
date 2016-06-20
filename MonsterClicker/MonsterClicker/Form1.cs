@@ -48,8 +48,6 @@
                     this.playerLevelLabel.Text = string.Format("Level: {0}", player.Level);
                     this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
                 }
-
-
             }
             this.monsterHPlabel.Text = string.Format("Monster HP: {0}", monster.Health);
 
