@@ -48,7 +48,7 @@
                     this.playerLevelLabel.Text = string.Format("Level: {0}", player.Level);
                     this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
                 }
-                this.monsterButton.BackgroundImage = Properties.Resources.img1;
+                ChangePhotoOfMonster(monster.GetRandomNumber());
             }
             this.monsterHPlabel.Text = string.Format("Monster HP: {0}", monster.Health);
 
@@ -76,6 +76,45 @@
 
             //this.monsterHPlabel.Text = string.Format("Monster HP: {0}", player.monsterHealth);
         }
+
+        private void ChangePhotoOfMonster(int number)
+        {
+            switch (number)
+            {
+                case 0:
+                {
+                        this.monsterButton.BackgroundImage = Properties.Resources.img1;
+                        break;
+                }
+                case 1:
+                {
+                    this.monsterButton.BackgroundImage = Properties.Resources.img2;
+                    break;
+                }
+                case 2:
+                {
+                    this.monsterButton.BackgroundImage = Properties.Resources.img3;
+                    break;
+                }
+                case 3:
+                {
+                        this.monsterButton.BackgroundImage = Properties.Resources.img4;
+                        break;
+                }
+                case 4:
+                {
+                        this.monsterButton.BackgroundImage = Properties.Resources.img5;
+                        break;
+                }
+                default:
+                {
+                        this.monsterButton.BackgroundImage = Properties.Resources.monster;
+                        break;
+                }
+            }
+        }
+
+       
 
         private void weaponButton_Click(object sender, EventArgs e)
         {

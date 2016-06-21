@@ -5,12 +5,13 @@ namespace MonsterClicker
 {
     using Interfaces;
     using System.Numerics;
+    using System.Windows.Forms;
     public class Monster : IMonster
     {
         private BigInteger health;
         private static BigInteger startHealth = 10;
         private BigInteger nextLevelHealth = startHealth;
-        private List<string> photosPaths;
+        //private List<string> photosPaths;
         private Random randomGenerator;
 
         //TODO: exp and money - every next monster must have more money and exp
@@ -22,8 +23,8 @@ namespace MonsterClicker
         public Monster()
         {
             this.Health = startHealth;
-            this.photosPaths = new List<string>();
-            this.randomGenerator = new Random();
+            //this.photosPaths = new List<string>();
+            this.randomGenerator = new System.Random();
         }
 
         public BigInteger Health
@@ -44,15 +45,10 @@ namespace MonsterClicker
             this.health = nextLevelHealth;
         }
 
-        public string GetPhotoPath()
-        {
-            photosPaths.Add("monster1");
-            photosPaths.Add("monster2");
-            photosPaths.Add("monster3");
-            photosPaths.Add("monster4");
-            photosPaths.Add("monster5");
+        public int GetRandomNumber()
+        {            
             var number = randomGenerator.Next(0, 5);
-            return photosPaths[number];
+            return number;
         }
 
         
