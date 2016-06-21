@@ -10,11 +10,17 @@ namespace MonsterClicker
     class Unit
     {
         private BigInteger damage;
+        private BigInteger price;
         private BigInteger count;
 
         public Unit(BigInteger damage)
         {
             this.damage = damage;
+        }
+
+        public BigInteger Price
+        {
+            get { return this.price; }
         }
 
         public BigInteger Damage
