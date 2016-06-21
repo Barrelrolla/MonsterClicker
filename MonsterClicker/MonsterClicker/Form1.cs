@@ -12,6 +12,7 @@
         private Monster monster = new Monster();
         private int warningTime;
         private int levelUpTime;
+        private Unit testUnit = new Unit(2);
 
         public Form1()
         {
@@ -177,6 +178,17 @@
                 playNstop.Text = "Play";
                 playerMusic.controls.stop();
             }
+        }
+
+        private void testUnitButton_Click(object sender, EventArgs e)
+        {
+            testUnit.Count++;
+        }
+
+        private void testTimer_Tick(object sender, EventArgs e)
+        {
+            monster.TakeDamage(testUnit.Damage);
+            this.monsterHPlabel.Text = string.Format("Monster HP: {0}", monster.Health);
         }
     }
 }

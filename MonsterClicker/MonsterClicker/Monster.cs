@@ -37,6 +37,7 @@ namespace MonsterClicker
 
         public void TakeDamage(BigInteger damage)
         {
+            //TODO: Move the health == 0  check from Form.cs to this method
             this.Health -= damage;            
         }
 
