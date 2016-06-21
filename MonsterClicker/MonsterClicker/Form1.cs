@@ -3,6 +3,7 @@
     using System;
     using System.Drawing;
     using System.Windows.Forms;
+    using WMPLib;
 
     public partial class Form1 : Form
     {
@@ -23,6 +24,7 @@
             this.playerLevelLabel.Text = string.Format("Level: {0}", player.Level);
             // hidden until implemented
             this.damageSecondLabel.Hide();
+            playerMusic.URL = "street.mp3";
         }
 
         private void monsterButton_Click(object sender, EventArgs e)
@@ -159,6 +161,21 @@
             else
             {
                 this.levelUpLabel.Text = string.Empty;
+            }
+        }
+        WMPLib.WindowsMediaPlayer playerMusic = new WMPLib.WindowsMediaPlayer();
+      
+        private void playNstop_CheckedChanged(object sender, EventArgs e)
+        {
+            if (playNstop.Checked)
+            {
+                playNstop.Text = "Stop";
+                playerMusic.controls.play();
+            }
+            else
+            {
+                playNstop.Text = "Play";
+                playerMusic.controls.stop();
             }
         }
     }
