@@ -13,6 +13,7 @@ namespace MonsterClicker
         private BigInteger nextLevelHealth = startHealth;
         //private List<string> photosPaths;
         private Random randomGenerator;
+        private int currentNumber = 0;
 
         //TODO: exp and money - every next monster must have more money and exp
         //TODO: exp must be part of health
@@ -47,18 +48,17 @@ namespace MonsterClicker
 
         public int GetRandomNumber()
         {
-            int firstNumber = 0;                
             var number = randomGenerator.Next(0, 5);
-            if (number == firstNumber)
+            if (number == this.currentNumber)
             {
-                while (number == firstNumber)
+                while (number == this.currentNumber)
                 {
                     number = randomGenerator.Next(0, 5);
                 }
             }
             else
             {
-                firstNumber = number;
+                this.currentNumber = number;
             }       
             return number;
         }
