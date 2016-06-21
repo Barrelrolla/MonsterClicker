@@ -46,8 +46,20 @@ namespace MonsterClicker
         }
 
         public int GetRandomNumber()
-        {            
+        {
+            int firstNumber = 0;                
             var number = randomGenerator.Next(0, 5);
+            if (number == firstNumber)
+            {
+                while (number == firstNumber)
+                {
+                    number = randomGenerator.Next(0, 5);
+                }
+            }
+            else
+            {
+                firstNumber = number;
+            }       
             return number;
         }
 
