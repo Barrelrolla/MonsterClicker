@@ -1,7 +1,7 @@
 # MonsterClicker
 C# OOP Teamwork
 ## Team Members
- - Yulian-Teaofilov
+ - Yulian-Teofilov
  - Borislav_Peev
  - Desislav_A
  - kristiankanchev
