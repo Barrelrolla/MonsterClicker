@@ -79,7 +79,7 @@ namespace MonsterClicker
 
         public void GenerateInvetory()
         {
-            this.Money += this.Money / 10 < 1 ? this.Money / 10 : 1;
+            this.Money += this.Money / 10 < 1 ? 1 : this.Money / 10;
             this.Experience += this.Experience / 20 < 1 ? 1 : this.Experience / 20;
         }
     }
