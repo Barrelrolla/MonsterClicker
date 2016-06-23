@@ -6,21 +6,18 @@ namespace MonsterClicker
     using Interfaces;
     using System.Numerics;
     using System.Windows.Forms;
-    public class Monster : IMonster
+    public class Monster : Creature
     {
         private BigInteger health;
-        private static BigInteger startHealth = 10;
+        private static readonly BigInteger  startHealth = 10;
         private BigInteger nextLevelHealth = startHealth;
-        //private List<string> photosPaths;
         private Random randomGenerator;
         private int currentNumber = 0;
         private MonsterInventory inventory;
+        private BigInteger level = 1;
 
         //TODO: exp and money - every next monster must have more money and exp
-        //TODO: exp must be part of health
-        //TODO: make class Boss 
-        //TODO: make homework
-        //TODO: Timer
+        //TODO: enum with names of monster and show it
 
         public Monster()
         {
@@ -48,6 +45,12 @@ namespace MonsterClicker
             set { this.health = value; }
         }
 
+        public BigInteger Level
+        {
+            get { return this.level; }
+            set { this.level = value; }
+        }
+
         public void TakeDamage(BigInteger damage)
         {
             //TODO: Move the health == 0  check from Form.cs to this method
@@ -58,26 +61,10 @@ namespace MonsterClicker
         {
             nextLevelHealth += (nextLevelHealth / 4);
             this.health = nextLevelHealth;
+            this.level++;
         }
-
-        public int GetRandomNumber()
-        {
-            var number = randomGenerator.Next(0, 5);
-            if (number == this.currentNumber)
-            {
-                while (number == this.currentNumber)
-                {
-                    number = randomGenerator.Next(0, 5);
-                }
-            }
-            else
-            {
-                this.currentNumber = number;
-            }       
-            return number;
-        }
-
-        public void GenerateInvetory()
+        
+        public override void GenerateInventory()
         {
             this.Money += this.Money / 10 < 1 ? 1 : this.Money / 10;
             this.Experience += this.Experience / 20 < 1 ? 1 : this.Experience / 20;

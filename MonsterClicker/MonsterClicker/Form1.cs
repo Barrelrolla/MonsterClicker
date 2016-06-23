@@ -9,9 +9,8 @@
 
     public partial class Form1 : Form
     {
-        // TODO: FIX DAMAGE AND LEVEL SCALING ASAP!!!
-        private static Player player = new Player();
-        private static Weapon weaponInStore = new Weapon(1, 1);
+        private Player player = new Player();
+        private Weapon weaponInStore = new Weapon(1, 1);
         private Monster monster = new Monster();
         private Unit testUnit = new Unit(2, 1);
 
@@ -64,7 +63,7 @@
                 player.Money += monster.Money;
                 this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
                 player.ExperiencePointsNeeded -= monster.Experience;
-                monster.GenerateInvetory();
+                monster.GenerateInventory();
                 if (player.ExperiencePointsNeeded <= 0)
                 {
                     player.LevelUp();
