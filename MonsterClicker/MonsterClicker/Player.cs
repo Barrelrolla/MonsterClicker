@@ -4,25 +4,21 @@
 
     public class Player
     {
-        // TODO: Placeholder text, remove after getting a monster
-        public BigInteger initialMonsterHealth = 10;
-        public BigInteger monsterHealth = 10;
-
         private BigInteger damagePerClick;
         private BigInteger baseClickDamge;
         private BigInteger damagePerSecond;
-        private BigInteger experiencePoints;
         private BigInteger level;
         private Weapon weapon;
-        private BigInteger money;
+        private PlayerInventory inventory;
+        private BigInteger InitialExperience = 10;
 
         public Player()
         {
             this.baseClickDamge = 1;
             this.weapon = new Weapon(0, 0);
             this.damagePerClick = this.baseClickDamge + this.WeaponDamage;
-            this.money = 0;
             this.level = 1;
+            this.inventory = new PlayerInventory(0, 0);
         }
 
         public BigInteger DamagePerClick
@@ -33,6 +29,7 @@
         public BigInteger DamagePerSecond
         {
             get { return this.damagePerSecond; }
+            set { this.damagePerSecond = value; }
         }
 
         public BigInteger Level
@@ -40,16 +37,16 @@
             get { return this.level; }
         }
 
-        public BigInteger ExperiencePoints
+        public BigInteger ExperiencePointsNeeded
         {
-            get { return this.experiencePoints; }
-            set { this.experiencePoints = value; }
+            get { return this.inventory.Experience; }
+            set { this.inventory.Experience = value; }
         }
 
         public BigInteger Money
         {
-            get { return this.money; }
-            set { this.money = value; }
+            get { return this.inventory.Money; }
+            set { this.inventory.Money = value; }
         }
 
         public BigInteger WeaponDamage
@@ -59,13 +56,12 @@
 
         public BigInteger DealDamage()
         {
-            // TODO: Placehodler text, fix to deal damage to monster after getting one
             return this.damagePerClick;
         }
 
         public Weapon BuyWeapon(Weapon weaponInStore)
         {
-            this.money = this.money - weaponInStore.Cost;
+            this.inventory.Money = this.inventory.Money - weaponInStore.Cost;
             this.weapon = new Weapon(weaponInStore.Damage, weaponInStore.Cost);
             var damageToAdd = this.WeaponDamage / 10;
             damageToAdd = damageToAdd < 1 ? 1 : damageToAdd;
@@ -77,11 +73,22 @@
         public void LevelUp()
         {
             this.level++;
-            var damageToAdd = this.baseClickDamge / 10;
+            var damageToAdd = this.baseClickDamge / 5;
             damageToAdd = damageToAdd < 1 ? 1 : damageToAdd;
             this.baseClickDamge += damageToAdd;
             this.damagePerClick = this.baseClickDamge + this.WeaponDamage;
-            this.experiencePoints = 0;
+            this.inventory.Experience += InitialExperience + InitialExperience / 10 < 1 ? 1 : InitialExperience / 10;
+            this.InitialExperience = this.inventory.Experience;
+        }
+
+        public void GetMoneyAndXP(BigInteger monsterMoney, BigInteger monsterXP)
+        {
+            this.Money += monsterMoney;
+            this.ExperiencePointsNeeded -= monsterXP;
+            if (ExperiencePointsNeeded <= 0)
+            {
+                this.LevelUp();
+            }
         }
     }
 }

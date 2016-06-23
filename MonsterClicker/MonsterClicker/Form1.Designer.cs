@@ -54,6 +54,11 @@
             this.levelTimer = new System.Windows.Forms.Timer(this.components);
             this.monsterButton = new System.Windows.Forms.Button();
             this.playNstop = new System.Windows.Forms.CheckBox();
+            this.testUnitButton = new System.Windows.Forms.Button();
+            this.unitPriceLabel = new System.Windows.Forms.Label();
+            this.testTimer = new System.Windows.Forms.Timer(this.components);
+            this.floatDamageLabel = new System.Windows.Forms.Label();
+            this.floatDamageTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // monsterHPlabel
@@ -159,7 +164,7 @@
             // monsterButton
             // 
             this.monsterButton.AccessibleName = "monsterButton";
-            this.monsterButton.BackgroundImage = global::MonsterClicker.Properties.Resources.monster;
+            this.monsterButton.BackgroundImage = global::MonsterClicker.Properties.Resources.img1;
             this.monsterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.monsterButton.Location = new System.Drawing.Point(88, 93);
             this.monsterButton.Name = "monsterButton";
@@ -174,7 +179,7 @@
             this.playNstop.AutoSize = true;
             this.playNstop.Checked = true;
             this.playNstop.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.playNstop.Location = new System.Drawing.Point(551, 305);
+            this.playNstop.Location = new System.Drawing.Point(643, 305);
             this.playNstop.Name = "playNstop";
             this.playNstop.Size = new System.Drawing.Size(39, 23);
             this.playNstop.TabIndex = 20;
@@ -183,13 +188,56 @@
             this.playNstop.UseVisualStyleBackColor = true;
             this.playNstop.CheckedChanged += new System.EventHandler(this.playNstop_CheckedChanged);
             // 
+            // testUnitButton
+            // 
+            this.testUnitButton.Location = new System.Drawing.Point(456, 45);
+            this.testUnitButton.Name = "testUnitButton";
+            this.testUnitButton.Size = new System.Drawing.Size(75, 23);
+            this.testUnitButton.TabIndex = 21;
+            this.testUnitButton.Text = "testUnit";
+            this.testUnitButton.UseVisualStyleBackColor = true;
+            this.testUnitButton.Click += new System.EventHandler(this.testUnitButton_Click);
+            // 
+            // unitPriceLabel
+            // 
+            this.unitPriceLabel.AutoSize = true;
+            this.unitPriceLabel.Location = new System.Drawing.Point(538, 51);
+            this.unitPriceLabel.Name = "unitPriceLabel";
+            this.unitPriceLabel.Size = new System.Drawing.Size(34, 13);
+            this.unitPriceLabel.TabIndex = 22;
+            this.unitPriceLabel.Text = "Price:";
+            // 
+            // testTimer
+            // 
+            this.testTimer.Enabled = true;
+            this.testTimer.Interval = 1000;
+            this.testTimer.Tick += new System.EventHandler(this.testTimer_Tick);
+            // 
+            // floatDamageLabel
+            // 
+            this.floatDamageLabel.AutoSize = true;
+            this.floatDamageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.floatDamageLabel.ForeColor = System.Drawing.Color.Red;
+            this.floatDamageLabel.Location = new System.Drawing.Point(333, 167);
+            this.floatDamageLabel.Name = "floatDamageLabel";
+            this.floatDamageLabel.Size = new System.Drawing.Size(24, 26);
+            this.floatDamageLabel.TabIndex = 23;
+            this.floatDamageLabel.Text = "5";
+            // 
+            // floatDamageTimer
+            // 
+            this.floatDamageTimer.Tick += new System.EventHandler(this.floatDamageTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MonsterClicker.Properties.Resources.space;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(602, 341);
+            this.ClientSize = new System.Drawing.Size(694, 341);
+            this.Controls.Add(this.floatDamageLabel);
+            this.Controls.Add(this.unitPriceLabel);
+            this.Controls.Add(this.testUnitButton);
             this.Controls.Add(this.playNstop);
             this.Controls.Add(this.levelUpLabel);
             this.Controls.Add(this.playerLevelLabel);
@@ -213,5 +261,10 @@
 
         private System.Windows.Forms.Button monsterButton;
         private System.Windows.Forms.CheckBox playNstop;
+        private System.Windows.Forms.Button testUnitButton;
+        private System.Windows.Forms.Label unitPriceLabel;
+        private System.Windows.Forms.Timer testTimer;
+        private System.Windows.Forms.Label floatDamageLabel;
+        private System.Windows.Forms.Timer floatDamageTimer;
     }
 }

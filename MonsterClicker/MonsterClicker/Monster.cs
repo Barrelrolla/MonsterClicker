@@ -14,6 +14,7 @@ namespace MonsterClicker
         //private List<string> photosPaths;
         private Random randomGenerator;
         private int currentNumber = 0;
+        private MonsterInventory inventory;
 
         //TODO: exp and money - every next monster must have more money and exp
         //TODO: exp must be part of health
@@ -26,6 +27,19 @@ namespace MonsterClicker
             this.Health = startHealth;
             //this.photosPaths = new List<string>();
             this.randomGenerator = new System.Random();
+            this.inventory = new MonsterInventory(1, 5);
+        }
+
+        public BigInteger Money
+        {
+            get { return this.inventory.Money; }
+            set { this.inventory.Money = value; }
+        }
+
+        public BigInteger Experience
+        {
+            get { return this.inventory.Experience; }
+            set { this.inventory.Experience = value; }
         }
 
         public BigInteger Health
@@ -34,10 +48,10 @@ namespace MonsterClicker
             set { this.health = value; }
         }
 
-
         public void TakeDamage(BigInteger damage)
         {
-            this.Health -= damage;            
+            //TODO: Move the health == 0  check from Form.cs to this method
+            this.Health -= damage;
         }
 
         public void GenerateHealth()
@@ -63,6 +77,10 @@ namespace MonsterClicker
             return number;
         }
 
-        
+        public void GenerateInvetory()
+        {
+            this.Money += this.Money / 10 < 1 ? this.Money / 10 : 1;
+            this.Experience += this.Experience / 10 < 1 ? this.Experience / 10 : 1;
+        }
     }
 }
