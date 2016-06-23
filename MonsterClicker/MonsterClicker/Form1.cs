@@ -25,21 +25,16 @@
             this.damageSecondLabel.Text = string.Format("Damage Per Second: {0}", player.DamagePerSecond);
             this.playerLevelLabel.Text = string.Format("Level: {0}", player.Level);
             this.unitPriceLabel.Text = string.Format("Price: {0}; Count: {1}", testUnit.Price, testUnit.Count);
+            this.levelUpLabel.Hide();
             this.floatDamageLabel.Hide();
             playerMusic.URL = @".\Resources\street.mp3";
         }
 
         private void monsterButton_Click(object sender, EventArgs e)
         {
+            this.clickMeLabel.Hide();
             monster.TakeDamage(player.DealDamage());
             CheckIfDead();
-
-            // TODO: This should be another label
-            if (this.levelUpLabel.Text != "Level Up!")
-            {
-                this.levelUpLabel.Text = string.Empty;
-            }
-
             if (monster.Health <= 0)
             {
                 throw new NoHealthException("The creature should be dead, but it is not!");
@@ -72,10 +67,9 @@
                 monster.GenerateInvetory();
                 if (player.ExperiencePointsNeeded <= 0)
                 {
-                    levelUpLabel.Hide();
                     player.LevelUp();
+                    this.levelUpLabel.Hide();
                     this.levelUpLabel.Show();
-                    this.levelUpLabel.Text = "Level Up!";
                     this.levelTimer.Interval = 2000;
                     this.levelTimer.Start();
                     this.playerLevelLabel.Text = string.Format("Level: {0}", player.Level);

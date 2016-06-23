@@ -59,6 +59,7 @@
             this.testTimer = new System.Windows.Forms.Timer(this.components);
             this.floatDamageLabel = new System.Windows.Forms.Label();
             this.floatDamageTimer = new System.Windows.Forms.Timer(this.components);
+            this.clickMeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // monsterHPlabel
@@ -153,9 +154,9 @@
             this.levelUpLabel.ForeColor = System.Drawing.Color.DarkOrange;
             this.levelUpLabel.Location = new System.Drawing.Point(123, 226);
             this.levelUpLabel.Name = "levelUpLabel";
-            this.levelUpLabel.Size = new System.Drawing.Size(80, 20);
+            this.levelUpLabel.Size = new System.Drawing.Size(75, 20);
             this.levelUpLabel.TabIndex = 9;
-            this.levelUpLabel.Text = "Click Me ↑";
+            this.levelUpLabel.Text = "Level Up!";
             // 
             // levelTimer
             // 
@@ -228,6 +229,18 @@
             // 
             this.floatDamageTimer.Tick += new System.EventHandler(this.floatDamageTimer_Tick);
             // 
+            // clickMeLabel
+            // 
+            this.clickMeLabel.AutoSize = true;
+            this.clickMeLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.clickMeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clickMeLabel.ForeColor = System.Drawing.Color.Orange;
+            this.clickMeLabel.Location = new System.Drawing.Point(118, 226);
+            this.clickMeLabel.Name = "clickMeLabel";
+            this.clickMeLabel.Size = new System.Drawing.Size(80, 20);
+            this.clickMeLabel.TabIndex = 24;
+            this.clickMeLabel.Text = "Click Me ↑";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,6 +248,7 @@
             this.BackgroundImage = global::MonsterClicker.Properties.Resources.space;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(694, 341);
+            this.Controls.Add(this.clickMeLabel);
             this.Controls.Add(this.floatDamageLabel);
             this.Controls.Add(this.unitPriceLabel);
             this.Controls.Add(this.testUnitButton);
@@ -266,5 +280,6 @@
         private System.Windows.Forms.Timer testTimer;
         private System.Windows.Forms.Label floatDamageLabel;
         private System.Windows.Forms.Timer floatDamageTimer;
+        private System.Windows.Forms.Label clickMeLabel;
     }
 }
