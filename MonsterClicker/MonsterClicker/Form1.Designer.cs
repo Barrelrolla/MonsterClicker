@@ -88,7 +88,7 @@
             this.weaponButton.Name = "weaponButton";
             this.weaponButton.Size = new System.Drawing.Size(115, 29);
             this.weaponButton.TabIndex = 3;
-            this.weaponButton.Text = "Buy Weapon";
+            this.weaponButton.Text = "Upgrade Weapon";
             this.weaponButton.UseVisualStyleBackColor = true;
             this.weaponButton.Click += new System.EventHandler(this.weaponButton_Click);
             // 

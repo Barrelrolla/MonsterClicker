@@ -52,6 +52,7 @@
         public BigInteger WeaponDamage
         {
             get { return this.weapon.Damage; }
+            set { this.weapon.Damage = value; }
         }
 
         public BigInteger DealDamage()
@@ -62,12 +63,10 @@
         public Weapon BuyWeapon(Weapon weaponInStore)
         {
             this.inventory.Money = this.inventory.Money - weaponInStore.Cost;
-            this.weapon = new Weapon(weaponInStore.Damage, weaponInStore.Cost);
-            var damageToAdd = this.WeaponDamage / 10;
-            damageToAdd = damageToAdd < 1 ? 1 : damageToAdd;
-            var newWeapon = this.WeaponDamage + damageToAdd;
-            this.damagePerClick = this.baseClickDamge + weaponInStore.Damage;
-            return new Weapon(newWeapon, this.weapon.CostIncrease());
+            this.WeaponDamage += weaponInStore.Damage;
+            var newWeapon = new Weapon(weapon.DamageIncrease(weaponInStore.Damage), weaponInStore.CostIncrease());
+            this.damagePerClick = this.baseClickDamge + this.WeaponDamage;
+            return newWeapon;
         }
 
         public void LevelUp()

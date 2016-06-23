@@ -132,7 +132,7 @@
                 this.weaponLabel.Text = string.Format("Cost: {0}", weaponInStore.Cost);
                 this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
                 this.warning.ForeColor = Color.Green;
-                this.warning.Text = "Weapon bought!";
+                this.warning.Text = "Upgrade bought!";
                 this.warningTimer.Interval = 2000;
                 this.warningTimer.Start();
             }

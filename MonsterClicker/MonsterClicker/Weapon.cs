@@ -31,5 +31,12 @@
             costToAdd = costToAdd < 1 ? 1 : costToAdd;
             return this.cost + costToAdd;
         }
+
+        public BigInteger DamageIncrease(BigInteger currentDamage)
+        {
+            var damageToAdd = currentDamage / 10;
+            damageToAdd = damageToAdd < 1 ? 1 : damageToAdd;
+            return currentDamage + damageToAdd;
+        }
     }
 }
