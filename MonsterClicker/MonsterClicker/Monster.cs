@@ -56,7 +56,7 @@ namespace MonsterClicker
 
         public void GenerateHealth()
         {
-            nextLevelHealth += (nextLevelHealth / 10);
+            nextLevelHealth += (nextLevelHealth / 4);
             this.health = nextLevelHealth;
         }
 

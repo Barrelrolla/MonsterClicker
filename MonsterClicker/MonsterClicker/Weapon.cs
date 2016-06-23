@@ -27,7 +27,7 @@
 
         public BigInteger CostIncrease()
         {
-            var costToAdd = this.cost / 10;
+            var costToAdd = this.cost / 10 < 2 ? 2 : this.cost / 10;
             costToAdd = costToAdd < 1 ? 1 : costToAdd;
             return this.cost + costToAdd;
         }
