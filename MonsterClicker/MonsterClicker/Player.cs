@@ -18,7 +18,7 @@
             this.weapon = new Weapon(0, 0);
             this.damagePerClick = this.baseClickDamge + this.WeaponDamage;
             this.level = 1;
-            this.inventory = new PlayerInventory(0, 0);
+            this.inventory = new PlayerInventory(0, 10);
         }
 
         public BigInteger DamagePerClick
@@ -77,7 +77,8 @@
             damageToAdd = damageToAdd < 1 ? 1 : damageToAdd;
             this.baseClickDamge += damageToAdd;
             this.damagePerClick = this.baseClickDamge + this.WeaponDamage;
-            this.inventory.Experience += InitialExperience + InitialExperience / 10 < 1 ? 1 : InitialExperience / 10;
+            var experienceToAdd = InitialExperience + InitialExperience / 10 < 1 ? 1 : InitialExperience / 10;
+            this.ExperiencePointsNeeded = InitialExperience + experienceToAdd;
             this.InitialExperience = this.inventory.Experience;
         }
 

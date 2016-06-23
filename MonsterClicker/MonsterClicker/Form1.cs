@@ -52,7 +52,9 @@
         {
             floatDamageLabel.Hide();
             floatDamageLabel.Show();
-            var window = new Point(Location.X, Location.Y);
+            // getting the window position relative to the screen
+            var window = new Point(this.Location.X, this.Location.Y);
+            // setting the new location relative to the mouse relative to the window position
             var newLocation = new Point(MousePosition.X - window.X - 20, MousePosition.Y - window.Y - 60);
             floatDamageLabel.Location = newLocation;
             floatDamageLabel.Text = string.Format("{0}", player.DamagePerClick);
