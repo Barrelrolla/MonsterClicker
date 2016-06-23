@@ -73,12 +73,9 @@
         public void LevelUp()
         {
             this.level++;
-            if (level % 8 == 0)
-            {
-                var damageToAdd = this.baseClickDamge / 5;
-                damageToAdd = damageToAdd < 1 ? 1 : damageToAdd;
-                this.baseClickDamge += damageToAdd;
-            }
+            var damageToAdd = this.baseClickDamge / 20;
+            damageToAdd = damageToAdd < 1 ? 1 : damageToAdd;
+            this.baseClickDamge += damageToAdd;
             this.damagePerClick = this.baseClickDamge + this.WeaponDamage;
             this.inventory.Experience += InitialExperience + InitialExperience / 10 < 1 ? 1 : InitialExperience / 10;
             this.InitialExperience = this.inventory.Experience;
