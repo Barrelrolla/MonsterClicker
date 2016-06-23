@@ -9,6 +9,7 @@
 
     public partial class Form1 : Form
     {
+        // TODO: FIX DAMAGE AND LEVEL SCALING ASAP!!!
         private static Player player = new Player();
         private static Weapon weaponInStore = new Weapon(1, 1);
         private Monster monster = new Monster();
