@@ -24,7 +24,7 @@
             this.playerLevelLabel.Text = string.Format("Level: {0}", player.Level);
             // hidden until implemented
             this.damageSecondLabel.Hide();
-            playerMusic.URL = "street.mp3";
+            playerMusic.URL = @".\Resources\street.mp3";
         }
 
         private void monsterButton_Click(object sender, EventArgs e)
@@ -163,7 +163,7 @@
                 this.levelUpLabel.Text = string.Empty;
             }
         }
-        WMPLib.WindowsMediaPlayer playerMusic = new WMPLib.WindowsMediaPlayer();
+        WindowsMediaPlayer playerMusic = new WindowsMediaPlayer();
       
         private void playNstop_CheckedChanged(object sender, EventArgs e)
         {
