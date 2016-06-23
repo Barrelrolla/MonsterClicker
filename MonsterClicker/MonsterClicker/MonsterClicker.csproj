@@ -54,9 +54,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IInventory.cs" />
     <Compile Include="Interfaces\IMonster.cs" />
     <Compile Include="Monster.cs" />
+    <Compile Include="MonsterInventory.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="PlayerInventory.cs" />
     <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Unit.cs" />
