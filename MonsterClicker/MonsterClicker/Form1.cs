@@ -70,6 +70,7 @@
                 {
                     boss = new Boss(this.monster);
                     boss.GenerateHealth();
+                    boss.Money = monster.Money;
                     this.bossHPLabel.Text = string.Format("Boss HP: {0}", boss.Health);
                     this.monsterButton.Hide();
                     this.bossButton.Show();
