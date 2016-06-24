@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace MonsterClicker
 {
+    // TODO: IUnit, Abstract Unit, separate class for each unit type
     class Unit
     {
         private BigInteger damage;

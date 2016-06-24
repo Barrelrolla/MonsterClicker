@@ -4,6 +4,7 @@
 
     public class Weapon
     {
+        //TODO: IWeapon, Abstract class Weapon, classes sword, axe... and whatever
         private BigInteger damagePerClick;
         private BigInteger cost;
 
