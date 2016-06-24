@@ -65,6 +65,7 @@
                 if (this.monsterKills % 10 == 0)
                 {
                     var boss = new Boss(this.monster);
+                    boss.GenerateHealth();
                 }
                 player.Money += monster.Money;
                 this.moneyLabel.Text = string.Format("Money: {0}", player.Money);

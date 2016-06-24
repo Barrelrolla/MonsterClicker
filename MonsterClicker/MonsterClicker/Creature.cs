@@ -11,8 +11,9 @@
         private Random randomGenerator;
         private int currentNumber = 0;
         private MonsterInventory inventory;
+        private BigInteger killCount;
 
-        public Creature()
+        protected Creature()
         {
             this.Health = startHealth;
             this.randomGenerator = new System.Random();
@@ -44,6 +45,8 @@
         }
 
         public abstract void GenerateInventory();
+
+        public abstract void GenerateHealth();
 
         public int GetRandomNumber()
         {

@@ -9,6 +9,11 @@ namespace MonsterClicker
             this.Health = creature.Health;
         }
 
+        public override void GenerateHealth()
+        {
+            this.Health *= 5;
+        }
+
         public override void GenerateInventory()
         {
             this.Money += this.Money / 2 < 1 ? 1 : this.Money / 2;

@@ -60,6 +60,7 @@
             this.floatDamageLabel = new System.Windows.Forms.Label();
             this.floatDamageTimer = new System.Windows.Forms.Timer(this.components);
             this.clickMeLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // monsterHPlabel
@@ -68,7 +69,7 @@
             this.monsterHPlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.monsterHPlabel.Location = new System.Drawing.Point(84, 70);
             this.monsterHPlabel.Name = "monsterHPlabel";
-            this.monsterHPlabel.Size = new System.Drawing.Size(119, 20);
+            this.monsterHPlabel.Size = new System.Drawing.Size(148, 25);
             this.monsterHPlabel.TabIndex = 1;
             this.monsterHPlabel.Text = "Monster HP: 10";
             // 
@@ -78,7 +79,7 @@
             this.moneyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.moneyLabel.Location = new System.Drawing.Point(13, 13);
             this.moneyLabel.Name = "moneyLabel";
-            this.moneyLabel.Size = new System.Drawing.Size(73, 20);
+            this.moneyLabel.Size = new System.Drawing.Size(94, 25);
             this.moneyLabel.TabIndex = 2;
             this.moneyLabel.Text = "Money: 0";
             // 
@@ -99,7 +100,7 @@
             this.weaponLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.weaponLabel.Location = new System.Drawing.Point(375, 13);
             this.weaponLabel.Name = "weaponLabel";
-            this.weaponLabel.Size = new System.Drawing.Size(50, 20);
+            this.weaponLabel.Size = new System.Drawing.Size(64, 25);
             this.weaponLabel.TabIndex = 4;
             this.weaponLabel.Text = "Cost: ";
             // 
@@ -110,7 +111,7 @@
             this.warning.ForeColor = System.Drawing.Color.Red;
             this.warning.Location = new System.Drawing.Point(254, 45);
             this.warning.Name = "warning";
-            this.warning.Size = new System.Drawing.Size(0, 20);
+            this.warning.Size = new System.Drawing.Size(0, 25);
             this.warning.TabIndex = 5;
             // 
             // warningTimer
@@ -123,7 +124,7 @@
             this.damageClickLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.damageClickLabel.Location = new System.Drawing.Point(14, 285);
             this.damageClickLabel.Name = "damageClickLabel";
-            this.damageClickLabel.Size = new System.Drawing.Size(139, 20);
+            this.damageClickLabel.Size = new System.Drawing.Size(175, 25);
             this.damageClickLabel.TabIndex = 6;
             this.damageClickLabel.Text = "Damage Per Click:";
             // 
@@ -133,7 +134,7 @@
             this.damageSecondLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.damageSecondLabel.Location = new System.Drawing.Point(14, 308);
             this.damageSecondLabel.Name = "damageSecondLabel";
-            this.damageSecondLabel.Size = new System.Drawing.Size(161, 20);
+            this.damageSecondLabel.Size = new System.Drawing.Size(200, 25);
             this.damageSecondLabel.TabIndex = 7;
             this.damageSecondLabel.Text = "Damage Per Second:";
             // 
@@ -143,7 +144,7 @@
             this.playerLevelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playerLevelLabel.Location = new System.Drawing.Point(15, 263);
             this.playerLevelLabel.Name = "playerLevelLabel";
-            this.playerLevelLabel.Size = new System.Drawing.Size(50, 20);
+            this.playerLevelLabel.Size = new System.Drawing.Size(65, 25);
             this.playerLevelLabel.TabIndex = 8;
             this.playerLevelLabel.Text = "Level:";
             // 
@@ -154,7 +155,7 @@
             this.levelUpLabel.ForeColor = System.Drawing.Color.DarkOrange;
             this.levelUpLabel.Location = new System.Drawing.Point(123, 226);
             this.levelUpLabel.Name = "levelUpLabel";
-            this.levelUpLabel.Size = new System.Drawing.Size(75, 20);
+            this.levelUpLabel.Size = new System.Drawing.Size(95, 25);
             this.levelUpLabel.TabIndex = 9;
             this.levelUpLabel.Text = "Level Up!";
             // 
@@ -182,7 +183,7 @@
             this.playNstop.CheckState = System.Windows.Forms.CheckState.Checked;
             this.playNstop.Location = new System.Drawing.Point(643, 305);
             this.playNstop.Name = "playNstop";
-            this.playNstop.Size = new System.Drawing.Size(39, 23);
+            this.playNstop.Size = new System.Drawing.Size(47, 27);
             this.playNstop.TabIndex = 20;
             this.playNstop.Text = "Stop";
             this.playNstop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -204,7 +205,7 @@
             this.unitPriceLabel.AutoSize = true;
             this.unitPriceLabel.Location = new System.Drawing.Point(538, 51);
             this.unitPriceLabel.Name = "unitPriceLabel";
-            this.unitPriceLabel.Size = new System.Drawing.Size(34, 13);
+            this.unitPriceLabel.Size = new System.Drawing.Size(44, 17);
             this.unitPriceLabel.TabIndex = 22;
             this.unitPriceLabel.Text = "Price:";
             // 
@@ -221,7 +222,7 @@
             this.floatDamageLabel.ForeColor = System.Drawing.Color.Red;
             this.floatDamageLabel.Location = new System.Drawing.Point(333, 167);
             this.floatDamageLabel.Name = "floatDamageLabel";
-            this.floatDamageLabel.Size = new System.Drawing.Size(24, 26);
+            this.floatDamageLabel.Size = new System.Drawing.Size(29, 31);
             this.floatDamageLabel.TabIndex = 23;
             this.floatDamageLabel.Text = "5";
             // 
@@ -237,17 +238,27 @@
             this.clickMeLabel.ForeColor = System.Drawing.Color.Orange;
             this.clickMeLabel.Location = new System.Drawing.Point(118, 226);
             this.clickMeLabel.Name = "clickMeLabel";
-            this.clickMeLabel.Size = new System.Drawing.Size(80, 20);
+            this.clickMeLabel.Size = new System.Drawing.Size(103, 25);
             this.clickMeLabel.TabIndex = 24;
             this.clickMeLabel.Text = "Click Me ↑";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(473, 93);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(145, 130);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MonsterClicker.Properties.Resources.space;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(694, 341);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.clickMeLabel);
             this.Controls.Add(this.floatDamageLabel);
             this.Controls.Add(this.unitPriceLabel);
@@ -281,5 +292,6 @@
         private System.Windows.Forms.Label floatDamageLabel;
         private System.Windows.Forms.Timer floatDamageTimer;
         private System.Windows.Forms.Label clickMeLabel;
+        private System.Windows.Forms.Button button1;
     }
 }
