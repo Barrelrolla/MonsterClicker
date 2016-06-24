@@ -60,7 +60,8 @@
             this.floatDamageLabel = new System.Windows.Forms.Label();
             this.floatDamageTimer = new System.Windows.Forms.Timer(this.components);
             this.clickMeLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.bossButton = new System.Windows.Forms.Button();
+            this.bossHPLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // monsterHPlabel
@@ -242,14 +243,30 @@
             this.clickMeLabel.TabIndex = 24;
             this.clickMeLabel.Text = "Click Me ↑";
             // 
-            // button1
+            // bossButton
             // 
-            this.button1.Location = new System.Drawing.Point(473, 93);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 130);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.bossButton.AccessibleName = "bossButton";
+            this.bossButton.BackgroundImage = global::MonsterClicker.Properties.Resources.monster;
+            this.bossButton.Location = new System.Drawing.Point(89, 93);
+            this.bossButton.Name = "bossButton";
+            this.bossButton.Size = new System.Drawing.Size(145, 130);
+            this.bossButton.TabIndex = 25;
+            this.bossButton.Text = "button1";
+            this.bossButton.UseVisualStyleBackColor = true;
+            this.bossButton.Visible = false;
+            this.bossButton.Click += new System.EventHandler(this.bossButton_Click);
+            // 
+            // bossHPLabel
+            // 
+            this.bossHPLabel.AccessibleName = "bossHPLabel";
+            this.bossHPLabel.AutoSize = true;
+            this.bossHPLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bossHPLabel.Location = new System.Drawing.Point(84, 61);
+            this.bossHPLabel.Name = "bossHPLabel";
+            this.bossHPLabel.Size = new System.Drawing.Size(0, 29);
+            this.bossHPLabel.TabIndex = 26;
+            this.bossHPLabel.Visible = false;
+            this.bossHPLabel.Click += new System.EventHandler(this.bossHPLabel_Click);
             // 
             // Form1
             // 
@@ -258,7 +275,8 @@
             this.BackgroundImage = global::MonsterClicker.Properties.Resources.space;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(694, 341);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bossHPLabel);
+            this.Controls.Add(this.bossButton);
             this.Controls.Add(this.clickMeLabel);
             this.Controls.Add(this.floatDamageLabel);
             this.Controls.Add(this.unitPriceLabel);
@@ -292,6 +310,7 @@
         private System.Windows.Forms.Label floatDamageLabel;
         private System.Windows.Forms.Timer floatDamageTimer;
         private System.Windows.Forms.Label clickMeLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bossButton;
+        private System.Windows.Forms.Label bossHPLabel;
     }
 }

@@ -14,11 +14,16 @@
         private Monster monster = new Monster();
         private Unit testUnit = new Unit(2, 1);
         private BigInteger monsterKills = 1;
+        private Boss boss;
+
+        //TODO: achivement - kills and all damage
+        //TODO: enum with monster names
 
         public Form1()
         {
             this.InitializeComponent();
-            this.monsterHPlabel.Text = string.Format("Monster HP: {0}", monster.Health);
+            //this.monsterHPlabel.Text = string.Format("Monster HP: {0}", monster.Health);
+            //this.bossHPLabel.Text = string.Format("Boss HP: {0}", boss.Health);
             this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
             this.weaponLabel.Text = string.Format("Cost: {0}", weaponInStore.Cost);
             this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
@@ -39,7 +44,6 @@
             {
                 throw new NoHealthException("The creature should be dead, but it is not!");
             }
-
             ShowDamage();
         }
 
@@ -62,10 +66,15 @@
             {
                 this.monsterKills++;
                 monster.GenerateHealth();
-                if (this.monsterKills % 10 == 0)
+                if (this.monsterKills%10 == 0)
                 {
-                    var boss = new Boss(this.monster);
+                    boss = new Boss(this.monster);
                     boss.GenerateHealth();
+                    this.bossHPLabel.Text = string.Format("Boss HP: {0}", boss.Health);
+                    this.monsterButton.Hide();
+                    this.bossButton.Show();
+                    this.monsterHPlabel.Hide();
+                    this.bossHPLabel.Show();
                 }
                 player.Money += monster.Money;
                 this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
@@ -84,6 +93,7 @@
                 ChangePhotoOfMonster(monster.GetRandomNumber());
             }
             this.monsterHPlabel.Text = string.Format("Monster HP: {0}", monster.Health);
+            
         }
 
         private void ChangePhotoOfMonster(int number)
@@ -123,6 +133,7 @@
             }
         }
 
+       
         private void weaponButton_Click(object sender, EventArgs e)
         {
             if (player.Money >= weaponInStore.Cost)
@@ -188,6 +199,37 @@
             damageSecondLabel.Text = string.Format("Damage Per Second: {0}", player.DamagePerSecond);
         }
 
+        private void ChechBossDead()
+        {
+            if (boss.Health <= 0)
+            {
+                this.monsterKills++;
+                monster.GenerateHealth();
+                boss.GenerateHealth();
+                player.Money += boss.Money;
+                this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
+                player.ExperiencePointsNeeded -= boss.Experience;
+                boss.GenerateInventory();
+                if (player.ExperiencePointsNeeded <= 0)
+                {
+                    player.LevelUp();
+                    this.levelUpLabel.Hide();
+                    this.levelUpLabel.Show();
+                    this.levelTimer.Interval = 2000;
+                    this.levelTimer.Start();
+                    this.playerLevelLabel.Text = string.Format("Level: {0}", player.Level);
+                    this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
+                }
+                this.bossButton.Hide();
+                this.monsterButton.Show();
+                this.bossHPLabel.Hide();
+                this.monsterHPlabel.Show();
+
+            }
+                this.bossHPLabel.Text = string.Format("Boss HP: {0}", boss.Health);
+            
+        }
+
         private void testTimer_Tick(object sender, EventArgs e)
         {
             monster.TakeDamage(player.DamagePerSecond);
@@ -206,6 +248,24 @@
         private void floatDamageTimer_Tick(object sender, EventArgs e)
         {
             floatDamageLabel.Hide();
+        }
+
+        private void bossButton_Click(object sender, EventArgs e)
+        {
+            this.clickMeLabel.Hide();
+            boss.TakeDamage(player.DealDamage());
+            ChechBossDead();
+            if (boss.Health < 0)
+            {
+
+                throw new NoHealthException("The creature should be dead, but it is not!");
+            }
+            ShowDamage();
+        }
+
+        private void bossHPLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

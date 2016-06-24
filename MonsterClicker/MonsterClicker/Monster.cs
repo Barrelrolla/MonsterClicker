@@ -18,7 +18,8 @@ namespace MonsterClicker
 
         public override void GenerateHealth()
         {
-            nextLevelHealth += (nextLevelHealth / 4);
+            //TODO: fix health scale
+            nextLevelHealth += (nextLevelHealth / 5);
             this.Health = nextLevelHealth;
             this.killCount++;
         }
