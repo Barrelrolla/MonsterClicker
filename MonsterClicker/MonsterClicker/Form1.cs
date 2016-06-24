@@ -13,6 +13,7 @@
         private Weapon weaponInStore = new Weapon(1, 1);
         private Monster monster = new Monster();
         private Unit testUnit = new Unit(2, 1);
+        private BigInteger monsterKills = 1;
 
         public Form1()
         {
@@ -59,7 +60,12 @@
         {
             if (monster.Health <= 0)
             {
+                this.monsterKills++;
                 monster.GenerateHealth();
+                if (this.monsterKills % 10 == 0)
+                {
+                    var boss = new Boss(this.monster);
+                }
                 player.Money += monster.Money;
                 this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
                 player.ExperiencePointsNeeded -= monster.Experience;

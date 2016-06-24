@@ -12,6 +12,13 @@
         private int currentNumber = 0;
         private MonsterInventory inventory;
 
+        public Creature()
+        {
+            this.Health = startHealth;
+            this.randomGenerator = new System.Random();
+            this.inventory = new MonsterInventory(1, 5);
+        }
+
         public BigInteger Experience
         {
             get { return this.inventory.Experience; }
