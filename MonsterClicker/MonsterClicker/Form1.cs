@@ -1,6 +1,6 @@
 ﻿namespace MonsterClicker
 {
-    using MonsterClicker.Exceptions;
+    using Exceptions;
     using System;
     using System.Collections.Generic;
     using System.Drawing;
@@ -8,12 +8,13 @@
     using System.Numerics;
     using System.Windows.Forms;
     using Units;
+    using Weapons;
     using WMPLib;
 
     public partial class Form1 : Form
     {
         private Player player = new Player();
-        private Weapon weaponInStore = new Weapon(1, 1);
+        private Weapon weaponInStore = new WoodenSword(1, 1);
         private Monster monster = new Monster();
         private Unit farmers = new Farmer();
         private Unit monks = new Monk();
@@ -33,7 +34,7 @@
             unitsList.Add(ninjas);
             //this.monsterHPlabel.Text = string.Format("Monster HP: {0}", monster.Health);
             //this.bossHPLabel.Text = string.Format("Boss HP: {0}", boss.Health);
-            this.player.Money = 100000; //cheat for testing, REMOVE IT BEFORE RELEASE!!! :D
+            //this.player.Money = 100000; //cheat for testing, REMOVE IT BEFORE RELEASE!!! :D
             this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
             this.weaponLabel.Text = string.Format("Cost: {0}", weaponInStore.Cost);
             this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
@@ -45,7 +46,6 @@
             this.levelUpLabel.Hide();
             this.floatDamageLabel.Hide();
             playerMusic.URL = @".\Resources\street.mp3";
-            this.player.Money = 100000; //cheat for testing, REMOVE IT BEFORE RELEASE!!! :D
         }
 
         private void monsterButton_Click(object sender, EventArgs e)

@@ -2,12 +2,12 @@
 {
     using System.Numerics;
 
-    class IUnit
+    public interface IUnit
     {
-        public BigInteger damage;
+        BigInteger Price { get; }
 
-        public BigInteger count;
+        BigInteger Damage { get; }
 
-        public BigInteger price;
+        BigInteger Count { get; }
     }
 }

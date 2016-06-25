@@ -1,11 +1,14 @@
 ﻿namespace MonsterClicker
 {
-    // TODO: IUnit, Abstract Unit, separate class for each unit type
     using System.Numerics;
     using MonsterClicker.Interfaces;
 
     abstract class Unit : IUnit
     {
+        protected BigInteger price;
+        protected BigInteger damage;
+        protected BigInteger count;
+
         public Unit()
         {
         }

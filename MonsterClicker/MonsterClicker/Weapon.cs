@@ -1,17 +1,16 @@
 ﻿namespace MonsterClicker
 {
     using System.Numerics;
+    using MonsterClicker.Interfaces;
 
-    public class Weapon
+    public abstract class Weapon : IWeapon
     {
         //TODO: IWeapon, Abstract class Weapon, classes sword, axe... and whatever
-        private BigInteger damagePerClick;
-        private BigInteger cost;
+        protected BigInteger damagePerClick;
+        protected BigInteger cost;
 
-        public Weapon(BigInteger damage, BigInteger cost)
+        public Weapon()
         {
-            this.damagePerClick = damage;
-            this.cost = cost;
         }
 
         public BigInteger Cost
@@ -26,18 +25,8 @@
             set { this.damagePerClick = value; }
         }
 
-        public BigInteger CostIncrease()
-        {
-            var costToAdd = this.cost / 10 < 2 ? 2 : this.cost / 10;
-            costToAdd = costToAdd < 1 ? 1 : costToAdd;
-            return this.cost + costToAdd;
-        }
+        public abstract BigInteger CostIncrease();
 
-        public BigInteger DamageIncrease(BigInteger currentDamage)
-        {
-            var damageToAdd = currentDamage / 10;
-            damageToAdd = damageToAdd < 1 ? 1 : damageToAdd;
-            return currentDamage + damageToAdd;
-        }
+        public abstract BigInteger DamageIncrease(BigInteger currentDamage);
     }
 }

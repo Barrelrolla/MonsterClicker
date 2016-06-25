@@ -1,6 +1,7 @@
 ﻿namespace MonsterClicker
 {
     using System.Numerics;
+    using Weapons;
 
     public class Player
     {
@@ -15,7 +16,7 @@
         public Player()
         {
             this.baseClickDamge = 1;
-            this.weapon = new Weapon(0, 0);
+            this.weapon = new PlayerWeapon();
             this.damagePerClick = this.baseClickDamge + this.WeaponDamage;
             this.level = 1;
             this.inventory = new PlayerInventory(0, 10);
@@ -64,7 +65,7 @@
         {
             this.Money -= weaponInStore.Cost;
             this.WeaponDamage += weaponInStore.Damage;
-            var newWeapon = new Weapon(weapon.DamageIncrease(weaponInStore.Damage), weaponInStore.CostIncrease());
+            var newWeapon = new WoodenSword(weapon.DamageIncrease(weaponInStore.Damage), weaponInStore.CostIncrease());
             this.damagePerClick = this.baseClickDamge + this.WeaponDamage;
             return newWeapon;
         }

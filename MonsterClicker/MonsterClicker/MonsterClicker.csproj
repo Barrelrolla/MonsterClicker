@@ -61,6 +61,7 @@
     <Compile Include="Interfaces\IInventory.cs" />
     <Compile Include="Interfaces\IMonster.cs" />
     <Compile Include="Interfaces\IUnit.cs" />
+    <Compile Include="Interfaces\IWeapon.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="MonsterInventory.cs" />
     <Compile Include="Player.cs" />
@@ -72,6 +73,8 @@
     <Compile Include="Units\Monk.cs" />
     <Compile Include="Units\Ninja.cs" />
     <Compile Include="Weapon.cs" />
+    <Compile Include="Weapons\PlayerWeapon.cs" />
+    <Compile Include="Weapons\WoodenSword.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
