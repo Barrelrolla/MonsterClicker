@@ -30,10 +30,7 @@
         private int monsterImagesCount = 5;
 
         //TODO: achivements - kills and all damage
-        //TODO: enum with monster names - Done
         //TODO: maybe add more weapons and units
-        //TODO: add buildings
-        //TODO: fix boss damage from weapons and units
         //TODO: ЮЛИАНЕ, фискни си спагети кода при купуването на оръжие!!!
 
         public Form1()
