@@ -6,13 +6,14 @@
     using MonsterClicker.Exceptions;
     using System.Numerics;
     using WMPLib;
+    using Units;
 
     public partial class Form1 : Form
     {
         private Player player = new Player();
         private Weapon weaponInStore = new Weapon(1, 1);
         private Monster monster = new Monster();
-        private Unit testUnit = new Unit(2, 1);
+        private Unit farmers = new Farmer();
         private BigInteger monsterKills = 1;
         private Boss boss;
 
@@ -29,7 +30,7 @@
             this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
             this.damageSecondLabel.Text = string.Format("Damage Per Second: {0}", player.DamagePerSecond);
             this.playerLevelLabel.Text = string.Format("Level: {0}", player.Level);
-            this.unitPriceLabel.Text = string.Format("Price: {0}; Count: {1}", testUnit.Price, testUnit.Count);
+            this.farmersLabel.Text = string.Format("Price: {0}; Count: {1}", farmers.Price, farmers.Count);
             this.levelUpLabel.Hide();
             this.floatDamageLabel.Hide();
             playerMusic.URL = @".\Resources\street.mp3";
@@ -184,12 +185,13 @@
 
         private void testUnitButton_Click(object sender, EventArgs e)
         {
-            if (player.Money >= testUnit.Price)
+            if (player.Money >= farmers.Price)
             {
-                testUnit.Count++;
+                player.Money -= farmers.Price;
+                farmers.IncreaseCount();
+                farmers.PriceIncrease();
                 RefreshDamagePerSecond();
-                player.Money -= testUnit.Price;
-                this.unitPriceLabel.Text = string.Format("Price: {0}; Count: {1}", testUnit.Price, testUnit.Count);
+                this.farmersLabel.Text = string.Format("Price: {0}; Count: {1}", farmers.Price, farmers.Count);
                 this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
             }
         }
@@ -243,7 +245,7 @@
 
         private BigInteger CalculateDamagePerSecond()
         {
-            return testUnit.Damage; // all unit types should be added here
+            return farmers.Damage; // all unit types should be added here
         }
 
         private void floatDamageTimer_Tick(object sender, EventArgs e)

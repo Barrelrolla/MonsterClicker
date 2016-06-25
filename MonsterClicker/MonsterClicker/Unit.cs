@@ -1,28 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MonsterClicker
+﻿namespace MonsterClicker
 {
     // TODO: IUnit, Abstract Unit, separate class for each unit type
-    class Unit
-    {
-        private BigInteger damage;
-        private BigInteger price;
-        private BigInteger count;
+    using System.Numerics;
+    using MonsterClicker.Interfaces;
 
-        public Unit(BigInteger damage, BigInteger price)
+    abstract class Unit : IUnit
+    {
+        public Unit()
         {
-            this.damage = damage;
-            this.price = price;
         }
 
         public BigInteger Price
         {
             get { return this.price; }
+            private set { this.price = value; }
         }
 
         public BigInteger Damage
@@ -33,7 +24,14 @@ namespace MonsterClicker
         public BigInteger Count
         {
             get { return this.count; }
-            set { this.count = value; }
+            private set { this.count = value; }
+        }
+
+        public abstract void PriceIncrease();
+
+        public void IncreaseCount()
+        {
+            this.Count++;
         }
     }
 }
