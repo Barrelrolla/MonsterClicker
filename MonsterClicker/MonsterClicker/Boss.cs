@@ -1,7 +1,7 @@
-﻿using System.Numerics;
-
-namespace MonsterClicker
+﻿namespace MonsterClicker
 {
+    using System.Numerics;
+
     public class Boss : Creature
     {
         public Boss(Creature creature)

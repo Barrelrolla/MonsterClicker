@@ -1,24 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace MonsterClicker
+﻿namespace MonsterClicker
 {
-    using Interfaces;
     using System.Numerics;
-    using System.Windows.Forms;
+
     public class Monster : Creature
     {
         private static readonly BigInteger  startHealth = 10;
         private BigInteger nextLevelHealth = startHealth;
         private BigInteger killCount = 1;
-
-        //TODO: exp and money - every next monster must have more money and exp
-        //TODO: enum with names of monster and show it
         
-
         public override void GenerateHealth()
         {
-            //TODO: fix health scale
             nextLevelHealth += (nextLevelHealth / 5);
             this.Health = nextLevelHealth;
             this.killCount++;

@@ -16,28 +16,14 @@
 
         public BigInteger Experience
         {
-            get
-            {
-                return this.experienceToGive;
-            }
-
-            set
-            {
-                this.experienceToGive = value;
-            }
+            get { return this.experienceToGive; }
+            set { this.experienceToGive = value; }
         }
 
         public BigInteger Money
         {
-            get
-            {
-                return this.money;
-            }
-
-            set
-            {
-                this.money = value;
-            }
+            get { return this.money; }
+            set { this.money = value; }
         }
     }
 }

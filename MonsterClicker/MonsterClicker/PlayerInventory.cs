@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-using MonsterClicker.Interfaces;
-
-namespace MonsterClicker
+﻿namespace MonsterClicker
 {
+    using System.Numerics;
+    using MonsterClicker.Interfaces;
+
     class PlayerInventory : IInventory
     {
         private BigInteger money;
@@ -21,28 +16,14 @@ namespace MonsterClicker
 
         public BigInteger Experience
         {
-            get
-            {
-                return this.experienceNeeded;
-            }
-
-            set
-            {
-                this.experienceNeeded = value;
-            }
+            get { return this.experienceNeeded; } 
+            set { this.experienceNeeded = value; }
         }
 
         public BigInteger Money
         {
-            get
-            {
-                return this.money;
-            }
-
-            set
-            {
-                this.money = value;
-            }
+            get { return this.money; } 
+            set { this.money = value; }
         }
     }
 }

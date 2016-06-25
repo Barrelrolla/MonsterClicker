@@ -23,8 +23,12 @@
         private BigInteger monsterKills = 1;
         private Boss boss;
 
-        //TODO: achivement - kills and all damage
+        //TODO: achivements - kills and all damage
         //TODO: enum with monster names
+        //TODO: maybe add more weapons and units
+        //TODO: add buildings
+        //TODO: fix boss damage from weapons and units
+        //TODO: ЮЛИАНЕ, фискни си спагети кода при купуването на оръжие!!!
 
         public Form1()
         {
@@ -120,36 +124,12 @@
         {
             switch (number)
             {
-                case 0:
-                    {
-                        this.monsterButton.BackgroundImage = Properties.Resources.img1;
-                        break;
-                    }
-                case 1:
-                    {
-                        this.monsterButton.BackgroundImage = Properties.Resources.img2;
-                        break;
-                    }
-                case 2:
-                    {
-                        this.monsterButton.BackgroundImage = Properties.Resources.img3;
-                        break;
-                    }
-                case 3:
-                    {
-                        this.monsterButton.BackgroundImage = Properties.Resources.img4;
-                        break;
-                    }
-                case 4:
-                    {
-                        this.monsterButton.BackgroundImage = Properties.Resources.img5;
-                        break;
-                    }
-                default:
-                    {
-                        this.monsterButton.BackgroundImage = Properties.Resources.monster;
-                        break;
-                    }
+                case 0: this.monsterButton.BackgroundImage = Properties.Resources.img1; break;
+                case 1: this.monsterButton.BackgroundImage = Properties.Resources.img2; break;
+                case 2: this.monsterButton.BackgroundImage = Properties.Resources.img3; break;
+                case 3: this.monsterButton.BackgroundImage = Properties.Resources.img4; break;
+                case 4: this.monsterButton.BackgroundImage = Properties.Resources.img5; break;
+                default: this.monsterButton.BackgroundImage = Properties.Resources.monster; break;
             }
         }
 
@@ -266,7 +246,7 @@
             {
                 boss.TakeDamage(player.DamagePerSecond);
                 CheckBossDead();
-                //CheckBossHealthValid();   //this should be working, but it's not
+                //CheckBossHealthValid();   //this should be working, but it's not, I think the boss appears after it takes damage
             }
         }
 

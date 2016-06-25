@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace MonsterClicker.Units
+﻿namespace MonsterClicker.Units
 {
     class Monk : Unit
     {

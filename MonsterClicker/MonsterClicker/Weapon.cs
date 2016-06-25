@@ -5,7 +5,6 @@
 
     public abstract class Weapon : IWeapon
     {
-        //TODO: IWeapon, Abstract class Weapon, classes sword, axe... and whatever
         protected BigInteger damagePerClick;
         protected BigInteger cost;
 
