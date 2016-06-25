@@ -64,8 +64,10 @@
     <Compile Include="Interfaces\IWeapon.cs" />
     <Compile Include="Monster.cs" />
     <Compile Include="MonsterInventory.cs" />
+    <Compile Include="MonsterNames.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerInventory.cs" />
+    <Compile Include="Random.cs" />
     <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Unit.cs" />

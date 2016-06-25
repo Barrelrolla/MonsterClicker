@@ -1,4 +1,8 @@
-﻿namespace MonsterClicker
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace MonsterClicker
 {
     using System.Numerics;
 
@@ -10,7 +14,7 @@
         
         public override void GenerateHealth()
         {
-            nextLevelHealth += (nextLevelHealth / 5);
+            nextLevelHealth += (nextLevelHealth / 8);
             this.Health = nextLevelHealth;
             this.killCount++;
         }
@@ -20,5 +24,7 @@
             this.Money += this.Money / 10 < 1 ? 1 : this.Money / 10;
             this.Experience += this.Experience / 20 < 1 ? 1 : this.Experience / 20;
         }
+
+        
     }
 }

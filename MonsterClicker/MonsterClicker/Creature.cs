@@ -1,4 +1,7 @@
-﻿namespace MonsterClicker
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace MonsterClicker
 {
     using System;
     using System.Numerics;
@@ -8,15 +11,17 @@
         private BigInteger health;
         private static readonly BigInteger startHealth = 10;
         private BigInteger nextLevelHealth = startHealth;
-        private Random randomGenerator;
-        private int currentNumber = 0;
+        //private Random randomGenerator;
+        //private int currentNumber = 0;
         private MonsterInventory inventory;
         private BigInteger killCount;
+        private string name;
+        private MonsterNames monsterNames;
 
         protected Creature()
         {
             this.Health = startHealth;
-            this.randomGenerator = new System.Random();
+            //this.randomGenerator = new System.Random();
             this.inventory = new MonsterInventory(1, 5);
         }
 
@@ -38,6 +43,12 @@
             set { this.health = value; }
         }
 
+        public string Name
+        {
+            get { return this.name; }
+            set { this.name = value; }
+        }
+
         public void TakeDamage(BigInteger damage)
         {
             //TODO: Move the health == 0  check from Form.cs to this method
@@ -48,21 +59,28 @@
 
         public abstract void GenerateHealth();
 
-        public int GetRandomNumber()
+        //public static int GetRandomNumber(int inputNumber)
+        //{
+        //    var number = randomGenerator.Next(0, inputNumber);
+        //    if (number == this.currentNumber)
+        //    {
+        //        while (number == this.currentNumber)
+        //        {
+        //            number = randomGenerator.Next(0, 5);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        this.currentNumber = number;
+        //    }
+        //    return number;
+        //}
+
+        public static string GetRandomName()
         {
-            var number = randomGenerator.Next(0, 5);
-            if (number == this.currentNumber)
-            {
-                while (number == this.currentNumber)
-                {
-                    number = randomGenerator.Next(0, 5);
-                }
-            }
-            else
-            {
-                this.currentNumber = number;
-            }
-            return number;
+            var list = Enum.GetValues(typeof(MonsterNames)).Cast<List<string>>().ToList();
+            var index = Random.Next(list.Count());
+            return list[index].ToString();
         }
     }
 }

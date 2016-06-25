@@ -72,10 +72,10 @@
             // 
             this.monsterHPlabel.AutoSize = true;
             this.monsterHPlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.monsterHPlabel.Location = new System.Drawing.Point(63, 54);
+            this.monsterHPlabel.Location = new System.Drawing.Point(61, 105);
             this.monsterHPlabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.monsterHPlabel.Name = "monsterHPlabel";
-            this.monsterHPlabel.Size = new System.Drawing.Size(119, 20);
+            this.monsterHPlabel.Size = new System.Drawing.Size(148, 25);
             this.monsterHPlabel.TabIndex = 1;
             this.monsterHPlabel.Text = "Monster HP: 10";
             // 
@@ -86,7 +86,7 @@
             this.moneyLabel.Location = new System.Drawing.Point(10, 10);
             this.moneyLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.moneyLabel.Name = "moneyLabel";
-            this.moneyLabel.Size = new System.Drawing.Size(73, 20);
+            this.moneyLabel.Size = new System.Drawing.Size(94, 25);
             this.moneyLabel.TabIndex = 2;
             this.moneyLabel.Text = "Money: 0";
             // 
@@ -94,7 +94,7 @@
             // 
             this.weaponButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.weaponButton.Location = new System.Drawing.Point(210, 5);
-            this.weaponButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.weaponButton.Margin = new System.Windows.Forms.Padding(2);
             this.weaponButton.Name = "weaponButton";
             this.weaponButton.Size = new System.Drawing.Size(148, 30);
             this.weaponButton.TabIndex = 3;
@@ -109,7 +109,7 @@
             this.weaponLabel.Location = new System.Drawing.Point(362, 10);
             this.weaponLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.weaponLabel.Name = "weaponLabel";
-            this.weaponLabel.Size = new System.Drawing.Size(50, 20);
+            this.weaponLabel.Size = new System.Drawing.Size(64, 25);
             this.weaponLabel.TabIndex = 4;
             this.weaponLabel.Text = "Cost: ";
             // 
@@ -121,7 +121,7 @@
             this.warning.Location = new System.Drawing.Point(190, 34);
             this.warning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.warning.Name = "warning";
-            this.warning.Size = new System.Drawing.Size(0, 20);
+            this.warning.Size = new System.Drawing.Size(0, 25);
             this.warning.TabIndex = 5;
             // 
             // warningTimer
@@ -132,10 +132,10 @@
             // 
             this.damageClickLabel.AutoSize = true;
             this.damageClickLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.damageClickLabel.Location = new System.Drawing.Point(10, 218);
+            this.damageClickLabel.Location = new System.Drawing.Point(10, 320);
             this.damageClickLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.damageClickLabel.Name = "damageClickLabel";
-            this.damageClickLabel.Size = new System.Drawing.Size(139, 20);
+            this.damageClickLabel.Size = new System.Drawing.Size(175, 25);
             this.damageClickLabel.TabIndex = 6;
             this.damageClickLabel.Text = "Damage Per Click:";
             // 
@@ -143,10 +143,10 @@
             // 
             this.damageSecondLabel.AutoSize = true;
             this.damageSecondLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.damageSecondLabel.Location = new System.Drawing.Point(10, 236);
+            this.damageSecondLabel.Location = new System.Drawing.Point(10, 363);
             this.damageSecondLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.damageSecondLabel.Name = "damageSecondLabel";
-            this.damageSecondLabel.Size = new System.Drawing.Size(161, 20);
+            this.damageSecondLabel.Size = new System.Drawing.Size(200, 25);
             this.damageSecondLabel.TabIndex = 7;
             this.damageSecondLabel.Text = "Damage Per Second:";
             // 
@@ -154,10 +154,10 @@
             // 
             this.playerLevelLabel.AutoSize = true;
             this.playerLevelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerLevelLabel.Location = new System.Drawing.Point(11, 201);
+            this.playerLevelLabel.Location = new System.Drawing.Point(11, 279);
             this.playerLevelLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.playerLevelLabel.Name = "playerLevelLabel";
-            this.playerLevelLabel.Size = new System.Drawing.Size(50, 20);
+            this.playerLevelLabel.Size = new System.Drawing.Size(65, 25);
             this.playerLevelLabel.TabIndex = 8;
             this.playerLevelLabel.Text = "Level:";
             // 
@@ -166,10 +166,10 @@
             this.levelUpLabel.AutoSize = true;
             this.levelUpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.levelUpLabel.ForeColor = System.Drawing.Color.DarkOrange;
-            this.levelUpLabel.Location = new System.Drawing.Point(92, 173);
+            this.levelUpLabel.Location = new System.Drawing.Point(80, 232);
             this.levelUpLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.levelUpLabel.Name = "levelUpLabel";
-            this.levelUpLabel.Size = new System.Drawing.Size(75, 20);
+            this.levelUpLabel.Size = new System.Drawing.Size(95, 25);
             this.levelUpLabel.TabIndex = 9;
             this.levelUpLabel.Text = "Level Up!";
             // 
@@ -182,8 +182,8 @@
             this.monsterButton.AccessibleName = "monsterButton";
             this.monsterButton.BackgroundImage = global::MonsterClicker.Properties.Resources.img1;
             this.monsterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.monsterButton.Location = new System.Drawing.Point(66, 71);
-            this.monsterButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.monsterButton.Location = new System.Drawing.Point(66, 132);
+            this.monsterButton.Margin = new System.Windows.Forms.Padding(2);
             this.monsterButton.Name = "monsterButton";
             this.monsterButton.Size = new System.Drawing.Size(109, 99);
             this.monsterButton.TabIndex = 0;
@@ -196,10 +196,10 @@
             this.playNstop.AutoSize = true;
             this.playNstop.Checked = true;
             this.playNstop.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.playNstop.Location = new System.Drawing.Point(482, 233);
-            this.playNstop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.playNstop.Location = new System.Drawing.Point(660, 361);
+            this.playNstop.Margin = new System.Windows.Forms.Padding(2);
             this.playNstop.Name = "playNstop";
-            this.playNstop.Size = new System.Drawing.Size(39, 23);
+            this.playNstop.Size = new System.Drawing.Size(47, 27);
             this.playNstop.TabIndex = 20;
             this.playNstop.Text = "Stop";
             this.playNstop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -208,8 +208,8 @@
             // 
             // farmerButton
             // 
-            this.farmerButton.Location = new System.Drawing.Point(316, 54);
-            this.farmerButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.farmerButton.Location = new System.Drawing.Point(482, 34);
+            this.farmerButton.Margin = new System.Windows.Forms.Padding(2);
             this.farmerButton.Name = "farmerButton";
             this.farmerButton.Size = new System.Drawing.Size(96, 23);
             this.farmerButton.TabIndex = 21;
@@ -220,10 +220,10 @@
             // farmersLabel
             // 
             this.farmersLabel.AutoSize = true;
-            this.farmersLabel.Location = new System.Drawing.Point(416, 59);
+            this.farmersLabel.Location = new System.Drawing.Point(582, 37);
             this.farmersLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.farmersLabel.Name = "farmersLabel";
-            this.farmersLabel.Size = new System.Drawing.Size(34, 13);
+            this.farmersLabel.Size = new System.Drawing.Size(44, 17);
             this.farmersLabel.TabIndex = 22;
             this.farmersLabel.Text = "Price:";
             // 
@@ -241,7 +241,7 @@
             this.floatDamageLabel.Location = new System.Drawing.Point(250, 128);
             this.floatDamageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.floatDamageLabel.Name = "floatDamageLabel";
-            this.floatDamageLabel.Size = new System.Drawing.Size(24, 26);
+            this.floatDamageLabel.Size = new System.Drawing.Size(29, 31);
             this.floatDamageLabel.TabIndex = 23;
             this.floatDamageLabel.Text = "5";
             // 
@@ -255,10 +255,10 @@
             this.clickMeLabel.BackColor = System.Drawing.SystemColors.Control;
             this.clickMeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clickMeLabel.ForeColor = System.Drawing.Color.Orange;
-            this.clickMeLabel.Location = new System.Drawing.Point(88, 173);
+            this.clickMeLabel.Location = new System.Drawing.Point(72, 233);
             this.clickMeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.clickMeLabel.Name = "clickMeLabel";
-            this.clickMeLabel.Size = new System.Drawing.Size(80, 20);
+            this.clickMeLabel.Size = new System.Drawing.Size(103, 25);
             this.clickMeLabel.TabIndex = 24;
             this.clickMeLabel.Text = "Click Me ↑";
             // 
@@ -267,8 +267,8 @@
             this.bossButton.AccessibleName = "bossButton";
             this.bossButton.BackgroundImage = global::MonsterClicker.Properties.Resources.monster;
             this.bossButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bossButton.Location = new System.Drawing.Point(67, 71);
-            this.bossButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bossButton.Location = new System.Drawing.Point(66, 132);
+            this.bossButton.Margin = new System.Windows.Forms.Padding(2);
             this.bossButton.Name = "bossButton";
             this.bossButton.Size = new System.Drawing.Size(109, 99);
             this.bossButton.TabIndex = 25;
@@ -284,14 +284,14 @@
             this.bossHPLabel.Location = new System.Drawing.Point(63, 47);
             this.bossHPLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bossHPLabel.Name = "bossHPLabel";
-            this.bossHPLabel.Size = new System.Drawing.Size(0, 24);
+            this.bossHPLabel.Size = new System.Drawing.Size(0, 29);
             this.bossHPLabel.TabIndex = 26;
             this.bossHPLabel.Visible = false;
             this.bossHPLabel.Click += new System.EventHandler(this.bossHPLabel_Click);
             // 
             // monkButton
             // 
-            this.monkButton.Location = new System.Drawing.Point(316, 82);
+            this.monkButton.Location = new System.Drawing.Point(482, 57);
             this.monkButton.Name = "monkButton";
             this.monkButton.Size = new System.Drawing.Size(96, 23);
             this.monkButton.TabIndex = 27;
@@ -302,15 +302,15 @@
             // monkLabel
             // 
             this.monkLabel.AutoSize = true;
-            this.monkLabel.Location = new System.Drawing.Point(415, 87);
+            this.monkLabel.Location = new System.Drawing.Point(582, 59);
             this.monkLabel.Name = "monkLabel";
-            this.monkLabel.Size = new System.Drawing.Size(34, 13);
+            this.monkLabel.Size = new System.Drawing.Size(44, 17);
             this.monkLabel.TabIndex = 28;
             this.monkLabel.Text = "Price:";
             // 
             // ninjasButton
             // 
-            this.ninjasButton.Location = new System.Drawing.Point(316, 111);
+            this.ninjasButton.Location = new System.Drawing.Point(482, 84);
             this.ninjasButton.Name = "ninjasButton";
             this.ninjasButton.Size = new System.Drawing.Size(96, 23);
             this.ninjasButton.TabIndex = 29;
@@ -321,19 +321,19 @@
             // ninjasLabel
             // 
             this.ninjasLabel.AutoSize = true;
-            this.ninjasLabel.Location = new System.Drawing.Point(415, 116);
+            this.ninjasLabel.Location = new System.Drawing.Point(582, 87);
             this.ninjasLabel.Name = "ninjasLabel";
-            this.ninjasLabel.Size = new System.Drawing.Size(34, 13);
+            this.ninjasLabel.Size = new System.Drawing.Size(44, 17);
             this.ninjasLabel.TabIndex = 30;
             this.ninjasLabel.Text = "Price:";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MonsterClicker.Properties.Resources.space;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(530, 269);
+            this.ClientSize = new System.Drawing.Size(737, 406);
             this.Controls.Add(this.ninjasLabel);
             this.Controls.Add(this.ninjasButton);
             this.Controls.Add(this.monkLabel);
@@ -356,7 +356,7 @@
             this.Controls.Add(this.monsterHPlabel);
             this.Controls.Add(this.monsterButton);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Monster Clicker";
             this.ResumeLayout(false);

@@ -22,6 +22,8 @@
         private List<Unit> unitsList = new List<Unit>();
         private BigInteger monsterKills = 1;
         private Boss boss;
+        //This variable counts monster images and is used to get random image
+        private int monsterImagesCount = 5;
 
         //TODO: achivements - kills and all damage
         //TODO: enum with monster names
@@ -52,14 +54,8 @@
             playerMusic.URL = @".\Resources\street.mp3";
         }
 
-        private void monsterButton_Click(object sender, EventArgs e)
-        {
-            this.clickMeLabel.Hide();
-            monster.TakeDamage(player.DealDamage());
-            CheckIfDead();
-            CheckIfHealthIsValid();
-            ShowDamage();
-        }
+        //Methods
+        
 
         private void ShowDamage()
         {
@@ -106,7 +102,8 @@
                     this.playerLevelLabel.Text = string.Format("Level: {0}", player.Level);
                     this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
                 }
-                ChangePhotoOfMonster(monster.GetRandomNumber());
+                //TODO: must make sepparated class Random
+                ChangePhotoOfMonster(Random.Next(monsterImagesCount));
             }
             this.monsterHPlabel.Text = string.Format("Monster HP: {0}", monster.Health);
             
@@ -132,69 +129,11 @@
                 default: this.monsterButton.BackgroundImage = Properties.Resources.monster; break;
             }
         }
-
        
-        private void weaponButton_Click(object sender, EventArgs e)
-        {
-            if (player.Money >= weaponInStore.Cost)
-            {
-                weaponInStore = player.BuyWeapon(weaponInStore);
-                CheckIfMoneyAreValid();
-                this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
-                this.weaponLabel.Text = string.Format("Cost: {0}", weaponInStore.Cost);
-                this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
-                this.warning.ForeColor = Color.Green;
-                this.warning.Text = "Upgrade bought!";
-                this.warningTimer.Interval = 2000;
-                this.warningTimer.Start();
-            }
-            else
-            {
-                this.warning.ForeColor = Color.Red;
-                this.warning.Text = "Not enough money!";
-                this.warningTimer.Interval = 2000;
-                this.warningTimer.Start();
-            }
-        }
-
-        private void warningTimer_Tick(object sender, EventArgs e)
-        {
-            this.warning.Text = string.Empty;
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            this.levelUpLabel.Hide();
-        }
         WindowsMediaPlayer playerMusic = new WindowsMediaPlayer();
 
-        private void playNstop_CheckedChanged(object sender, EventArgs e)
-        {
-            if (playNstop.Checked)
-            {
-                playNstop.Text = "Stop";
-                playerMusic.controls.play();
-            }
-            else
-            {
-                playNstop.Text = "Play";
-                playerMusic.controls.stop();
-            }
-        }
-
-        private void testUnitButton_Click(object sender, EventArgs e)
-        {
-            if (player.Money >= farmers.Price)
-            {
-                player.Money -= farmers.Price;
-                farmers.IncreaseCount();
-                farmers.PriceIncrease();
-                RefreshDamagePerSecond();
-                CheckIfMoneyAreValid();
-                this.farmersLabel.Text = string.Format("Price: {0}; Count: {1}", farmers.Price, farmers.Count);
-                this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
-            }
-        }
+       
+    
 
         private void RefreshDamagePerSecond()
         {
@@ -235,22 +174,6 @@
             this.bossHPLabel.Text = string.Format("Boss HP: {0}", boss.Health);            
         }
 
-        private void testTimer_Tick(object sender, EventArgs e)
-        {
-            if (monsterButton.Visible)
-            {
-                monster.TakeDamage(player.DamagePerSecond);
-                CheckIfDead();
-                CheckIfHealthIsValid();
-            }
-            if (bossButton.Visible)
-            {
-                boss.TakeDamage(player.DamagePerSecond);
-                CheckBossDead();
-                //CheckBossHealthValid();   //this should be working, but it's not, I think the boss appears after it takes damage
-            }
-        }
-
         private void CheckBossHealthValid()
         {
             if (boss.Health < 0)
@@ -273,6 +196,8 @@
             unitsList.ForEach(u => DPS += u.Damage);
             return DPS;
         }
+
+        //Events
 
         private void floatDamageTimer_Tick(object sender, EventArgs e)
         {
@@ -320,5 +245,92 @@
                 this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
             }
         }
+
+        private void monsterButton_Click(object sender, EventArgs e)
+        {
+            this.clickMeLabel.Hide();
+            monster.TakeDamage(player.DealDamage());
+            CheckIfDead();
+            CheckIfHealthIsValid();
+            ShowDamage();
+        }
+
+        private void testTimer_Tick(object sender, EventArgs e)
+        {
+            if (monsterButton.Visible)
+            {
+                monster.TakeDamage(player.DamagePerSecond);
+                CheckIfDead();
+                CheckIfHealthIsValid();
+            }
+            if (bossButton.Visible)
+            {
+                boss.TakeDamage(player.DamagePerSecond);
+                CheckBossDead();
+                //CheckBossHealthValid();   //this should be working, but it's not, I think the boss appears after it takes damage
+            }
+        }
+
+        private void testUnitButton_Click(object sender, EventArgs e)
+        {
+            if (player.Money >= farmers.Price)
+            {
+                player.Money -= farmers.Price;
+                farmers.IncreaseCount();
+                farmers.PriceIncrease();
+                RefreshDamagePerSecond();
+                CheckIfMoneyAreValid();
+                this.farmersLabel.Text = string.Format("Price: {0}; Count: {1}", farmers.Price, farmers.Count);
+                this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
+            }
+        }
+
+        private void weaponButton_Click(object sender, EventArgs e)
+        {
+            if (player.Money >= weaponInStore.Cost)
+            {
+                weaponInStore = player.BuyWeapon(weaponInStore);
+                CheckIfMoneyAreValid();
+                this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
+                this.weaponLabel.Text = string.Format("Cost: {0}", weaponInStore.Cost);
+                this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
+                this.warning.ForeColor = Color.Green;
+                this.warning.Text = "Upgrade bought!";
+                this.warningTimer.Interval = 2000;
+                this.warningTimer.Start();
+            }
+            else
+            {
+                this.warning.ForeColor = Color.Red;
+                this.warning.Text = "Not enough money!";
+                this.warningTimer.Interval = 2000;
+                this.warningTimer.Start();
+            }
+        }
+
+        private void warningTimer_Tick(object sender, EventArgs e)
+        {
+            this.warning.Text = string.Empty;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.levelUpLabel.Hide();
+        }
+
+        private void playNstop_CheckedChanged(object sender, EventArgs e)
+        {
+            if (playNstop.Checked)
+            {
+                playNstop.Text = "Stop";
+                playerMusic.controls.play();
+            }
+            else
+            {
+                playNstop.Text = "Play";
+                playerMusic.controls.stop();
+            }
+        }
+
     }
 }
