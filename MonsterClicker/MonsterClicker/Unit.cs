@@ -3,7 +3,7 @@
     using System.Numerics;
     using MonsterClicker.Interfaces;
 
-    abstract class Unit : IUnit
+    public abstract class Unit : IUnit
     {
         protected BigInteger price;
         protected BigInteger damage;

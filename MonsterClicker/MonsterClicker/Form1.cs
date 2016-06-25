@@ -1,5 +1,6 @@
 ﻿namespace MonsterClicker
 {
+    using Buildings;
     using Exceptions;
     using System;
     using System.Collections.Generic;
@@ -16,6 +17,9 @@
         private Player player = new Player();
         private Weapon weaponInStore = new WoodenSword(1, 1);
         private Monster monster = new Monster();
+        private Building farm = new Farm();
+        private Building monastery = new Monastery();
+        private Building dojo = new Dojo();
         private Unit farmers = new Farmer();
         private Unit monks = new Monk();
         private Unit ninjas = new Ninja();
@@ -46,10 +50,14 @@
             this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
             this.damageSecondLabel.Text = string.Format("Damage Per Second: {0}", player.DamagePerSecond);
             this.playerLevelLabel.Text = string.Format("Level: {0}", player.Level);
-            this.farmersLabel.Text = string.Format("Price: {0}; Count: {1}", farmers.Price, farmers.Count);
-            this.monkLabel.Text = string.Format("Price: {0}; Count: {1}", monks.Price, monks.Count);
-            this.ninjasLabel.Text = string.Format("Price: {0}; Count: {1}", ninjas.Price, ninjas.Count);
+            this.farmersLabel.Text = string.Format("Price: {0}", farm.Price);
+            this.monkLabel.Text = string.Format("Price: {0}", monastery.Price);
+            this.ninjasLabel.Text = string.Format("Price: {0}", dojo.Price);
             this.creatureName.Text = string.Format("Name: Bebe");
+            this.monkButton.Hide();
+            this.monkLabel.Hide();
+            this.ninjasButton.Hide();
+            this.ninjasLabel.Hide();
             this.levelUpLabel.Hide();
             this.floatDamageLabel.Hide();
             playerMusic.URL = @".\Resources\street.mp3";
@@ -60,6 +68,7 @@
 
         private void ShowDamage()
         {
+            floatDamageLabel.BringToFront();
             floatDamageLabel.Hide();
             floatDamageLabel.Show();
             // getting the window position relative to the screen
@@ -224,29 +233,75 @@
 
         private void monkButton_Click(object sender, EventArgs e)
         {
-            if (player.Money >= monks.Price)
+            if (monastery.PurchasedState == false && player.Money >= monastery.Price)
             {
-                player.Money -= monks.Price;
-                monks.IncreaseCount();
-                monks.PriceIncrease();
-                RefreshDamagePerSecond();
+                player.Money -= monastery.Price;
+                monastery.PurchasedState = true;
                 CheckIfMoneyAreValid();
+                this.monkButton.Text = "Buy Monk";
                 this.monkLabel.Text = string.Format("Price: {0}; Count: {1}", monks.Price, monks.Count);
                 this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
+                this.ninjasButton.Show();
+                this.ninjasLabel.Show();
+                PurchaseSuccesful("Monastery");
+            }
+            else if (monastery.PurchasedState == false && player.Money < monastery.Price)
+            {
+                PurchaseUnsuccesful();
+            }
+            else
+            {
+                if (player.Money >= monks.Price)
+                {
+                    player.Money -= monks.Price;
+                    monks.IncreaseCount();
+                    monks.PriceIncrease();
+                    RefreshDamagePerSecond();
+                    CheckIfMoneyAreValid();
+                    this.monkLabel.Text = string.Format("Price: {0}; Count: {1}", monks.Price, monks.Count);
+                    this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
+                    PurchaseSuccesful("Monk");
+                }
+                else
+                {
+                    PurchaseUnsuccesful();
+                }
             }
         }
 
         private void ninjasButton_Click(object sender, EventArgs e)
         {
-            if (player.Money >= ninjas.Price)
+            if (dojo.PurchasedState == false && player.Money >= dojo.Price)
             {
-                player.Money -= ninjas.Price;
-                ninjas.IncreaseCount();
-                ninjas.PriceIncrease();
-                RefreshDamagePerSecond();
+                player.Money -= dojo.Price;
+                dojo.PurchasedState = true;
                 CheckIfMoneyAreValid();
+                this.ninjasButton.Text = "Buy Ninja";
                 this.ninjasLabel.Text = string.Format("Price: {0}; Count: {1}", ninjas.Price, ninjas.Count);
                 this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
+                PurchaseSuccesful("Dojo");
+            }
+            else if (dojo.PurchasedState == false && player.Money < dojo.Price)
+            {
+                PurchaseUnsuccesful();
+            }
+            else
+            {
+                if (player.Money >= ninjas.Price)
+                {
+                    player.Money -= ninjas.Price;
+                    ninjas.IncreaseCount();
+                    ninjas.PriceIncrease();
+                    RefreshDamagePerSecond();
+                    CheckIfMoneyAreValid();
+                    this.ninjasLabel.Text = string.Format("Price: {0}; Count: {1}", ninjas.Price, ninjas.Count);
+                    this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
+                    PurchaseSuccesful("Ninja");
+                }
+                else
+                {
+                    PurchaseUnsuccesful();
+                }
             }
         }
 
@@ -277,15 +332,39 @@
 
         private void testUnitButton_Click(object sender, EventArgs e)
         {
-            if (player.Money >= farmers.Price)
+            if (farm.PurchasedState == false && player.Money >= farm.Price)
             {
-                player.Money -= farmers.Price;
-                farmers.IncreaseCount();
-                farmers.PriceIncrease();
-                RefreshDamagePerSecond();
+                player.Money -= farm.Price;
+                farm.PurchasedState = true;
                 CheckIfMoneyAreValid();
+                this.farmerButton.Text = "Buy Farmer";
                 this.farmersLabel.Text = string.Format("Price: {0}; Count: {1}", farmers.Price, farmers.Count);
                 this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
+                this.monkButton.Show();
+                this.monkLabel.Show();
+                PurchaseSuccesful("Farm");
+            }
+            else if (farm.PurchasedState == false && player.Money < farm.Price)
+            {
+                PurchaseUnsuccesful();
+            }
+            else
+            {
+                if (player.Money >= farmers.Price)
+                {
+                    player.Money -= farmers.Price;
+                    farmers.IncreaseCount();
+                    farmers.PriceIncrease();
+                    RefreshDamagePerSecond();
+                    CheckIfMoneyAreValid();
+                    this.farmersLabel.Text = string.Format("Price: {0}; Count: {1}", farmers.Price, farmers.Count);
+                    this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
+                    PurchaseSuccesful("Farmer");
+                }
+                else
+                {
+                    PurchaseUnsuccesful();
+                }
             }
         }
 
@@ -298,18 +377,28 @@
                 this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
                 this.weaponLabel.Text = string.Format("Cost: {0}", weaponInStore.Cost);
                 this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
-                this.warning.ForeColor = Color.Green;
-                this.warning.Text = "Upgrade bought!";
-                this.warningTimer.Interval = 2000;
-                this.warningTimer.Start();
+                PurchaseSuccesful("Weapon");
             }
             else
             {
-                this.warning.ForeColor = Color.Red;
-                this.warning.Text = "Not enough money!";
-                this.warningTimer.Interval = 2000;
-                this.warningTimer.Start();
+                PurchaseUnsuccesful();
             }
+        }
+
+        private void PurchaseUnsuccesful()
+        {
+            this.warning.ForeColor = Color.Red;
+            this.warning.Text = "Not enough money!";
+            this.warningTimer.Interval = 2000;
+            this.warningTimer.Start();
+        }
+
+        private void PurchaseSuccesful(string purchase)
+        {
+            this.warning.ForeColor = Color.Green;
+            this.warning.Text = string.Format("Purchased {0}!", purchase);
+            this.warningTimer.Interval = 2000;
+            this.warningTimer.Start();
         }
 
         private void warningTimer_Tick(object sender, EventArgs e)

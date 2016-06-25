@@ -48,6 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Boss.cs" />
+    <Compile Include="Building.cs" />
+    <Compile Include="Buildings\Dojo.cs" />
+    <Compile Include="Buildings\Farm.cs" />
+    <Compile Include="Buildings\Monastery.cs" />
     <Compile Include="Creature.cs" />
     <Compile Include="Exceptions\NoHealthException.cs" />
     <Compile Include="Exceptions\NoMoneyException.cs" />
@@ -57,6 +61,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IBuilding.cs" />
     <Compile Include="Interfaces\ICreature.cs" />
     <Compile Include="Interfaces\IInventory.cs" />
     <Compile Include="Interfaces\IMonster.cs" />
