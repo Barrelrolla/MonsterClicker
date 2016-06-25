@@ -78,9 +78,13 @@ namespace MonsterClicker
 
         public static string GetRandomName()
         {
-            var list = Enum.GetValues(typeof(MonsterNames)).Cast<List<string>>().ToList();
-            var index = Random.Next(list.Count());
-            return list[index].ToString();
+            //Convert enum to List
+            var listOfNames = Enum.GetValues(typeof(MonsterNames))
+                .Cast<MonsterNames>()
+                .Select(v => v.ToString())
+                .ToList();
+            var index = Random.Next(listOfNames.Count);
+            return listOfNames[index];
         }
     }
 }

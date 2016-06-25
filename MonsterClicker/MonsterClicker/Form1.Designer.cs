@@ -66,6 +66,7 @@
             this.monkLabel = new System.Windows.Forms.Label();
             this.ninjasButton = new System.Windows.Forms.Button();
             this.ninjasLabel = new System.Windows.Forms.Label();
+            this.creatureName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // monsterHPlabel
@@ -281,7 +282,7 @@
             this.bossHPLabel.AccessibleName = "bossHPLabel";
             this.bossHPLabel.AutoSize = true;
             this.bossHPLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bossHPLabel.Location = new System.Drawing.Point(63, 47);
+            this.bossHPLabel.Location = new System.Drawing.Point(61, 105);
             this.bossHPLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.bossHPLabel.Name = "bossHPLabel";
             this.bossHPLabel.Size = new System.Drawing.Size(0, 29);
@@ -327,6 +328,16 @@
             this.ninjasLabel.TabIndex = 30;
             this.ninjasLabel.Text = "Price:";
             // 
+            // creatureName
+            // 
+            this.creatureName.AutoSize = true;
+            this.creatureName.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.creatureName.Location = new System.Drawing.Point(58, 63);
+            this.creatureName.Name = "creatureName";
+            this.creatureName.Size = new System.Drawing.Size(148, 29);
+            this.creatureName.TabIndex = 31;
+            this.creatureName.Text = "Name: Bebe";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -334,6 +345,7 @@
             this.BackgroundImage = global::MonsterClicker.Properties.Resources.space;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(737, 406);
+            this.Controls.Add(this.creatureName);
             this.Controls.Add(this.ninjasLabel);
             this.Controls.Add(this.ninjasButton);
             this.Controls.Add(this.monkLabel);
@@ -380,5 +392,6 @@
         private System.Windows.Forms.Label monkLabel;
         private System.Windows.Forms.Button ninjasButton;
         private System.Windows.Forms.Label ninjasLabel;
+        private System.Windows.Forms.Label creatureName;
     }
 }

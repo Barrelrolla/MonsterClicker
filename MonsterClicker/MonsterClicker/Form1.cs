@@ -49,6 +49,7 @@
             this.farmersLabel.Text = string.Format("Price: {0}; Count: {1}", farmers.Price, farmers.Count);
             this.monkLabel.Text = string.Format("Price: {0}; Count: {1}", monks.Price, monks.Count);
             this.ninjasLabel.Text = string.Format("Price: {0}; Count: {1}", ninjas.Price, ninjas.Count);
+            this.creatureName.Text = string.Format("Name: Bebe");
             this.levelUpLabel.Hide();
             this.floatDamageLabel.Hide();
             playerMusic.URL = @".\Resources\street.mp3";
@@ -76,6 +77,8 @@
             {
                 this.monsterKills++;
                 monster.GenerateHealth();
+                //Monster.GetRandomName();
+                this.creatureName.Text = string.Format("Name: {0}",Creature.GetRandomName());
                 if (this.monsterKills%10 == 0)
                 {
                     boss = new Boss(this.monster);
@@ -147,6 +150,7 @@
             {
                 this.monsterKills++;
                 monster.GenerateHealth();
+                this.creatureName.Text = string.Format("Name: {0}", Creature.GetRandomName());
                 boss.Health = 0;
                 player.Money += boss.Money;
                 CheckIfMoneyAreValid();
@@ -163,7 +167,7 @@
                     this.playerLevelLabel.Text = string.Format("Level: {0}", player.Level);
                     this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
                 }
-                //CheckBossHealthValid();
+                CheckBossHealthValid();
                 this.bossButton.Hide();
                 this.monsterButton.Show();
                 this.bossHPLabel.Hide();
