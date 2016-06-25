@@ -26,7 +26,7 @@
         private int monsterImagesCount = 5;
 
         //TODO: achivements - kills and all damage
-        //TODO: enum with monster names
+        //TODO: enum with monster names - Done
         //TODO: maybe add more weapons and units
         //TODO: add buildings
         //TODO: fix boss damage from weapons and units
@@ -105,7 +105,7 @@
                     this.playerLevelLabel.Text = string.Format("Level: {0}", player.Level);
                     this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
                 }
-                //TODO: must make sepparated class Random
+                //TODO: must make sepparated class Random - Done
                 ChangePhotoOfMonster(Random.Next(monsterImagesCount));
             }
             this.monsterHPlabel.Text = string.Format("Monster HP: {0}", monster.Health);
@@ -213,7 +213,7 @@
             this.clickMeLabel.Hide();
             boss.TakeDamage(player.DealDamage());
             CheckBossDead();
-            //CheckBossHealthValid();
+            CheckBossHealthValid();
             ShowDamage();
         }
 
