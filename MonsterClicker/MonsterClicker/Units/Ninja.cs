@@ -1,11 +1,11 @@
 ﻿namespace MonsterClicker.Units
 {
-    class Farmer : Unit
+    class Ninja : Unit
     {
-        public Farmer() : base()
+        public Ninja() : base()
         {
-            this.damage = 5;
-            this.price = 1;
+            this.damage = 500;
+            this.price = 2000;
             this.count = 0;
         }
 

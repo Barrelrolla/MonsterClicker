@@ -56,12 +56,16 @@
             this.playNstop = new System.Windows.Forms.CheckBox();
             this.farmerButton = new System.Windows.Forms.Button();
             this.farmersLabel = new System.Windows.Forms.Label();
-            this.testTimer = new System.Windows.Forms.Timer(this.components);
+            this.DPSTimer = new System.Windows.Forms.Timer(this.components);
             this.floatDamageLabel = new System.Windows.Forms.Label();
             this.floatDamageTimer = new System.Windows.Forms.Timer(this.components);
             this.clickMeLabel = new System.Windows.Forms.Label();
             this.bossButton = new System.Windows.Forms.Button();
             this.bossHPLabel = new System.Windows.Forms.Label();
+            this.monkButton = new System.Windows.Forms.Button();
+            this.monkLabel = new System.Windows.Forms.Label();
+            this.ninjasButton = new System.Windows.Forms.Button();
+            this.ninjasLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // monsterHPlabel
@@ -204,10 +208,10 @@
             // 
             // farmerButton
             // 
-            this.farmerButton.Location = new System.Drawing.Point(304, 47);
+            this.farmerButton.Location = new System.Drawing.Point(316, 54);
             this.farmerButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.farmerButton.Name = "farmerButton";
-            this.farmerButton.Size = new System.Drawing.Size(96, 20);
+            this.farmerButton.Size = new System.Drawing.Size(96, 23);
             this.farmerButton.TabIndex = 21;
             this.farmerButton.Text = "Buy Farmer";
             this.farmerButton.UseVisualStyleBackColor = true;
@@ -216,18 +220,18 @@
             // farmersLabel
             // 
             this.farmersLabel.AutoSize = true;
-            this.farmersLabel.Location = new System.Drawing.Point(404, 51);
+            this.farmersLabel.Location = new System.Drawing.Point(416, 59);
             this.farmersLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.farmersLabel.Name = "farmersLabel";
             this.farmersLabel.Size = new System.Drawing.Size(34, 13);
             this.farmersLabel.TabIndex = 22;
             this.farmersLabel.Text = "Price:";
             // 
-            // testTimer
+            // DPSTimer
             // 
-            this.testTimer.Enabled = true;
-            this.testTimer.Interval = 1000;
-            this.testTimer.Tick += new System.EventHandler(this.testTimer_Tick);
+            this.DPSTimer.Enabled = true;
+            this.DPSTimer.Interval = 1000;
+            this.DPSTimer.Tick += new System.EventHandler(this.testTimer_Tick);
             // 
             // floatDamageLabel
             // 
@@ -262,12 +266,12 @@
             // 
             this.bossButton.AccessibleName = "bossButton";
             this.bossButton.BackgroundImage = global::MonsterClicker.Properties.Resources.monster;
+            this.bossButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.bossButton.Location = new System.Drawing.Point(67, 71);
             this.bossButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bossButton.Name = "bossButton";
             this.bossButton.Size = new System.Drawing.Size(109, 99);
             this.bossButton.TabIndex = 25;
-            this.bossButton.Text = "button1";
             this.bossButton.UseVisualStyleBackColor = true;
             this.bossButton.Visible = false;
             this.bossButton.Click += new System.EventHandler(this.bossButton_Click);
@@ -285,6 +289,44 @@
             this.bossHPLabel.Visible = false;
             this.bossHPLabel.Click += new System.EventHandler(this.bossHPLabel_Click);
             // 
+            // monkButton
+            // 
+            this.monkButton.Location = new System.Drawing.Point(316, 82);
+            this.monkButton.Name = "monkButton";
+            this.monkButton.Size = new System.Drawing.Size(96, 23);
+            this.monkButton.TabIndex = 27;
+            this.monkButton.Text = "Buy Monk";
+            this.monkButton.UseVisualStyleBackColor = true;
+            this.monkButton.Click += new System.EventHandler(this.monkButton_Click);
+            // 
+            // monkLabel
+            // 
+            this.monkLabel.AutoSize = true;
+            this.monkLabel.Location = new System.Drawing.Point(415, 87);
+            this.monkLabel.Name = "monkLabel";
+            this.monkLabel.Size = new System.Drawing.Size(34, 13);
+            this.monkLabel.TabIndex = 28;
+            this.monkLabel.Text = "Price:";
+            // 
+            // ninjasButton
+            // 
+            this.ninjasButton.Location = new System.Drawing.Point(316, 111);
+            this.ninjasButton.Name = "ninjasButton";
+            this.ninjasButton.Size = new System.Drawing.Size(96, 23);
+            this.ninjasButton.TabIndex = 29;
+            this.ninjasButton.Text = "Buy Ninja";
+            this.ninjasButton.UseVisualStyleBackColor = true;
+            this.ninjasButton.Click += new System.EventHandler(this.ninjasButton_Click);
+            // 
+            // ninjasLabel
+            // 
+            this.ninjasLabel.AutoSize = true;
+            this.ninjasLabel.Location = new System.Drawing.Point(415, 116);
+            this.ninjasLabel.Name = "ninjasLabel";
+            this.ninjasLabel.Size = new System.Drawing.Size(34, 13);
+            this.ninjasLabel.TabIndex = 30;
+            this.ninjasLabel.Text = "Price:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -292,6 +334,10 @@
             this.BackgroundImage = global::MonsterClicker.Properties.Resources.space;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(530, 269);
+            this.Controls.Add(this.ninjasLabel);
+            this.Controls.Add(this.ninjasButton);
+            this.Controls.Add(this.monkLabel);
+            this.Controls.Add(this.monkButton);
             this.Controls.Add(this.bossHPLabel);
             this.Controls.Add(this.bossButton);
             this.Controls.Add(this.clickMeLabel);
@@ -324,11 +370,15 @@
         private System.Windows.Forms.CheckBox playNstop;
         private System.Windows.Forms.Button farmerButton;
         private System.Windows.Forms.Label farmersLabel;
-        private System.Windows.Forms.Timer testTimer;
+        private System.Windows.Forms.Timer DPSTimer;
         private System.Windows.Forms.Label floatDamageLabel;
         private System.Windows.Forms.Timer floatDamageTimer;
         private System.Windows.Forms.Label clickMeLabel;
         private System.Windows.Forms.Button bossButton;
         private System.Windows.Forms.Label bossHPLabel;
+        private System.Windows.Forms.Button monkButton;
+        private System.Windows.Forms.Label monkLabel;
+        private System.Windows.Forms.Button ninjasButton;
+        private System.Windows.Forms.Label ninjasLabel;
     }
 }

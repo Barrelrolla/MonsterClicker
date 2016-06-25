@@ -62,7 +62,7 @@
 
         public Weapon BuyWeapon(Weapon weaponInStore)
         {
-            this.inventory.Money = this.inventory.Money - weaponInStore.Cost;
+            this.Money -= weaponInStore.Cost;
             this.WeaponDamage += weaponInStore.Damage;
             var newWeapon = new Weapon(weapon.DamageIncrease(weaponInStore.Damage), weaponInStore.CostIncrease());
             this.damagePerClick = this.baseClickDamge + this.WeaponDamage;

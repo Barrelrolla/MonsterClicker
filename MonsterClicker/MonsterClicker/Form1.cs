@@ -1,12 +1,14 @@
 ﻿namespace MonsterClicker
 {
-    using System;
-    using System.Drawing;
-    using System.Windows.Forms;
     using MonsterClicker.Exceptions;
+    using System;
+    using System.Collections.Generic;
+    using System.Drawing;
+    using System.Linq;
     using System.Numerics;
-    using WMPLib;
+    using System.Windows.Forms;
     using Units;
+    using WMPLib;
 
     public partial class Form1 : Form
     {
@@ -14,6 +16,9 @@
         private Weapon weaponInStore = new Weapon(1, 1);
         private Monster monster = new Monster();
         private Unit farmers = new Farmer();
+        private Unit monks = new Monk();
+        private Unit ninjas = new Ninja();
+        private List<Unit> unitsList = new List<Unit>();
         private BigInteger monsterKills = 1;
         private Boss boss;
 
@@ -23,17 +28,24 @@
         public Form1()
         {
             this.InitializeComponent();
+            unitsList.Add(farmers);
+            unitsList.Add(monks);
+            unitsList.Add(ninjas);
             //this.monsterHPlabel.Text = string.Format("Monster HP: {0}", monster.Health);
             //this.bossHPLabel.Text = string.Format("Boss HP: {0}", boss.Health);
+            this.player.Money = 100000; //cheat for testing, REMOVE IT BEFORE RELEASE!!! :D
             this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
             this.weaponLabel.Text = string.Format("Cost: {0}", weaponInStore.Cost);
             this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
             this.damageSecondLabel.Text = string.Format("Damage Per Second: {0}", player.DamagePerSecond);
             this.playerLevelLabel.Text = string.Format("Level: {0}", player.Level);
             this.farmersLabel.Text = string.Format("Price: {0}; Count: {1}", farmers.Price, farmers.Count);
+            this.monkLabel.Text = string.Format("Price: {0}; Count: {1}", monks.Price, monks.Count);
+            this.ninjasLabel.Text = string.Format("Price: {0}; Count: {1}", ninjas.Price, ninjas.Count);
             this.levelUpLabel.Hide();
             this.floatDamageLabel.Hide();
             playerMusic.URL = @".\Resources\street.mp3";
+            this.player.Money = 100000; //cheat for testing, REMOVE IT BEFORE RELEASE!!! :D
         }
 
         private void monsterButton_Click(object sender, EventArgs e)
@@ -79,6 +91,7 @@
                     this.bossHPLabel.Show();
                 }
                 player.Money += monster.Money;
+                CheckIfMoneyAreValid();
                 this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
                 player.ExperiencePointsNeeded -= monster.Experience;
                 monster.GenerateInventory();
@@ -96,6 +109,14 @@
             }
             this.monsterHPlabel.Text = string.Format("Monster HP: {0}", monster.Health);
             
+        }
+
+        private void CheckIfMoneyAreValid()
+        {
+            if (player.Money < 0)
+            {
+                throw new NoMoneyException("The player is in debt!");
+            }
         }
 
         private void ChangePhotoOfMonster(int number)
@@ -141,6 +162,7 @@
             if (player.Money >= weaponInStore.Cost)
             {
                 weaponInStore = player.BuyWeapon(weaponInStore);
+                CheckIfMoneyAreValid();
                 this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
                 this.weaponLabel.Text = string.Format("Cost: {0}", weaponInStore.Cost);
                 this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
@@ -191,6 +213,7 @@
                 farmers.IncreaseCount();
                 farmers.PriceIncrease();
                 RefreshDamagePerSecond();
+                CheckIfMoneyAreValid();
                 this.farmersLabel.Text = string.Format("Price: {0}; Count: {1}", farmers.Price, farmers.Count);
                 this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
             }
@@ -210,6 +233,7 @@
                 monster.GenerateHealth();
                 boss.GenerateHealth();
                 player.Money += boss.Money;
+                CheckIfMoneyAreValid();
                 this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
                 player.ExperiencePointsNeeded -= boss.Experience;
                 boss.GenerateInventory();
@@ -245,7 +269,9 @@
 
         private BigInteger CalculateDamagePerSecond()
         {
-            return farmers.Damage; // all unit types should be added here
+            BigInteger DPS = 0;
+            unitsList.ForEach(u => DPS += u.Damage);
+            return DPS;
         }
 
         private void floatDamageTimer_Tick(object sender, EventArgs e)
@@ -269,6 +295,34 @@
         private void bossHPLabel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void monkButton_Click(object sender, EventArgs e)
+        {
+            if (player.Money >= monks.Price)
+            {
+                player.Money -= monks.Price;
+                monks.IncreaseCount();
+                monks.PriceIncrease();
+                RefreshDamagePerSecond();
+                CheckIfMoneyAreValid();
+                this.monkLabel.Text = string.Format("Price: {0}; Count: {1}", monks.Price, monks.Count);
+                this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
+            }
+        }
+
+        private void ninjasButton_Click(object sender, EventArgs e)
+        {
+            if (player.Money >= ninjas.Price)
+            {
+                player.Money -= ninjas.Price;
+                ninjas.IncreaseCount();
+                ninjas.PriceIncrease();
+                RefreshDamagePerSecond();
+                CheckIfMoneyAreValid();
+                this.ninjasLabel.Text = string.Format("Price: {0}; Count: {1}", ninjas.Price, ninjas.Count);
+                this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
+            }
         }
     }
 }
