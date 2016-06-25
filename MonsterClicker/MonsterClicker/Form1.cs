@@ -208,7 +208,7 @@
             {
                 this.monsterKills++;
                 monster.GenerateHealth();
-                boss.GenerateHealth();
+                boss.Health = 0;
                 player.Money += boss.Money;
                 CheckIfMoneyAreValid();
                 this.moneyLabel.Text = string.Format("Money: {0}", player.Money);
@@ -224,6 +224,7 @@
                     this.playerLevelLabel.Text = string.Format("Level: {0}", player.Level);
                     this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", player.DamagePerClick);
                 }
+                //CheckBossHealthValid();
                 this.bossButton.Hide();
                 this.monsterButton.Show();
                 this.bossHPLabel.Hide();
@@ -283,7 +284,7 @@
             this.clickMeLabel.Hide();
             boss.TakeDamage(player.DealDamage());
             CheckBossDead();
-            CheckBossHealthValid();
+            //CheckBossHealthValid();
             ShowDamage();
         }
 
