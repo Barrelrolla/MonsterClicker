@@ -53,10 +53,7 @@
             this.clickMeLabel.Hide();
             monster.TakeDamage(player.DealDamage());
             CheckIfDead();
-            if (monster.Health <= 0)
-            {
-                throw new NoHealthException("The creature should be dead, but it is not!");
-            }
+            CheckIfHealthIsValid();
             ShowDamage();
         }
 
@@ -225,7 +222,7 @@
             damageSecondLabel.Text = string.Format("Damage Per Second: {0}", player.DamagePerSecond);
         }
 
-        private void ChechBossDead()
+        private void CheckBossDead()
         {
             if (boss.Health <= 0)
             {
@@ -253,15 +250,37 @@
                 this.monsterHPlabel.Show();
 
             }
-                this.bossHPLabel.Text = string.Format("Boss HP: {0}", boss.Health);
-            
+
+            this.bossHPLabel.Text = string.Format("Boss HP: {0}", boss.Health);            
         }
 
         private void testTimer_Tick(object sender, EventArgs e)
         {
-            monster.TakeDamage(player.DamagePerSecond);
-            CheckIfDead();
-            if (monster.Health <= 0)
+            if (monsterButton.Visible)
+            {
+                monster.TakeDamage(player.DamagePerSecond);
+                CheckIfDead();
+                CheckIfHealthIsValid();
+            }
+            if (bossButton.Visible)
+            {
+                boss.TakeDamage(player.DamagePerSecond);
+                CheckBossDead();
+                //CheckBossHealthValid();   //this should be working, but it's not
+            }
+        }
+
+        private void CheckBossHealthValid()
+        {
+            if (boss.Health < 0)
+            {
+                throw new NoHealthException("The creature should be dead, but it is not!");
+            }
+        }
+
+        private void CheckIfHealthIsValid()
+        {
+            if (monster.Health < 0)
             {
                 throw new NoHealthException("The creature should be dead, but it is not!");
             }
@@ -283,12 +302,8 @@
         {
             this.clickMeLabel.Hide();
             boss.TakeDamage(player.DealDamage());
-            ChechBossDead();
-            if (boss.Health < 0)
-            {
-
-                throw new NoHealthException("The creature should be dead, but it is not!");
-            }
+            CheckBossDead();
+            CheckBossHealthValid();
             ShowDamage();
         }
 
