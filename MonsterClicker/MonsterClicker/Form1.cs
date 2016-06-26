@@ -9,7 +9,7 @@
     using Exceptions;
     using Units;
     using Weapons;
-    using WMPLib;
+    using System.Media;
 
     public partial class Form1 : Form
     {
@@ -25,8 +25,9 @@
         private List<Unit> unitsList = new List<Unit>();
         private BigInteger monsterKills = 1;
         private Boss boss;
-        private WindowsMediaPlayer playerMusic = new WindowsMediaPlayer();
+        private System.Media.SoundPlayer playerMusic = new System.Media.SoundPlayer();
         ////This variable counts monster images and is used to get random image
+       
 
         private int monsterImagesCount = 5;
 
@@ -58,8 +59,8 @@
             this.ninjasLabel.Hide();
             this.levelUpLabel.Hide();
             this.floatDamageLabel.Hide();
-            //back up music solution(it dosen't work)
-           //this.playerMusic.URL = @".\Resources\street.mp3";
+            playerMusic.SoundLocation = "../../Resources/street.wav";
+            this.playerMusic.Play();
         }
         ////Methods
 
@@ -419,21 +420,20 @@
 
         private void PlayNstop_CheckedChanged(object sender, EventArgs e)
         {
-            System.Media.SoundPlayer playerMusic = new System.Media.SoundPlayer();
-            playerMusic.SoundLocation = "../../Resources/street.wav";
-
-            if (playNstop.Checked)
+            
             {
-                playNstop.Text = "Stop";
-                playerMusic.Play();
-                
+                if (playNstop.Checked)
+                {
+                    this.playerMusic.Play();
+                    playNstop.Text = "Stop";
 
-            }
-            else
-            {
-                playNstop.Text = "Play";
-                playerMusic.Stop();
-                
+                }
+                else
+                {
+                    this.playerMusic.Stop();
+                    playNstop.Text = "Play";
+                }
+
             }
         }
     }
