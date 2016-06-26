@@ -194,7 +194,7 @@
             // playNstop
             // 
             this.playNstop.Appearance = System.Windows.Forms.Appearance.Button;
-            this.playNstop.BackgroundImage = global::MonsterClicker.Properties.Resources.stopIconButton;
+            this.playNstop.BackgroundImage = global::MonsterClicker.Properties.Resources.soundOf;
             this.playNstop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.playNstop.Checked = true;
             this.playNstop.CheckState = System.Windows.Forms.CheckState.Checked;
