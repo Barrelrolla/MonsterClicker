@@ -2,7 +2,7 @@
 {
     using Units;
 
-    class Farm : Building
+    public class Farm : Building
     {
         public Farm()
         {

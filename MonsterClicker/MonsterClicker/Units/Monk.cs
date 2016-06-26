@@ -1,6 +1,6 @@
 ﻿namespace MonsterClicker.Units
 {
-    class Monk : Unit
+    public class Monk : Unit
     {
         public Monk() : base()
         {

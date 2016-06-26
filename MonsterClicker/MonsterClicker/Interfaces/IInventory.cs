@@ -5,6 +5,7 @@
     public interface IInventory
     {
         BigInteger Money { get; set; }
+
         BigInteger Experience { get; set; }
     }
 }

@@ -1,8 +1,7 @@
 ﻿namespace MonsterClicker
 {
-    using Interfaces;
     using System.Numerics;
-    using System;
+    using Interfaces;
 
     public abstract class Building : IBuilding
     {

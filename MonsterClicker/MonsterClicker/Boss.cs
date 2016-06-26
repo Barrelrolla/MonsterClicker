@@ -16,8 +16,8 @@
 
         public override void GenerateInventory()
         {
-            this.Money += this.Money/2;
-            this.Experience += this.Experience/4;
+            this.Money += this.Money / 2;
+            this.Experience += this.Experience / 4;
         }
     }
 }

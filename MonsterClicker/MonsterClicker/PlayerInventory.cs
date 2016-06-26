@@ -3,7 +3,7 @@
     using System.Numerics;
     using MonsterClicker.Interfaces;
 
-    class PlayerInventory : IInventory
+    public class PlayerInventory : IInventory
     {
         private BigInteger money;
         private BigInteger experienceNeeded;

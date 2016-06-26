@@ -2,13 +2,14 @@
 {
     using System.Numerics;
 
-    class PlayerWeapon : Weapon
+    public class PlayerWeapon : Weapon
     {
         public PlayerWeapon()
         {
             this.Damage = 0;
             this.Cost = 0;
         }
+
         public override BigInteger CostIncrease()
         {
             var costToAdd = this.cost / 10 < 2 ? 2 : this.cost / 10;

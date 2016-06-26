@@ -11,7 +11,7 @@
         private BigInteger level;
         private Weapon weapon;
         private PlayerInventory inventory;
-        private BigInteger InitialExperience = 10;
+        private BigInteger initialExperience = 10;
 
         public Player()
         {
@@ -65,7 +65,7 @@
         {
             this.Money -= weaponInStore.Cost;
             this.WeaponDamage += weaponInStore.Damage;
-            var newWeapon = new WoodenSword(weapon.DamageIncrease(weaponInStore.Damage), weaponInStore.CostIncrease());
+            var newWeapon = new WoodenSword(this.weapon.DamageIncrease(weaponInStore.Damage), weaponInStore.CostIncrease());
             this.damagePerClick = this.baseClickDamge + this.WeaponDamage;
             return newWeapon;
         }
@@ -77,16 +77,16 @@
             damageToAdd = damageToAdd < 1 ? 1 : damageToAdd;
             this.baseClickDamge += damageToAdd;
             this.damagePerClick = this.baseClickDamge + this.WeaponDamage;
-            var experienceToAdd = InitialExperience + InitialExperience / 10 < 1 ? 1 : InitialExperience / 10;
-            this.ExperiencePointsNeeded = InitialExperience + experienceToAdd;
-            this.InitialExperience = this.inventory.Experience;
+            var experienceToAdd = this.initialExperience + (this.initialExperience / 10) < 1 ? 1 : this.initialExperience / 10;
+            this.ExperiencePointsNeeded = this.initialExperience + experienceToAdd;
+            this.initialExperience = this.inventory.Experience;
         }
 
         public void GetMoneyAndXP(BigInteger monsterMoney, BigInteger monsterXP)
         {
             this.Money += monsterMoney;
             this.ExperiencePointsNeeded -= monsterXP;
-            if (ExperiencePointsNeeded <= 0)
+            if (this.ExperiencePointsNeeded <= 0)
             {
                 this.LevelUp();
             }

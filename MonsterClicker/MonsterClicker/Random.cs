@@ -4,7 +4,8 @@
     {
         private static Random randomGenerator = new Random();
         private static int currentNumber;
-        public new static  int Next(int maxValue)
+
+        public static new int Next(int maxValue)
         {
             var number = randomGenerator.Next(0, maxValue);
             if (number == currentNumber)
@@ -18,6 +19,7 @@
             {
                 currentNumber = number;
             }
+
             return number;
         }
     }

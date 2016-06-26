@@ -2,9 +2,9 @@
 {
     using System;
 
-    class NoMoneyException : Exception
+    public class NoMoneyException : Exception
     {
-        public NoMoneyException (string message) : base (message)
+        public NoMoneyException(string message) : base(message)
         {
         }
     }

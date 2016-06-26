@@ -2,7 +2,7 @@
 {
     using Units;
 
-    class Dojo : Building
+    public class Dojo : Building
     {
         public Dojo()
         {
