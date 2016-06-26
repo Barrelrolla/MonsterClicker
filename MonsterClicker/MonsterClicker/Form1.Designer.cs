@@ -101,7 +101,7 @@
             this.weaponButton.TabIndex = 3;
             this.weaponButton.Text = "Upgrade Weapon";
             this.weaponButton.UseVisualStyleBackColor = true;
-            this.weaponButton.Click += new System.EventHandler(this.weaponButton_Click);
+            this.weaponButton.Click += new System.EventHandler(this.WeaponButton_Click);
             // 
             // weaponLabel
             // 
@@ -127,7 +127,7 @@
             // 
             // warningTimer
             // 
-            this.warningTimer.Tick += new System.EventHandler(this.warningTimer_Tick);
+            this.warningTimer.Tick += new System.EventHandler(this.WarningTimer_Tick);
             // 
             // damageClickLabel
             // 
@@ -176,7 +176,7 @@
             // 
             // levelTimer
             // 
-            this.levelTimer.Tick += new System.EventHandler(this.timer1_Tick);
+            this.levelTimer.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // monsterButton
             // 
@@ -189,7 +189,7 @@
             this.monsterButton.Size = new System.Drawing.Size(109, 99);
             this.monsterButton.TabIndex = 0;
             this.monsterButton.UseVisualStyleBackColor = true;
-            this.monsterButton.Click += new System.EventHandler(this.monsterButton_Click);
+            this.monsterButton.Click += new System.EventHandler(this.MonsterButton_Click);
             // 
             // playNstop
             // 
@@ -205,7 +205,7 @@
             this.playNstop.Text = "Stop";
             this.playNstop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.playNstop.UseVisualStyleBackColor = true;
-            this.playNstop.CheckedChanged += new System.EventHandler(this.playNstop_CheckedChanged);
+            this.playNstop.CheckedChanged += new System.EventHandler(this.PlayNstop_CheckedChanged);
             // 
             // farmerButton
             // 
@@ -216,7 +216,7 @@
             this.farmerButton.TabIndex = 21;
             this.farmerButton.Text = "Buy Farm";
             this.farmerButton.UseVisualStyleBackColor = true;
-            this.farmerButton.Click += new System.EventHandler(this.testUnitButton_Click);
+            this.farmerButton.Click += new System.EventHandler(this.TestUnitButton_Click);
             // 
             // farmersLabel
             // 
@@ -232,7 +232,7 @@
             // 
             this.DPSTimer.Enabled = true;
             this.DPSTimer.Interval = 1000;
-            this.DPSTimer.Tick += new System.EventHandler(this.testTimer_Tick);
+            this.DPSTimer.Tick += new System.EventHandler(this.TestTimer_Tick);
             // 
             // floatDamageLabel
             // 
@@ -248,7 +248,7 @@
             // 
             // floatDamageTimer
             // 
-            this.floatDamageTimer.Tick += new System.EventHandler(this.floatDamageTimer_Tick);
+            this.floatDamageTimer.Tick += new System.EventHandler(this.FloatDamageTimer_Tick);
             // 
             // clickMeLabel
             // 
@@ -275,7 +275,7 @@
             this.bossButton.TabIndex = 25;
             this.bossButton.UseVisualStyleBackColor = true;
             this.bossButton.Visible = false;
-            this.bossButton.Click += new System.EventHandler(this.bossButton_Click);
+            this.bossButton.Click += new System.EventHandler(this.BossButtonClick);
             // 
             // bossHPLabel
             // 
@@ -288,7 +288,7 @@
             this.bossHPLabel.Size = new System.Drawing.Size(0, 24);
             this.bossHPLabel.TabIndex = 26;
             this.bossHPLabel.Visible = false;
-            this.bossHPLabel.Click += new System.EventHandler(this.bossHPLabel_Click);
+            this.bossHPLabel.Click += new System.EventHandler(this.BossHPLabel_Click);
             // 
             // monkButton
             // 
@@ -298,7 +298,7 @@
             this.monkButton.TabIndex = 27;
             this.monkButton.Text = "Buy Monastery";
             this.monkButton.UseVisualStyleBackColor = true;
-            this.monkButton.Click += new System.EventHandler(this.monkButton_Click);
+            this.monkButton.Click += new System.EventHandler(this.MonkButton_Click);
             // 
             // monkLabel
             // 
@@ -317,7 +317,7 @@
             this.ninjasButton.TabIndex = 29;
             this.ninjasButton.Text = "Buy Dojo";
             this.ninjasButton.UseVisualStyleBackColor = true;
-            this.ninjasButton.Click += new System.EventHandler(this.ninjasButton_Click);
+            this.ninjasButton.Click += new System.EventHandler(this.NinjasButton_Click);
             // 
             // ninjasLabel
             // 
