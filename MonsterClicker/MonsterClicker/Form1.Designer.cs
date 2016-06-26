@@ -194,15 +194,15 @@
             // playNstop
             // 
             this.playNstop.Appearance = System.Windows.Forms.Appearance.Button;
-            this.playNstop.AutoSize = true;
+            this.playNstop.BackgroundImage = global::MonsterClicker.Properties.Resources.stopIconButton;
+            this.playNstop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.playNstop.Checked = true;
             this.playNstop.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.playNstop.Location = new System.Drawing.Point(660, 361);
+            this.playNstop.Location = new System.Drawing.Point(684, 359);
             this.playNstop.Margin = new System.Windows.Forms.Padding(2);
             this.playNstop.Name = "playNstop";
-            this.playNstop.Size = new System.Drawing.Size(39, 23);
-            this.playNstop.TabIndex = 20;
-            this.playNstop.Text = "Stop";
+            this.playNstop.Size = new System.Drawing.Size(30, 30);
+            this.playNstop.TabIndex = 40;
             this.playNstop.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.playNstop.UseVisualStyleBackColor = true;
             this.playNstop.CheckedChanged += new System.EventHandler(this.PlayNstop_CheckedChanged);

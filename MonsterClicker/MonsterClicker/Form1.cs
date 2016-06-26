@@ -27,7 +27,7 @@
         private BigInteger monsterKills = 1;
         private Boss boss;
         private SoundPlayer playerMusic = new SoundPlayer();
-        private SoundPlayer duck = new SoundPlayer();
+        //private SoundPlayer duck = new SoundPlayer();
 
         ////This variable counts monster images and is used to get random image
 
@@ -64,7 +64,7 @@
             this.floatDamageLabel.Hide();
             playerMusic.SoundLocation = "../../Resources/street.wav";
             this.playerMusic.PlayLooping();
-            duck.SoundLocation = "../../Resources/duck.wav";
+            //duck.SoundLocation = "../../Resources/duck.wav";
            
         }
         ////Methods
@@ -323,7 +323,8 @@
             this.CheckIfDead();
             this.CheckIfHealthIsValid();
             this.ShowDamage();
-            this.duck.Play();
+            //this.duck.Play();
+            //this.playerMusic.PlayLooping();
         }
 
         private void TestTimer_Tick(object sender, EventArgs e)
@@ -431,13 +432,13 @@
                 if (playNstop.Checked)
                 {
                     this.playerMusic.Play();
-                    playNstop.Text = "Stop";
+                    playNstop.BackgroundImage = Properties.Resources.stopIconButton;
 
                 }
                 else
                 {
                     this.playerMusic.Stop();
-                    playNstop.Text = "Play";
+                    playNstop.BackgroundImage = Properties.Resources.playIconButton;
                 }
 
             }
