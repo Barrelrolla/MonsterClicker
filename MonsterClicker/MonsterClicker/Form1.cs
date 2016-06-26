@@ -26,7 +26,7 @@
         private BigInteger monsterKills = 1;
         private Boss boss;
         private Achievements achievements = new Achievements();
-        private SoundPlayer playerMusic = new SoundPlayer();
+        private SoundPlayer playerMusic = new SoundPlayer();        
         ////private SoundPlayer duck = new SoundPlayer();
 
         ////This variable counts monster images and is used to get random image
@@ -36,6 +36,9 @@
         ////TODO: achivements - kills and all damage
         ////TODO: maybe add more weapons and units
         ////TODO: ЮЛИАНЕ, фискни си спагети кода при купуването на оръжие!!!
+                
+        public delegate void AchievementUnlocked(object sender, AchievementArgs a);
+        public event AchievementUnlocked OnAchievementUnlocked;
 
         public Form1()
         {
@@ -89,7 +92,9 @@
                 this.monsterKills++;
                 if (this.monsterKills == 5) // Made 5 for testing, change to 100
                 {
-                    this.Killed100Monsters();
+                    AchievementArgs a = new AchievementArgs("Killed 100 monsters!");
+                    OnAchievementUnlocked(this.monster, a);
+                    OnAchievementUnlocked += Form1_OnAchievementUnlocked;
                 }
 
                 this.monster.GenerateHealth();
@@ -128,16 +133,6 @@
             }
 
             this.monsterHPlabel.Text = string.Format("Monster HP: {0}", this.monster.Health);
-        }
-
-        private void Killed100Monsters()
-        {
-            AchievementArgs a = new AchievementArgs("Killed 100 monsters!");
-            this.achievementLabel.Text = string.Format("Achievement unlocked!{0}{1}", Environment.NewLine, a.Message);
-            this.achievementLabel.Show();
-            this.achievements.Killed100Monsters = true;
-            this.achievementTimer.Interval = 3000;
-            this.achievementTimer.Start();
         }
 
         private void CheckIfMoneyAreValid()
@@ -186,7 +181,9 @@
                 this.monsterKills++;
                 if (this.monsterKills == 5) // Made 5 for testing, change to 100
                 {
-                    this.Killed100Monsters();
+                    AchievementArgs a = new AchievementArgs("Killed 100 monsters!");
+                    OnAchievementUnlocked(this.player, a);
+                    OnAchievementUnlocked += Form1_OnAchievementUnlocked;
                 }
 
                 this.monster.GenerateHealth();
@@ -196,7 +193,7 @@
                 this.CheckIfMoneyAreValid();
                 this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
                 this.player.ExperiencePointsNeeded -= this.boss.Experience;
-                this.boss.GenerateInventory();
+                this.boss.GenerateInventory();                
                 if (this.player.ExperiencePointsNeeded <= 0)
                 {
                     this.player.LevelUp();
@@ -242,6 +239,15 @@
         }
 
         ////Events
+
+        private void Form1_OnAchievementUnlocked(object sender, AchievementArgs a)
+        {
+            this.achievementLabel.Text = string.Format("Achievement unlocked!{0}{1}", Environment.NewLine, a.Message);
+            this.achievementLabel.Show();
+            this.achievements.Killed100Monsters = true;
+            this.achievementTimer.Interval = 3000;
+            this.achievementTimer.Start();
+        }
 
         private void FloatDamageTimer_Tick(object sender, EventArgs e)
         {
