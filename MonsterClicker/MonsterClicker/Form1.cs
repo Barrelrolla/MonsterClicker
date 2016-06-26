@@ -10,6 +10,7 @@
     using Units;
     using Weapons;
     using System.Media;
+    
 
     public partial class Form1 : Form
     {
@@ -25,9 +26,11 @@
         private List<Unit> unitsList = new List<Unit>();
         private BigInteger monsterKills = 1;
         private Boss boss;
-        private System.Media.SoundPlayer playerMusic = new System.Media.SoundPlayer();
+        private SoundPlayer playerMusic = new SoundPlayer();
+        private SoundPlayer duck = new SoundPlayer();
+
         ////This variable counts monster images and is used to get random image
-       
+
 
         private int monsterImagesCount = 5;
 
@@ -61,6 +64,8 @@
             this.floatDamageLabel.Hide();
             playerMusic.SoundLocation = "../../Resources/street.wav";
             this.playerMusic.PlayLooping();
+            duck.SoundLocation = "../../Resources/duck.wav";
+           
         }
         ////Methods
 
@@ -318,6 +323,7 @@
             this.CheckIfDead();
             this.CheckIfHealthIsValid();
             this.ShowDamage();
+            this.duck.Play();
         }
 
         private void TestTimer_Tick(object sender, EventArgs e)
