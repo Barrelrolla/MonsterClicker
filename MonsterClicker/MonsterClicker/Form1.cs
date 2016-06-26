@@ -58,7 +58,8 @@
             this.ninjasLabel.Hide();
             this.levelUpLabel.Hide();
             this.floatDamageLabel.Hide();
-            this.playerMusic.URL = @".\Resources\street.mp3";
+            //back up music solution(it dosen't work)
+           //this.playerMusic.URL = @".\Resources\street.mp3";
         }
         ////Methods
 
@@ -418,15 +419,21 @@
 
         private void PlayNstop_CheckedChanged(object sender, EventArgs e)
         {
-            if (this.playNstop.Checked)
+            System.Media.SoundPlayer playerMusic = new System.Media.SoundPlayer();
+            playerMusic.SoundLocation = "../../Resources/street.wav";
+
+            if (playNstop.Checked)
             {
-                this.playNstop.Text = "Stop";
-                this.playerMusic.controls.play();
+                playNstop.Text = "Stop";
+                playerMusic.Play();
+                
+
             }
             else
             {
-                this.playNstop.Text = "Play";
-                this.playerMusic.controls.stop();
+                playNstop.Text = "Play";
+                playerMusic.Stop();
+                
             }
         }
     }
