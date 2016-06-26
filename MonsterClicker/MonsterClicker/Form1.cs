@@ -67,7 +67,7 @@
             this.playerMusic.SoundLocation = "../../Resources/street.wav";
             this.playerMusic.PlayLooping();
             this.achievementLabel.Hide();
-            ////duck.SoundLocation = "../../Resources/duck.wav";           
+            /////duck.SoundLocation = "../../Resources/duck.wav";           
         }
         ////Methods
 
@@ -349,7 +349,6 @@
             this.CheckIfHealthIsValid();
             this.ShowDamage();
             ////this.duck.Play();
-            ////this.playerMusic.PlayLooping();
         }
 
         private void TestTimer_Tick(object sender, EventArgs e)
