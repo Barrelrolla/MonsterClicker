@@ -93,8 +93,8 @@
                 if (this.monsterKills == 5) // Made 5 for testing, change to 100
                 {
                     AchievementArgs a = new AchievementArgs("Killed 100 monsters!");
-                    OnAchievementUnlocked(this.monster, a);
                     OnAchievementUnlocked += Form1_OnAchievementUnlocked;
+                    OnAchievementUnlocked(this.monster, a);
                 }
 
                 this.monster.GenerateHealth();
@@ -182,8 +182,8 @@
                 if (this.monsterKills == 5) // Made 5 for testing, change to 100
                 {
                     AchievementArgs a = new AchievementArgs("Killed 100 monsters!");
-                    OnAchievementUnlocked(this.player, a);
                     OnAchievementUnlocked += Form1_OnAchievementUnlocked;
+                    OnAchievementUnlocked(this.player, a);
                 }
 
                 this.monster.GenerateHealth();
