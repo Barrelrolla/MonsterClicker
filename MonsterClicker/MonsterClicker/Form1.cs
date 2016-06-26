@@ -60,7 +60,7 @@
             this.levelUpLabel.Hide();
             this.floatDamageLabel.Hide();
             playerMusic.SoundLocation = "../../Resources/street.wav";
-            this.playerMusic.Play();
+            this.playerMusic.PlayLooping();
         }
         ////Methods
 
@@ -435,6 +435,11 @@
                 }
 
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
