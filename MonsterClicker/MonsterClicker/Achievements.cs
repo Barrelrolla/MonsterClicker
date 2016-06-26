@@ -1,13 +1,8 @@
 ﻿namespace MonsterClicker
 {
-    public class Achievements
+    public struct Achievements
     {
         private bool killed100Monsters;
-
-        public Achievements()
-        {
-            this.Killed100Monsters = false;
-        }
 
         public bool Killed100Monsters
         {
