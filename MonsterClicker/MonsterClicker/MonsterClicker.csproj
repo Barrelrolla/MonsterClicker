@@ -47,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AchievementArgs.cs" />
+    <Compile Include="Achievements.cs" />
     <Compile Include="Boss.cs" />
     <Compile Include="Building.cs" />
     <Compile Include="Buildings\Dojo.cs" />

@@ -17,6 +17,23 @@
         private System.Windows.Forms.Label playerLevelLabel;
         private System.Windows.Forms.Label levelUpLabel;
         private System.Windows.Forms.Timer levelTimer;
+        private System.Windows.Forms.Button monsterButton;
+        private System.Windows.Forms.CheckBox playNstop;
+        private System.Windows.Forms.Button farmerButton;
+        private System.Windows.Forms.Label farmersLabel;
+        private System.Windows.Forms.Timer DPSTimer;
+        private System.Windows.Forms.Label floatDamageLabel;
+        private System.Windows.Forms.Timer floatDamageTimer;
+        private System.Windows.Forms.Label clickMeLabel;
+        private System.Windows.Forms.Button bossButton;
+        private System.Windows.Forms.Label bossHPLabel;
+        private System.Windows.Forms.Button monkButton;
+        private System.Windows.Forms.Label monkLabel;
+        private System.Windows.Forms.Button ninjasButton;
+        private System.Windows.Forms.Label ninjasLabel;
+        private System.Windows.Forms.Label creatureName;
+        private System.Windows.Forms.Label achievementLabel;
+        private System.Windows.Forms.Timer achievementTimer;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -67,6 +84,8 @@
             this.ninjasButton = new System.Windows.Forms.Button();
             this.ninjasLabel = new System.Windows.Forms.Label();
             this.creatureName = new System.Windows.Forms.Label();
+            this.achievementLabel = new System.Windows.Forms.Label();
+            this.achievementTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // monsterHPlabel
@@ -338,6 +357,22 @@
             this.creatureName.TabIndex = 31;
             this.creatureName.Text = "Name: Bebe";
             // 
+            // achievementLabel
+            // 
+            this.achievementLabel.AutoSize = true;
+            this.achievementLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.achievementLabel.ForeColor = System.Drawing.Color.SeaGreen;
+            this.achievementLabel.Location = new System.Drawing.Point(276, 332);
+            this.achievementLabel.Name = "achievementLabel";
+            this.achievementLabel.Size = new System.Drawing.Size(121, 24);
+            this.achievementLabel.TabIndex = 41;
+            this.achievementLabel.Text = "Achievement";
+            this.achievementLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // achievementTimer
+            // 
+            this.achievementTimer.Tick += new System.EventHandler(this.AchievementTimer_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,6 +380,7 @@
             this.BackgroundImage = global::MonsterClicker.Properties.Resources.space;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(737, 406);
+            this.Controls.Add(this.achievementLabel);
             this.Controls.Add(this.creatureName);
             this.Controls.Add(this.ninjasLabel);
             this.Controls.Add(this.ninjasButton);
@@ -371,28 +407,11 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Monster Clicker";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button monsterButton;
-        private System.Windows.Forms.CheckBox playNstop;
-        private System.Windows.Forms.Button farmerButton;
-        private System.Windows.Forms.Label farmersLabel;
-        private System.Windows.Forms.Timer DPSTimer;
-        private System.Windows.Forms.Label floatDamageLabel;
-        private System.Windows.Forms.Timer floatDamageTimer;
-        private System.Windows.Forms.Label clickMeLabel;
-        private System.Windows.Forms.Button bossButton;
-        private System.Windows.Forms.Label bossHPLabel;
-        private System.Windows.Forms.Button monkButton;
-        private System.Windows.Forms.Label monkLabel;
-        private System.Windows.Forms.Button ninjasButton;
-        private System.Windows.Forms.Label ninjasLabel;
-        private System.Windows.Forms.Label creatureName;
     }
 }

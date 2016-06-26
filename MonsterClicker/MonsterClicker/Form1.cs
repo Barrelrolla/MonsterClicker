@@ -3,15 +3,14 @@
     using System;
     using System.Collections.Generic;
     using System.Drawing;
+    using System.Media;
     using System.Numerics;
     using System.Windows.Forms;
     using Buildings;
     using Exceptions;
     using Units;
     using Weapons;
-    using System.Media;
     
-
     public partial class Form1 : Form
     {
         private Player player = new Player();
@@ -26,12 +25,12 @@
         private List<Unit> unitsList = new List<Unit>();
         private BigInteger monsterKills = 1;
         private Boss boss;
+        private Achievements achievements = new Achievements();
         private SoundPlayer playerMusic = new SoundPlayer();
-        //private SoundPlayer duck = new SoundPlayer();
+        ////private SoundPlayer duck = new SoundPlayer();
 
         ////This variable counts monster images and is used to get random image
-
-
+        
         private int monsterImagesCount = 5;
 
         ////TODO: achivements - kills and all damage
@@ -62,10 +61,10 @@
             this.ninjasLabel.Hide();
             this.levelUpLabel.Hide();
             this.floatDamageLabel.Hide();
-            playerMusic.SoundLocation = "../../Resources/street.wav";
+            this.playerMusic.SoundLocation = "../../Resources/street.wav";
             this.playerMusic.PlayLooping();
-            //duck.SoundLocation = "../../Resources/duck.wav";
-           
+            this.achievementLabel.Hide();
+            ////duck.SoundLocation = "../../Resources/duck.wav";           
         }
         ////Methods
 
@@ -88,6 +87,11 @@
             if (this.monster.Health <= 0)
             {
                 this.monsterKills++;
+                if (this.monsterKills == 5) // Made 5 for testing, change to 100
+                {
+                    this.Killed100Monsters();
+                }
+
                 this.monster.GenerateHealth();
                 this.creatureName.Text = string.Format("Name: {0}", Creature.GetRandomName());
                 if (this.monsterKills % 10 == 0)
@@ -124,6 +128,16 @@
             }
 
             this.monsterHPlabel.Text = string.Format("Monster HP: {0}", this.monster.Health);
+        }
+
+        private void Killed100Monsters()
+        {
+            AchievementArgs a = new AchievementArgs("Killed 100 monsters!");
+            this.achievementLabel.Text = string.Format("Achievement unlocked!{0}{1}", Environment.NewLine, a.Message);
+            this.achievementLabel.Show();
+            this.achievements.Killed100Monsters = true;
+            this.achievementTimer.Interval = 3000;
+            this.achievementTimer.Start();
         }
 
         private void CheckIfMoneyAreValid()
@@ -170,6 +184,11 @@
             if (this.boss.Health <= 0)
             {
                 this.monsterKills++;
+                if (this.monsterKills == 5) // Made 5 for testing, change to 100
+                {
+                    this.Killed100Monsters();
+                }
+
                 this.monster.GenerateHealth();
                 this.creatureName.Text = string.Format("Name: {0}", Creature.GetRandomName());
                 this.boss.Health = 0;
@@ -226,7 +245,7 @@
 
         private void FloatDamageTimer_Tick(object sender, EventArgs e)
         {
-            floatDamageLabel.Hide();
+            this.floatDamageLabel.Hide();
         }
 
         private void BossButtonClick(object sender, EventArgs e)
@@ -323,8 +342,8 @@
             this.CheckIfDead();
             this.CheckIfHealthIsValid();
             this.ShowDamage();
-            //this.duck.Play();
-            //this.playerMusic.PlayLooping();
+            ////this.duck.Play();
+            ////this.playerMusic.PlayLooping();
         }
 
         private void TestTimer_Tick(object sender, EventArgs e)
@@ -426,27 +445,24 @@
         }
 
         private void PlayNstop_CheckedChanged(object sender, EventArgs e)
-        {
-            
+        {            
             {
-                if (playNstop.Checked)
+                if (this.playNstop.Checked)
                 {
                     this.playerMusic.Play();
-                    playNstop.BackgroundImage = Properties.Resources.soundOn;
-
+                    this.playNstop.BackgroundImage = Properties.Resources.soundOn;
                 }
                 else
                 {
                     this.playerMusic.Stop();
-                    playNstop.BackgroundImage = Properties.Resources.soundOf;
+                    this.playNstop.BackgroundImage = Properties.Resources.soundOf;
                 }
-
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void AchievementTimer_Tick(object sender, EventArgs e)
         {
-
+            this.achievementLabel.Hide();
         }
     }
 }
