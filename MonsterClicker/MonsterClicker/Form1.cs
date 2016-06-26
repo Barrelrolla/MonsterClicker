@@ -432,13 +432,13 @@
                 if (playNstop.Checked)
                 {
                     this.playerMusic.Play();
-                    playNstop.BackgroundImage = Properties.Resources.soundOf;
+                    playNstop.BackgroundImage = Properties.Resources.soundOn;
 
                 }
                 else
                 {
                     this.playerMusic.Stop();
-                    playNstop.BackgroundImage = Properties.Resources.soundOn;
+                    playNstop.BackgroundImage = Properties.Resources.soundOf;
                 }
 
             }
