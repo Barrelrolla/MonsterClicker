@@ -63,7 +63,7 @@
             this.playerMusic.SoundLocation = "../../Resources/street.wav";
             this.playerMusic.PlayLooping();
             this.achievementLabel.Hide();
-            /////duck.SoundLocation = "../../Resources/duck.wav;
+            ////this.duck.SoundLocation = "../../Resources/duck.wav";
             this.OnAchievementUnlocked += this.Form1_OnAchievementUnlocked;
             this.warning.Hide();
         }
@@ -92,7 +92,7 @@
             if (this.monster.Health <= 0)
             {
                 this.monsterKills++;
-                if (this.monsterKills == 5) // Made 5 for testing, change to 100
+                if (this.monsterKills == 100) // Made 5 for testing, change to 100
                 {
                     AchievementArgs a = new AchievementArgs("Killed 100 monsters!");
                     this.achievements.Killed100Monsters = true;
