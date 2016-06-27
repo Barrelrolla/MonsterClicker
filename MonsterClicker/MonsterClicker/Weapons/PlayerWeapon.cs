@@ -1,5 +1,6 @@
 ﻿namespace MonsterClicker.Weapons
 {
+    using System;
     using System.Numerics;
 
     public class PlayerWeapon : Weapon
@@ -12,16 +13,12 @@
 
         public override BigInteger CostIncrease()
         {
-            var costToAdd = this.cost / 10 < 2 ? 2 : this.cost / 10;
-            costToAdd = costToAdd < 1 ? 1 : costToAdd;
-            return this.cost + costToAdd;
+            throw new InvalidOperationException("Player's starting weapon should not be increased!");
         }
 
-        public override BigInteger DamageIncrease(BigInteger currentDamage)
+        public override BigInteger DamageIncrease()
         {
-            var damageToAdd = currentDamage / 10;
-            damageToAdd = damageToAdd < 1 ? 1 : damageToAdd;
-            return currentDamage + damageToAdd;
+            throw new InvalidOperationException("Player's starting weapon should not be increased!");
         }
     }
 }

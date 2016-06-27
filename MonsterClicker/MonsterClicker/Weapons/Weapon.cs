@@ -26,6 +26,6 @@
 
         public abstract BigInteger CostIncrease();
 
-        public abstract BigInteger DamageIncrease(BigInteger currentDamage);
+        public abstract BigInteger DamageIncrease();
     }
 }

@@ -24,7 +24,7 @@
 
         public BigInteger DamagePerClick
         {
-            get { return this.damagePerClick; }
+            get { return this.baseClickDamge + this.WeaponDamage; }
         }
 
         public BigInteger DamagePerSecond
@@ -61,13 +61,10 @@
             return this.damagePerClick;
         }
 
-        public Weapon BuyWeapon(Weapon weaponInStore)
+        public void BuyWeapon(Weapon weaponInStore)
         {
             this.Money -= weaponInStore.Cost;
-            this.WeaponDamage += weaponInStore.Damage;
-            var newWeapon = new WoodenSword(this.weapon.DamageIncrease(weaponInStore.Damage), weaponInStore.CostIncrease());
-            this.damagePerClick = this.baseClickDamge + this.WeaponDamage;
-            return newWeapon;
+            this.weapon.Damage = weaponInStore.Damage;
         }
 
         public void LevelUp()

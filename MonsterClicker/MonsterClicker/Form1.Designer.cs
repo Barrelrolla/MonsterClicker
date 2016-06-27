@@ -138,11 +138,12 @@
             this.warning.AutoSize = true;
             this.warning.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.warning.ForeColor = System.Drawing.Color.Red;
-            this.warning.Location = new System.Drawing.Point(190, 34);
+            this.warning.Location = new System.Drawing.Point(292, 90);
             this.warning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.warning.Name = "warning";
-            this.warning.Size = new System.Drawing.Size(0, 20);
+            this.warning.Size = new System.Drawing.Size(76, 20);
             this.warning.TabIndex = 5;
+            this.warning.Text = "Purchase";
             // 
             // warningTimer
             // 
@@ -186,7 +187,7 @@
             this.levelUpLabel.AutoSize = true;
             this.levelUpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.levelUpLabel.ForeColor = System.Drawing.Color.DarkOrange;
-            this.levelUpLabel.Location = new System.Drawing.Point(80, 232);
+            this.levelUpLabel.Location = new System.Drawing.Point(86, 233);
             this.levelUpLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.levelUpLabel.Name = "levelUpLabel";
             this.levelUpLabel.Size = new System.Drawing.Size(75, 20);
@@ -240,7 +241,7 @@
             // farmersLabel
             // 
             this.farmersLabel.AutoSize = true;
-            this.farmersLabel.Location = new System.Drawing.Point(582, 37);
+            this.farmersLabel.Location = new System.Drawing.Point(582, 39);
             this.farmersLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.farmersLabel.Name = "farmersLabel";
             this.farmersLabel.Size = new System.Drawing.Size(34, 13);
@@ -258,7 +259,7 @@
             this.floatDamageLabel.AutoSize = true;
             this.floatDamageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.floatDamageLabel.ForeColor = System.Drawing.Color.Red;
-            this.floatDamageLabel.Location = new System.Drawing.Point(250, 128);
+            this.floatDamageLabel.Location = new System.Drawing.Point(11, 132);
             this.floatDamageLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.floatDamageLabel.Name = "floatDamageLabel";
             this.floatDamageLabel.Size = new System.Drawing.Size(24, 26);
@@ -275,7 +276,7 @@
             this.clickMeLabel.BackColor = System.Drawing.SystemColors.Control;
             this.clickMeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clickMeLabel.ForeColor = System.Drawing.Color.Orange;
-            this.clickMeLabel.Location = new System.Drawing.Point(72, 233);
+            this.clickMeLabel.Location = new System.Drawing.Point(81, 233);
             this.clickMeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.clickMeLabel.Name = "clickMeLabel";
             this.clickMeLabel.Size = new System.Drawing.Size(80, 20);
@@ -311,7 +312,7 @@
             // 
             // monkButton
             // 
-            this.monkButton.Location = new System.Drawing.Point(482, 57);
+            this.monkButton.Location = new System.Drawing.Point(482, 63);
             this.monkButton.Name = "monkButton";
             this.monkButton.Size = new System.Drawing.Size(96, 23);
             this.monkButton.TabIndex = 27;
@@ -322,7 +323,7 @@
             // monkLabel
             // 
             this.monkLabel.AutoSize = true;
-            this.monkLabel.Location = new System.Drawing.Point(582, 59);
+            this.monkLabel.Location = new System.Drawing.Point(582, 68);
             this.monkLabel.Name = "monkLabel";
             this.monkLabel.Size = new System.Drawing.Size(34, 13);
             this.monkLabel.TabIndex = 28;
@@ -330,7 +331,7 @@
             // 
             // ninjasButton
             // 
-            this.ninjasButton.Location = new System.Drawing.Point(482, 84);
+            this.ninjasButton.Location = new System.Drawing.Point(482, 92);
             this.ninjasButton.Name = "ninjasButton";
             this.ninjasButton.Size = new System.Drawing.Size(96, 23);
             this.ninjasButton.TabIndex = 29;
@@ -341,7 +342,7 @@
             // ninjasLabel
             // 
             this.ninjasLabel.AutoSize = true;
-            this.ninjasLabel.Location = new System.Drawing.Point(582, 87);
+            this.ninjasLabel.Location = new System.Drawing.Point(582, 97);
             this.ninjasLabel.Name = "ninjasLabel";
             this.ninjasLabel.Size = new System.Drawing.Size(34, 13);
             this.ninjasLabel.TabIndex = 30;

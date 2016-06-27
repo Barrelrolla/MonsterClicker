@@ -1,6 +1,6 @@
 ﻿namespace MonsterClicker
 {
-    public struct Achievements
+    public class Achievements
     {
         private bool killed100Monsters;
 

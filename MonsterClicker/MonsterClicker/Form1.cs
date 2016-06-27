@@ -35,10 +35,6 @@
 
         ////TODO: achivements - kills and all damage
         ////TODO: maybe add more weapons and units
-        ////TODO: ЮЛИАНЕ, фискни си спагети кода при купуването на оръжие!!!
-                
-        public delegate void AchievementUnlocked(object sender, AchievementArgs a);
-        public event AchievementUnlocked OnAchievementUnlocked;
 
         public Form1()
         {
@@ -67,8 +63,14 @@
             this.playerMusic.SoundLocation = "../../Resources/street.wav";
             this.playerMusic.PlayLooping();
             this.achievementLabel.Hide();
-            /////duck.SoundLocation = "../../Resources/duck.wav";           
+            /////duck.SoundLocation = "../../Resources/duck.wav;
+            this.OnAchievementUnlocked += this.Form1_OnAchievementUnlocked;
+            this.warning.Hide();
         }
+
+        public delegate void AchievementUnlocked(object sender, AchievementArgs a);
+
+        public event AchievementUnlocked OnAchievementUnlocked;
         ////Methods
 
         private void ShowDamage()
@@ -93,8 +95,8 @@
                 if (this.monsterKills == 5) // Made 5 for testing, change to 100
                 {
                     AchievementArgs a = new AchievementArgs("Killed 100 monsters!");
-                    OnAchievementUnlocked += Form1_OnAchievementUnlocked;
-                    OnAchievementUnlocked(this.monster, a);
+                    this.achievements.Killed100Monsters = true;
+                    this.OnAchievementUnlocked(this.monster, a);
                 }
 
                 this.monster.GenerateHealth();
@@ -179,11 +181,11 @@
             if (this.boss.Health <= 0)
             {
                 this.monsterKills++;
-                if (this.monsterKills == 5) // Made 5 for testing, change to 100
+                if (this.monsterKills == 100)
                 {
                     AchievementArgs a = new AchievementArgs("Killed 100 monsters!");
-                    OnAchievementUnlocked += Form1_OnAchievementUnlocked;
-                    OnAchievementUnlocked(this.player, a);
+                    this.achievements.Killed100Monsters = true;
+                    this.OnAchievementUnlocked(this.player, a);
                 }
 
                 this.monster.GenerateHealth();
@@ -244,7 +246,6 @@
         {
             this.achievementLabel.Text = string.Format("Achievement unlocked!{0}{1}", Environment.NewLine, a.Message);
             this.achievementLabel.Show();
-            this.achievements.Killed100Monsters = true;
             this.achievementTimer.Interval = 3000;
             this.achievementTimer.Start();
         }
@@ -410,7 +411,8 @@
         {
             if (this.player.Money >= this.weaponInStore.Cost)
             {
-                this.weaponInStore = this.player.BuyWeapon(this.weaponInStore);
+                this.player.BuyWeapon(this.weaponInStore);
+                this.weaponInStore = new WoodenSword(this.weaponInStore.DamageIncrease(), this.weaponInStore.CostIncrease());
                 this.CheckIfMoneyAreValid();
                 this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
                 this.weaponLabel.Text = string.Format("Cost: {0}", this.weaponInStore.Cost);
@@ -427,6 +429,7 @@
         {
             this.warning.ForeColor = Color.Red;
             this.warning.Text = "Not enough money!";
+            this.warning.Show();
             this.warningTimer.Interval = 2000;
             this.warningTimer.Start();
         }
@@ -435,13 +438,14 @@
         {
             this.warning.ForeColor = Color.Green;
             this.warning.Text = string.Format("Purchased {0}!", purchase);
+            this.warning.Show();
             this.warningTimer.Interval = 2000;
             this.warningTimer.Start();
         }
 
         private void WarningTimer_Tick(object sender, EventArgs e)
         {
-            this.warning.Text = string.Empty;
+            this.warning.Hide();
         }
 
         private void Timer1_Tick(object sender, EventArgs e)

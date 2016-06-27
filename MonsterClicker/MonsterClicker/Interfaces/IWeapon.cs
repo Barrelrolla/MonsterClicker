@@ -10,6 +10,6 @@
 
         BigInteger CostIncrease();
 
-        BigInteger DamageIncrease(BigInteger currentDamage);
+        BigInteger DamageIncrease();
     }
 }

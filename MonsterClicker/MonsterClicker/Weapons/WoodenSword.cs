@@ -12,16 +12,16 @@
 
         public override BigInteger CostIncrease()
         {
-            var costToAdd = this.cost / 10 < 2 ? 2 : this.cost / 10;
-            costToAdd = costToAdd < 1 ? 1 : costToAdd;
-            return this.cost + costToAdd;
+            var costToAdd = this.Cost / 10;
+            costToAdd = costToAdd < 2 ? 2 : costToAdd;
+            return this.Cost + costToAdd;
         }
 
-        public override BigInteger DamageIncrease(BigInteger currentDamage)
+        public override BigInteger DamageIncrease()
         {
-            var damageToAdd = currentDamage / 10;
-            damageToAdd = damageToAdd < 1 ? 1 : damageToAdd;
-            return currentDamage + damageToAdd;
+            var damageToAdd = this.Damage / 10;
+            damageToAdd = damageToAdd < 2 ? 2 : damageToAdd;
+            return this.Damage + damageToAdd;
         }
     }
 }
