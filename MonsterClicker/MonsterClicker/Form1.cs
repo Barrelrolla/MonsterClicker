@@ -41,6 +41,11 @@
 
         public Form1()
         {
+            var save = SaveLoadSystem.LoadGame();
+            if (save != "")
+            {
+                this.player.LoadPlayerState(save);
+            }
             this.InitializeComponent();
             this.unitsList.Add(this.farmers);
             this.unitsList.Add(this.monks);
@@ -605,6 +610,7 @@
             DialogResult dialog = MessageBox.Show($"Are you sure?", "Save & Exit", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
+                SaveLoadSystem.SaveGame(this.player.SavePlayerState());
                 Application.ExitThread();
             }
             else if (dialog == DialogResult.No)

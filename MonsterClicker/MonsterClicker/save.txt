@@ -1,0 +1,6 @@
+PlayerBaseClickDamage: 1
+PlayerLevel: 1
+PlayerMoney: 1000000
+PlayerXP: 10
+PlayerWeapon: 0
+

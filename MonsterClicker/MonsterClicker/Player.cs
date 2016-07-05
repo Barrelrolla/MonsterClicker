@@ -1,6 +1,9 @@
 ﻿namespace MonsterClicker
 {
+    using System;
+    using System.Linq;
     using System.Numerics;
+    using System.Text;
     using Weapons;
 
     public class Player
@@ -86,6 +89,32 @@
             {
                 this.LevelUp();
             }
+        }
+
+        public string SavePlayerState()
+        {
+            var save = new StringBuilder();
+            save.AppendLine($"PlayerBaseClickDamage: {this.baseClickDamge}");
+            save.AppendLine($"PlayerLevel: {this.level}");
+            save.AppendLine($"PlayerMoney: {this.inventory.Money}");
+            save.AppendLine($"PlayerXP: {this.inventory.Experience}");
+            save.AppendLine($"PlayerWeapon: {this.weapon.Damage}");
+            return save.ToString();
+        }
+
+        public void LoadPlayerState(string text)
+        {
+            var save = text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+            var line = save[0].Split(' ').ToArray();
+            this.baseClickDamge = BigInteger.Parse(line[1]);
+            line = save[1].Split(' ').ToArray();
+            this.level = BigInteger.Parse(line[1]);
+            line = save[2].Split(' ').ToArray();
+            this.inventory.Money = BigInteger.Parse(line[1]);
+            line = save[3].Split(' ').ToArray();
+            this.inventory.Experience = BigInteger.Parse(line[1]);
+            line = save[4].Split(' ').ToArray();
+            this.weapon.Damage = BigInteger.Parse(line[1]);
         }
     }
 }
