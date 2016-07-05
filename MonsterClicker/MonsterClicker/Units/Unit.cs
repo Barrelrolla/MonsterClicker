@@ -36,6 +36,12 @@
             return this.Damage * multiplier;
         }
 
+        public BigInteger ShowDamage(BigInteger playerDamage)
+        {
+            var multiplier = playerDamage / 10 < 1 ? 1 : playerDamage / 10;
+            return this.damage * multiplier;
+        }
+
         public abstract void PriceIncrease();
 
         public void IncreaseCount()

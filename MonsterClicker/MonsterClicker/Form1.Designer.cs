@@ -37,6 +37,15 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Label namesLabel;
         private System.Windows.Forms.Label startLabel;
+        private System.Windows.Forms.Button farmButton;
+        private System.Windows.Forms.Button monasteryButton;
+        private System.Windows.Forms.Button dojoButton;
+        private System.Windows.Forms.Label farmPriceLabel;
+        private System.Windows.Forms.Label monasteryPriceLabel;
+        private System.Windows.Forms.Label dojoPriceLabel;
+        private System.Windows.Forms.Label farmerDamageLabel;
+        private System.Windows.Forms.Label monkDamageLabel;
+        private System.Windows.Forms.Label ninjaDamageLabel;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -92,6 +101,15 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.namesLabel = new System.Windows.Forms.Label();
             this.startLabel = new System.Windows.Forms.Label();
+            this.farmButton = new System.Windows.Forms.Button();
+            this.monasteryButton = new System.Windows.Forms.Button();
+            this.dojoButton = new System.Windows.Forms.Button();
+            this.farmPriceLabel = new System.Windows.Forms.Label();
+            this.monasteryPriceLabel = new System.Windows.Forms.Label();
+            this.dojoPriceLabel = new System.Windows.Forms.Label();
+            this.farmerDamageLabel = new System.Windows.Forms.Label();
+            this.monkDamageLabel = new System.Windows.Forms.Label();
+            this.ninjaDamageLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // monsterHPlabel
@@ -144,7 +162,7 @@
             this.warning.AutoSize = true;
             this.warning.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.warning.ForeColor = System.Drawing.Color.Red;
-            this.warning.Location = new System.Drawing.Point(292, 90);
+            this.warning.Location = new System.Drawing.Point(224, 138);
             this.warning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.warning.Name = "warning";
             this.warning.Size = new System.Drawing.Size(76, 20);
@@ -235,12 +253,12 @@
             // 
             // farmerButton
             // 
-            this.farmerButton.Location = new System.Drawing.Point(482, 34);
+            this.farmerButton.Location = new System.Drawing.Point(500, 34);
             this.farmerButton.Margin = new System.Windows.Forms.Padding(2);
             this.farmerButton.Name = "farmerButton";
-            this.farmerButton.Size = new System.Drawing.Size(96, 23);
+            this.farmerButton.Size = new System.Drawing.Size(78, 23);
             this.farmerButton.TabIndex = 21;
-            this.farmerButton.Text = "Buy Farm";
+            this.farmerButton.Text = "Buy Farmer";
             this.farmerButton.UseVisualStyleBackColor = true;
             this.farmerButton.Click += new System.EventHandler(this.TestUnitButton_Click);
             // 
@@ -317,18 +335,18 @@
             // 
             // monkButton
             // 
-            this.monkButton.Location = new System.Drawing.Point(482, 63);
+            this.monkButton.Location = new System.Drawing.Point(500, 87);
             this.monkButton.Name = "monkButton";
-            this.monkButton.Size = new System.Drawing.Size(96, 23);
+            this.monkButton.Size = new System.Drawing.Size(78, 23);
             this.monkButton.TabIndex = 27;
-            this.monkButton.Text = "Buy Monastery";
+            this.monkButton.Text = "Buy Monk";
             this.monkButton.UseVisualStyleBackColor = true;
             this.monkButton.Click += new System.EventHandler(this.MonkButton_Click);
             // 
             // monkLabel
             // 
             this.monkLabel.AutoSize = true;
-            this.monkLabel.Location = new System.Drawing.Point(582, 68);
+            this.monkLabel.Location = new System.Drawing.Point(582, 92);
             this.monkLabel.Name = "monkLabel";
             this.monkLabel.Size = new System.Drawing.Size(34, 13);
             this.monkLabel.TabIndex = 28;
@@ -336,18 +354,18 @@
             // 
             // ninjasButton
             // 
-            this.ninjasButton.Location = new System.Drawing.Point(482, 92);
+            this.ninjasButton.Location = new System.Drawing.Point(500, 146);
             this.ninjasButton.Name = "ninjasButton";
-            this.ninjasButton.Size = new System.Drawing.Size(96, 23);
+            this.ninjasButton.Size = new System.Drawing.Size(78, 23);
             this.ninjasButton.TabIndex = 29;
-            this.ninjasButton.Text = "Buy Dojo";
+            this.ninjasButton.Text = "Buy Ninja";
             this.ninjasButton.UseVisualStyleBackColor = true;
             this.ninjasButton.Click += new System.EventHandler(this.NinjasButton_Click);
             // 
             // ninjasLabel
             // 
             this.ninjasLabel.AutoSize = true;
-            this.ninjasLabel.Location = new System.Drawing.Point(582, 97);
+            this.ninjasLabel.Location = new System.Drawing.Point(582, 151);
             this.ninjasLabel.Name = "ninjasLabel";
             this.ninjasLabel.Size = new System.Drawing.Size(34, 13);
             this.ninjasLabel.TabIndex = 30;
@@ -384,7 +402,7 @@
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.ForeColor = System.Drawing.Color.Red;
-            this.titleLabel.Location = new System.Drawing.Point(130, 81);
+            this.titleLabel.Location = new System.Drawing.Point(130, 67);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(496, 76);
             this.titleLabel.TabIndex = 42;
@@ -411,6 +429,90 @@
             this.startLabel.TabIndex = 44;
             this.startLabel.Text = "Press \"Space\" to play";
             // 
+            // farmButton
+            // 
+            this.farmButton.Location = new System.Drawing.Point(407, 34);
+            this.farmButton.Name = "farmButton";
+            this.farmButton.Size = new System.Drawing.Size(87, 23);
+            this.farmButton.TabIndex = 45;
+            this.farmButton.Text = "Buy Farm";
+            this.farmButton.UseVisualStyleBackColor = true;
+            this.farmButton.Click += new System.EventHandler(this.FarmButton_Click);
+            // 
+            // monasteryButton
+            // 
+            this.monasteryButton.Location = new System.Drawing.Point(407, 87);
+            this.monasteryButton.Name = "monasteryButton";
+            this.monasteryButton.Size = new System.Drawing.Size(87, 23);
+            this.monasteryButton.TabIndex = 46;
+            this.monasteryButton.Text = "Buy Monastery";
+            this.monasteryButton.UseVisualStyleBackColor = true;
+            this.monasteryButton.Click += new System.EventHandler(this.MonasteryButton_Click);
+            // 
+            // dojoButton
+            // 
+            this.dojoButton.Location = new System.Drawing.Point(407, 146);
+            this.dojoButton.Name = "dojoButton";
+            this.dojoButton.Size = new System.Drawing.Size(87, 23);
+            this.dojoButton.TabIndex = 47;
+            this.dojoButton.Text = "Buy Dojo";
+            this.dojoButton.UseVisualStyleBackColor = true;
+            this.dojoButton.Click += new System.EventHandler(this.DojoButton_Click);
+            // 
+            // farmPriceLabel
+            // 
+            this.farmPriceLabel.AutoSize = true;
+            this.farmPriceLabel.Location = new System.Drawing.Point(414, 60);
+            this.farmPriceLabel.Name = "farmPriceLabel";
+            this.farmPriceLabel.Size = new System.Drawing.Size(49, 13);
+            this.farmPriceLabel.TabIndex = 48;
+            this.farmPriceLabel.Text = "Price: 10";
+            // 
+            // monasteryPriceLabel
+            // 
+            this.monasteryPriceLabel.AutoSize = true;
+            this.monasteryPriceLabel.Location = new System.Drawing.Point(414, 113);
+            this.monasteryPriceLabel.Name = "monasteryPriceLabel";
+            this.monasteryPriceLabel.Size = new System.Drawing.Size(55, 13);
+            this.monasteryPriceLabel.TabIndex = 49;
+            this.monasteryPriceLabel.Text = "Price: 100";
+            // 
+            // dojoPriceLabel
+            // 
+            this.dojoPriceLabel.AutoSize = true;
+            this.dojoPriceLabel.Location = new System.Drawing.Point(414, 172);
+            this.dojoPriceLabel.Name = "dojoPriceLabel";
+            this.dojoPriceLabel.Size = new System.Drawing.Size(61, 13);
+            this.dojoPriceLabel.TabIndex = 50;
+            this.dojoPriceLabel.Text = "Price: 1000";
+            // 
+            // farmerDamageLabel
+            // 
+            this.farmerDamageLabel.AutoSize = true;
+            this.farmerDamageLabel.Location = new System.Drawing.Point(506, 60);
+            this.farmerDamageLabel.Name = "farmerDamageLabel";
+            this.farmerDamageLabel.Size = new System.Drawing.Size(50, 13);
+            this.farmerDamageLabel.TabIndex = 51;
+            this.farmerDamageLabel.Text = "Damage:";
+            // 
+            // monkDamageLabel
+            // 
+            this.monkDamageLabel.AutoSize = true;
+            this.monkDamageLabel.Location = new System.Drawing.Point(506, 113);
+            this.monkDamageLabel.Name = "monkDamageLabel";
+            this.monkDamageLabel.Size = new System.Drawing.Size(50, 13);
+            this.monkDamageLabel.TabIndex = 52;
+            this.monkDamageLabel.Text = "Damage:";
+            // 
+            // ninjaDamageLabel
+            // 
+            this.ninjaDamageLabel.AutoSize = true;
+            this.ninjaDamageLabel.Location = new System.Drawing.Point(506, 172);
+            this.ninjaDamageLabel.Name = "ninjaDamageLabel";
+            this.ninjaDamageLabel.Size = new System.Drawing.Size(50, 13);
+            this.ninjaDamageLabel.TabIndex = 53;
+            this.ninjaDamageLabel.Text = "Damage:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -418,6 +520,15 @@
             this.BackgroundImage = global::MonsterClicker.Properties.Resources.space;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(737, 406);
+            this.Controls.Add(this.ninjaDamageLabel);
+            this.Controls.Add(this.monkDamageLabel);
+            this.Controls.Add(this.farmerDamageLabel);
+            this.Controls.Add(this.dojoPriceLabel);
+            this.Controls.Add(this.monasteryPriceLabel);
+            this.Controls.Add(this.farmPriceLabel);
+            this.Controls.Add(this.dojoButton);
+            this.Controls.Add(this.monasteryButton);
+            this.Controls.Add(this.farmButton);
             this.Controls.Add(this.startLabel);
             this.Controls.Add(this.namesLabel);
             this.Controls.Add(this.titleLabel);
