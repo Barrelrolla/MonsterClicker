@@ -4,7 +4,7 @@
     {
         public Monk() : base()
         {
-            this.damage = 120;
+            this.damage = 40;
             this.price = 20;
             this.count = 0;
         }

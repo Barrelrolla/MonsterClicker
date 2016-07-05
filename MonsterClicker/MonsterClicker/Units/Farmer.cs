@@ -4,7 +4,7 @@
     {
         public Farmer() : base()
         {
-            this.damage = 5;
+            this.damage = 2;
             this.price = 1;
             this.count = 0;
         }

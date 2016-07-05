@@ -4,7 +4,7 @@
     {
         public Ninja() : base()
         {
-            this.damage = 700;
+            this.damage = 200;
             this.price = 100;
             this.count = 0;
         }
