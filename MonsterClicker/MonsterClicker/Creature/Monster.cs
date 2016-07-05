@@ -10,7 +10,7 @@
 
         public override void GenerateHealth()
         {
-            this.nextLevelHealth += (this.nextLevelHealth / 9) < 2 ? 2 : this.nextLevelHealth / 9; ;
+            this.nextLevelHealth += (this.nextLevelHealth / 9) < 2 ? 2 : this.nextLevelHealth / 9;
             this.Health = this.nextLevelHealth;
             this.killCount++;
         }

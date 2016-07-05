@@ -34,6 +34,9 @@
         private System.Windows.Forms.Label creatureName;
         private System.Windows.Forms.Label achievementLabel;
         private System.Windows.Forms.Timer achievementTimer;
+        private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Label namesLabel;
+        private System.Windows.Forms.Label startLabel;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -454,9 +457,5 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Label namesLabel;
-        private System.Windows.Forms.Label startLabel;
     }
 }

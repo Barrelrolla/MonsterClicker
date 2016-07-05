@@ -36,8 +36,9 @@
         
         private int monsterImagesCount = 5;
 
-        ////TODO: achivements - kills and all damage
-        ////TODO: maybe add more weapons and units
+        ////TODO: add more weapons
+        ////TODO: separate building and unit buttons
+        ////TODO: save/load system!!
 
         public Form1()
         {
@@ -47,7 +48,6 @@
             this.unitsList.Add(this.ninjas);
             ////this.monsterHPlabel.Text = string.Format("Monster HP: {0}", monster.Health);
             ////this.bossHPLabel.Text = string.Format("Boss HP: {0}", boss.Health);
-            ////this.player.Money = 100000; //cheat for testing, REMOVE IT BEFORE RELEASE!!! :D
             this.moneyLabel.Hide();
             this.weaponLabel.Hide();
             this.damageClickLabel.Hide();
@@ -111,8 +111,8 @@
         {
             if (this.achievements.Dealt1mDamage == false)
             {
-                totalDamage += this.player.DealDamage();
-                if (totalDamage >= 1000000)
+                this.totalDamage += this.player.DealDamage();
+                if (this.totalDamage >= 1000000)
                 {
                     AchievementArgs a = new AchievementArgs("Dealed 1 000 000 Damage!");
                     this.achievements.Dealt1mDamage = true;
@@ -125,8 +125,8 @@
         {
             if (this.achievements.Clicked100Times == false)
             {
-                clicksCount++;
-                if (clicksCount == 100)
+                this.clicksCount++;
+                if (this.clicksCount == 100)
                 {
                     AchievementArgs a = new AchievementArgs("Clicked 100 times!");
                     this.achievements.Clicked100Times = true;
@@ -154,7 +154,7 @@
             if (this.monster.Health <= 0)
             {
                 this.monsterKills++;
-                CheckForMonsterKills();
+                this.CheckForMonsterKills();
                 this.monster.GenerateHealth();
                 this.creatureName.Text = string.Format("Name: {0}", Creature.GetRandomName());
                 if (this.monsterKills % 10 == 0)
@@ -170,7 +170,7 @@
                 }
 
                 this.player.Money += this.monster.Money;
-                CheckForCollectedMoney(this.monster);
+                this.CheckForCollectedMoney(this.monster);
                 this.CheckIfMoneyAreValid();
                 this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
                 this.player.ExperiencePointsNeeded -= this.monster.Experience;
@@ -238,12 +238,12 @@
             if (this.boss.Health <= 0)
             {
                 this.monsterKills++;
-                CheckForMonsterKills();
+                this.CheckForMonsterKills();
                 this.monster.GenerateHealth();
                 this.creatureName.Text = string.Format("Name: {0}", Creature.GetRandomName());
                 this.boss.Health = 0;
                 this.player.Money += this.boss.Money;
-                CheckForCollectedMoney(this.boss);
+                this.CheckForCollectedMoney(this.boss);
                 this.CheckIfMoneyAreValid();
                 this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
                 this.player.ExperiencePointsNeeded -= this.boss.Experience;
@@ -311,10 +311,10 @@
 
         private void BossButtonClick(object sender, EventArgs e)
         {
-            CheckForClicks();
+            this.CheckForClicks();
             this.clickMeLabel.Hide();
             this.boss.TakeDamage(this.player.DealDamage());
-            CheckForDamage();
+            this.CheckForDamage();
             this.CheckBossDead();
             this.CheckBossHealthValid();
             this.ShowDamage();
@@ -398,12 +398,11 @@
         {
             this.clickMeLabel.Hide();
             this.monster.TakeDamage(this.player.DealDamage());
-            if (this.achievements.Dealt1mDamage == false)
-            CheckForDamage();
+            this.CheckForDamage();
             this.CheckIfDead();
             this.CheckIfHealthIsValid();
             this.ShowDamage();
-            CheckForClicks();
+            this.CheckForClicks();
             ////this.duck.Play();
         }
 
@@ -412,7 +411,7 @@
             if (this.monsterButton.Visible)
             {
                 this.monster.TakeDamage(this.player.DamagePerSecond);
-                CheckForDamage();
+                this.CheckForDamage();
                 this.CheckIfDead();
                 this.CheckIfHealthIsValid();
             }
@@ -420,9 +419,9 @@
             if (this.bossButton.Visible)
             {
                 this.boss.TakeDamage(this.player.DamagePerSecond);
-                CheckForDamage();
+                this.CheckForDamage();
                 this.CheckBossDead();
-                CheckBossHealthValid();
+                this.CheckBossHealthValid();
             }
         }
 
