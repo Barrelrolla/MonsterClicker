@@ -86,6 +86,7 @@
             this.creatureName = new System.Windows.Forms.Label();
             this.achievementLabel = new System.Windows.Forms.Label();
             this.achievementTimer = new System.Windows.Forms.Timer(this.components);
+            this.titleLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // monsterHPlabel
@@ -374,6 +375,17 @@
             // 
             this.achievementTimer.Tick += new System.EventHandler(this.AchievementTimer_Tick);
             // 
+            // titleLabel
+            // 
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleLabel.ForeColor = System.Drawing.Color.Red;
+            this.titleLabel.Location = new System.Drawing.Point(130, 81);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(496, 76);
+            this.titleLabel.TabIndex = 42;
+            this.titleLabel.Text = "Monster Clicker";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,6 +393,7 @@
             this.BackgroundImage = global::MonsterClicker.Properties.Resources.space;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(737, 406);
+            this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.achievementLabel);
             this.Controls.Add(this.creatureName);
             this.Controls.Add(this.ninjasLabel);
@@ -410,11 +423,14 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Monster Clicker";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label titleLabel;
     }
 }

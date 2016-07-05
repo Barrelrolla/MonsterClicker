@@ -45,15 +45,15 @@
             ////this.monsterHPlabel.Text = string.Format("Monster HP: {0}", monster.Health);
             ////this.bossHPLabel.Text = string.Format("Boss HP: {0}", boss.Health);
             ////this.player.Money = 100000; //cheat for testing, REMOVE IT BEFORE RELEASE!!! :D
-            this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
-            this.weaponLabel.Text = string.Format("Cost: {0}", this.weaponInStore.Cost);
-            this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", this.player.DamagePerClick);
-            this.damageSecondLabel.Text = string.Format("Damage Per Second: {0}", this.player.DamagePerSecond);
-            this.playerLevelLabel.Text = string.Format("Level: {0}", this.player.Level);
-            this.farmersLabel.Text = string.Format("Price: {0}", this.farm.Price);
-            this.monkLabel.Text = string.Format("Price: {0}", this.monastery.Price);
-            this.ninjasLabel.Text = string.Format("Price: {0}", this.dojo.Price);
-            this.creatureName.Text = string.Format("Name: Bebe");
+            this.moneyLabel.Hide();
+            this.weaponLabel.Hide();
+            this.damageClickLabel.Hide();
+            this.damageSecondLabel.Hide();
+            this.playerLevelLabel.Hide();
+            this.farmersLabel.Hide();
+            this.monkLabel.Hide();
+            this.ninjasLabel.Hide();
+            this.creatureName.Hide();
             this.monkButton.Hide();
             this.monkLabel.Hide();
             this.ninjasButton.Hide();
@@ -63,6 +63,12 @@
             this.playerMusic.SoundLocation = "../../Resources/street.wav";
             this.playerMusic.PlayLooping();
             this.achievementLabel.Hide();
+            this.monsterButton.Hide();
+            this.farmerButton.Hide();
+            this.weaponButton.Hide();
+            this.playNstop.Hide();
+            this.monsterHPlabel.Hide();
+            this.clickMeLabel.Hide();
             ////this.duck.SoundLocation = "../../Resources/duck.wav";
             this.OnAchievementUnlocked += this.Form1_OnAchievementUnlocked;
             this.warning.Hide();
@@ -472,6 +478,36 @@
         private void AchievementTimer_Tick(object sender, EventArgs e)
         {
             this.achievementLabel.Hide();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                this.titleLabel.Hide();
+                this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
+                this.moneyLabel.Show();
+                this.weaponLabel.Text = string.Format("Cost: {0}", this.weaponInStore.Cost);
+                this.weaponLabel.Show();
+                this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", this.player.DamagePerClick);
+                this.damageClickLabel.Show();
+                this.damageSecondLabel.Text = string.Format("Damage Per Second: {0}", this.player.DamagePerSecond);
+                this.damageSecondLabel.Show();
+                this.playerLevelLabel.Text = string.Format("Level: {0}", this.player.Level);
+                this.playerLevelLabel.Show();
+                this.farmersLabel.Text = string.Format("Price: {0}", this.farm.Price);
+                this.farmersLabel.Show();
+                this.monkLabel.Text = string.Format("Price: {0}", this.monastery.Price);
+                this.ninjasLabel.Text = string.Format("Price: {0}", this.dojo.Price);
+                this.creatureName.Text = string.Format("Name: Bebe");
+                this.monsterHPlabel.Show();
+                this.clickMeLabel.Show();
+                this.creatureName.Show();
+                this.monsterButton.Show();
+                this.farmerButton.Show();
+                this.weaponButton.Show();
+                this.playNstop.Show();
+            }
         }
     }
 }
