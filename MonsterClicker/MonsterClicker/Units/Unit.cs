@@ -30,6 +30,12 @@
             private set { this.count = value; }
         }
 
+        public BigInteger DealDamage(BigInteger playerDamage)
+        {
+            var multiplier = playerDamage / 10 < 1 ? 1 : playerDamage / 10;
+            return this.Damage * multiplier;
+        }
+
         public abstract void PriceIncrease();
 
         public void IncreaseCount()

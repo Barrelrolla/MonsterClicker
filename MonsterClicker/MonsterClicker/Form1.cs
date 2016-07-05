@@ -72,6 +72,7 @@
             ////this.duck.SoundLocation = "../../Resources/duck.wav";
             this.OnAchievementUnlocked += this.Form1_OnAchievementUnlocked;
             this.warning.Hide();
+            this.namesLabel.Text = $"C# OOP team project by {Environment.NewLine} Yulian Teofilov, Kaloyan Kostov, Kristian Kanchev, {Environment.NewLine} Desislav Arashev, Yordan Paskov, Borislav Peev, Kremena Filipova";
         }
 
         public delegate void AchievementUnlocked(object sender, AchievementArgs a);
@@ -89,7 +90,7 @@
             //// setting the new location relative to the mouse relative to the window position
             var newLocation = new Point(MousePosition.X - window.X - 20, MousePosition.Y - window.Y - 60);
             this.floatDamageLabel.Location = newLocation;
-            this.floatDamageLabel.Text = string.Format("{0}", this.player.DamagePerClick);
+            this.floatDamageLabel.Text = string.Format("{0}", this.player.DealDamage());
             this.floatDamageTimer.Start();
         }
 
@@ -131,11 +132,11 @@
                     this.levelUpLabel.Show();
                     this.levelTimer.Interval = 2000;
                     this.levelTimer.Start();
+                    this.player.DamagePerSecond = this.CalculateDamagePerSecond();
                     this.playerLevelLabel.Text = string.Format("Level: {0}", this.player.Level);
-                    this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", this.player.DamagePerClick);
+                    this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", this.player.DealDamage());
+                    this.damageSecondLabel.Text = string.Format("Damage Per Second: {0}", this.player.DamagePerSecond);
                 }
-
-                ////TODO: must make sepparated class Random - Done
 
                 this.ChangePhotoOfMonster(Random.Next(this.monsterImagesCount));
             }
@@ -209,8 +210,10 @@
                     this.levelUpLabel.Show();
                     this.levelTimer.Interval = 2000;
                     this.levelTimer.Start();
+                    this.player.DamagePerSecond = this.CalculateDamagePerSecond();
                     this.playerLevelLabel.Text = string.Format("Level: {0}", this.player.Level);
-                    this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", this.player.DamagePerClick);
+                    this.damageSecondLabel.Text = string.Format("Damage Per Second: {0}", this.player.DamagePerSecond);
+                    this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", this.player.DealDamage());
                 }
 
                 this.CheckBossHealthValid();
@@ -242,7 +245,7 @@
         private BigInteger CalculateDamagePerSecond()
         {
             BigInteger dps = 0;
-            this.unitsList.ForEach(u => dps += u.Damage);
+            this.unitsList.ForEach(u => dps += u.DealDamage(this.player.BaseClickDamage));
             return dps;
         }
 
@@ -422,7 +425,7 @@
                 this.CheckIfMoneyAreValid();
                 this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
                 this.weaponLabel.Text = string.Format("Cost: {0}", this.weaponInStore.Cost);
-                this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", this.player.DamagePerClick);
+                this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", this.player.DealDamage());
                 this.PurchaseSuccesful("Weapon");
             }
             else
@@ -485,11 +488,13 @@
             if (e.KeyCode == Keys.Space)
             {
                 this.titleLabel.Hide();
+                this.namesLabel.Hide();
+                this.startLabel.Hide();
                 this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
                 this.moneyLabel.Show();
                 this.weaponLabel.Text = string.Format("Cost: {0}", this.weaponInStore.Cost);
                 this.weaponLabel.Show();
-                this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", this.player.DamagePerClick);
+                this.damageClickLabel.Text = string.Format("Damage Per Click: {0}", this.player.DealDamage());
                 this.damageClickLabel.Show();
                 this.damageSecondLabel.Text = string.Format("Damage Per Second: {0}", this.player.DamagePerSecond);
                 this.damageSecondLabel.Show();

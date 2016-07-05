@@ -87,6 +87,8 @@
             this.achievementLabel = new System.Windows.Forms.Label();
             this.achievementTimer = new System.Windows.Forms.Timer(this.components);
             this.titleLabel = new System.Windows.Forms.Label();
+            this.namesLabel = new System.Windows.Forms.Label();
+            this.startLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // monsterHPlabel
@@ -386,6 +388,27 @@
             this.titleLabel.TabIndex = 42;
             this.titleLabel.Text = "Monster Clicker";
             // 
+            // namesLabel
+            // 
+            this.namesLabel.AutoSize = true;
+            this.namesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.namesLabel.Location = new System.Drawing.Point(139, 170);
+            this.namesLabel.Name = "namesLabel";
+            this.namesLabel.Size = new System.Drawing.Size(179, 20);
+            this.namesLabel.TabIndex = 43;
+            this.namesLabel.Text = "C# OOP team project by";
+            this.namesLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // startLabel
+            // 
+            this.startLabel.AutoSize = true;
+            this.startLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startLabel.Location = new System.Drawing.Point(303, 256);
+            this.startLabel.Name = "startLabel";
+            this.startLabel.Size = new System.Drawing.Size(144, 17);
+            this.startLabel.TabIndex = 44;
+            this.startLabel.Text = "Press \"Space\" to play";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,6 +416,8 @@
             this.BackgroundImage = global::MonsterClicker.Properties.Resources.space;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(737, 406);
+            this.Controls.Add(this.startLabel);
+            this.Controls.Add(this.namesLabel);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.achievementLabel);
             this.Controls.Add(this.creatureName);
@@ -432,5 +457,7 @@
         #endregion
 
         private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Label namesLabel;
+        private System.Windows.Forms.Label startLabel;
     }
 }
