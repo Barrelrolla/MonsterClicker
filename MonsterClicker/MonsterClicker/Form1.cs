@@ -5,6 +5,7 @@
     using System.Drawing;
     using System.Media;
     using System.Numerics;
+    using System.Text;
     using System.Windows.Forms;
     using Buildings;
     using Exceptions;
@@ -610,7 +611,9 @@
             DialogResult dialog = MessageBox.Show($"Are you sure?", "Save & Exit", MessageBoxButtons.YesNo);
             if (dialog == DialogResult.Yes)
             {
-                SaveLoadSystem.SaveGame(this.player.SavePlayerState());
+                var save = new StringBuilder();
+                save.Append(this.player.SavePlayerState());
+                SaveLoadSystem.SaveGame(save.ToString());
                 Application.ExitThread();
             }
             else if (dialog == DialogResult.No)
