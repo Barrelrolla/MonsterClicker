@@ -311,7 +311,6 @@
             this.bossHPLabel.Size = new System.Drawing.Size(0, 24);
             this.bossHPLabel.TabIndex = 26;
             this.bossHPLabel.Visible = false;
-            this.bossHPLabel.Click += new System.EventHandler(this.BossHPLabel_Click);
             // 
             // monkButton
             // 

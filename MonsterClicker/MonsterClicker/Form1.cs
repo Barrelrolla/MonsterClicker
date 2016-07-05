@@ -26,7 +26,10 @@
         private BigInteger monsterKills = 1;
         private Boss boss;
         private Achievements achievements = new Achievements();
-        private SoundPlayer playerMusic = new SoundPlayer();        
+        private BigInteger totalMoney = 0;
+        private BigInteger totalDamage = 0;
+        private int clicksCount = 0;
+        private SoundPlayer playerMusic = new SoundPlayer();    
         ////private SoundPlayer duck = new SoundPlayer();
 
         ////This variable counts monster images and is used to get random image
@@ -80,6 +83,58 @@
         public event AchievementUnlocked OnAchievementUnlocked;
         ////Methods
 
+        private void CheckForMonsterKills()
+        {
+            if (this.monsterKills == 100)
+            {
+                AchievementArgs a = new AchievementArgs("Killed 100 monsters!");
+                this.achievements.Killed100Monsters = true;
+                this.OnAchievementUnlocked(this.player, a);
+            }
+        }
+
+        private void CheckForCollectedMoney(Creature creature)
+        {
+            if (this.achievements.Collected1mMoney == false)
+            {
+                this.totalMoney += creature.Money;
+                if (this.totalMoney >= 1000000)
+                {
+                    AchievementArgs a = new AchievementArgs("Collected 1 000 000 money!");
+                    this.achievements.Collected1mMoney = true;
+                    this.OnAchievementUnlocked(this.player, a);
+                }
+            }
+        }
+
+        private void CheckForDamage()
+        {
+            if (this.achievements.Dealt1mDamage == false)
+            {
+                totalDamage += this.player.DealDamage();
+                if (totalDamage >= 1000000)
+                {
+                    AchievementArgs a = new AchievementArgs("Dealed 1 000 000 Damage!");
+                    this.achievements.Dealt1mDamage = true;
+                    this.OnAchievementUnlocked(this.player, a);
+                }
+            }
+        }
+
+        private void CheckForClicks()
+        {
+            if (this.achievements.Clicked100Times == false)
+            {
+                clicksCount++;
+                if (clicksCount == 100)
+                {
+                    AchievementArgs a = new AchievementArgs("Clicked 100 times!");
+                    this.achievements.Clicked100Times = true;
+                    this.OnAchievementUnlocked(this.player, a);
+                }
+            }
+        }
+
         private void ShowDamage()
         {
             this.floatDamageLabel.BringToFront();
@@ -99,13 +154,7 @@
             if (this.monster.Health <= 0)
             {
                 this.monsterKills++;
-                if (this.monsterKills == 100) // Made 5 for testing, change to 100
-                {
-                    AchievementArgs a = new AchievementArgs("Killed 100 monsters!");
-                    this.achievements.Killed100Monsters = true;
-                    this.OnAchievementUnlocked(this.monster, a);
-                }
-
+                CheckForMonsterKills();
                 this.monster.GenerateHealth();
                 this.creatureName.Text = string.Format("Name: {0}", Creature.GetRandomName());
                 if (this.monsterKills % 10 == 0)
@@ -121,6 +170,7 @@
                 }
 
                 this.player.Money += this.monster.Money;
+                CheckForCollectedMoney(this.monster);
                 this.CheckIfMoneyAreValid();
                 this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
                 this.player.ExperiencePointsNeeded -= this.monster.Experience;
@@ -188,17 +238,12 @@
             if (this.boss.Health <= 0)
             {
                 this.monsterKills++;
-                if (this.monsterKills == 100)
-                {
-                    AchievementArgs a = new AchievementArgs("Killed 100 monsters!");
-                    this.achievements.Killed100Monsters = true;
-                    this.OnAchievementUnlocked(this.player, a);
-                }
-
+                CheckForMonsterKills();
                 this.monster.GenerateHealth();
                 this.creatureName.Text = string.Format("Name: {0}", Creature.GetRandomName());
                 this.boss.Health = 0;
                 this.player.Money += this.boss.Money;
+                CheckForCollectedMoney(this.boss);
                 this.CheckIfMoneyAreValid();
                 this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
                 this.player.ExperiencePointsNeeded -= this.boss.Experience;
@@ -266,15 +311,13 @@
 
         private void BossButtonClick(object sender, EventArgs e)
         {
+            CheckForClicks();
             this.clickMeLabel.Hide();
             this.boss.TakeDamage(this.player.DealDamage());
+            CheckForDamage();
             this.CheckBossDead();
             this.CheckBossHealthValid();
             this.ShowDamage();
-        }
-
-        private void BossHPLabel_Click(object sender, EventArgs e)
-        {
         }
 
         private void MonkButton_Click(object sender, EventArgs e)
@@ -355,9 +398,12 @@
         {
             this.clickMeLabel.Hide();
             this.monster.TakeDamage(this.player.DealDamage());
+            if (this.achievements.Dealt1mDamage == false)
+            CheckForDamage();
             this.CheckIfDead();
             this.CheckIfHealthIsValid();
             this.ShowDamage();
+            CheckForClicks();
             ////this.duck.Play();
         }
 
@@ -366,6 +412,7 @@
             if (this.monsterButton.Visible)
             {
                 this.monster.TakeDamage(this.player.DamagePerSecond);
+                CheckForDamage();
                 this.CheckIfDead();
                 this.CheckIfHealthIsValid();
             }
@@ -373,8 +420,9 @@
             if (this.bossButton.Visible)
             {
                 this.boss.TakeDamage(this.player.DamagePerSecond);
+                CheckForDamage();
                 this.CheckBossDead();
-                ////CheckBossHealthValid();   //this should be working, but it's not, I think the boss appears after it takes damage
+                CheckBossHealthValid();
             }
         }
 
