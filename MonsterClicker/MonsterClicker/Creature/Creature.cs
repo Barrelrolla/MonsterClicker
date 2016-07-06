@@ -8,11 +8,11 @@
 
     public abstract class Creature : ICreature, ISaveable
     {
+        protected BigInteger nextLevelHealth = StartHealth;
+        protected BigInteger killCount;
         private static readonly BigInteger StartHealth = 10;
         private BigInteger health;
-        protected BigInteger nextLevelHealth = StartHealth;
         private MonsterInventory inventory;
-        protected BigInteger killCount;
         private string name;
         private MonsterNames monsterNames;
 

@@ -28,6 +28,7 @@
             save.AppendLine($"MonksPrice: {this.price}");
             return save.ToString();
         }
+
         public override void LoadState(string text)
         {
             var save = text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToArray();

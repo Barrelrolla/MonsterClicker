@@ -500,8 +500,7 @@
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space)
-            {
-                
+            {                
                 this.titleLabel.Hide();
                 this.namesLabel.Hide();
                 this.startLabel.Hide();
@@ -509,15 +508,41 @@
                 if (save != string.Empty)
                 {
                     var splitted = save.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+                    string[] line;
                     this.player.LoadState(save);
                     this.weaponInStore.LoadState(save);
                     this.farmers.LoadState(save);
                     this.monks.LoadState(save);
                     this.ninjas.LoadState(save);
                     this.monster.LoadState(save);
+                    this.farm.LoadState(save);
+                    if (this.farm.PurchasedState == true)
+                    {
+                        this.PurchasedFarm();
+                        this.monastery.LoadState(save);
+                        if (this.monastery.PurchasedState == true)
+                        {
+                            this.PurchasedMonastery();
+                            this.dojo.LoadState(save);
+                            if (this.dojo.PurchasedState == true)
+                            {
+                                this.PurchasedDojo();
+                            }
+                        }
+                    }
+
+                    this.achievements.LoadState(save);
+                    line = splitted[34].Split(' ').ToArray();
+                    this.monsterKills = BigInteger.Parse(line[1]);
+                    line = splitted[35].Split(' ').ToArray();
+                    this.totalMoney = BigInteger.Parse(line[1]);
+                    line = splitted[36].Split(' ').ToArray();
+                    this.totalDamage = BigInteger.Parse(line[1]);
+                    line = splitted[37].Split(' ').ToArray();
+                    this.clicksCount = int.Parse(line[1]);
                     if (splitted[6] == "Boss")
                     {
-                        boss = new Boss(this.monster);
+                        this.boss = new Boss(this.monster);
                         this.boss.LoadState(save);
                         this.bossButton.Show();
                         this.bossHPLabel.Show();
@@ -533,6 +558,8 @@
                     this.monsterButton.Show();
                     this.monsterHPlabel.Show();
                 }
+
+                this.RefreshDamagePerSecond();
                 this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
                 this.moneyLabel.Show();
                 this.weaponLabel.Text = string.Format("Cost: {0}", this.weaponInStore.Cost);
@@ -561,18 +588,9 @@
             if (this.farm.PurchasedState == false && this.player.Money >= this.farm.Price)
             {
                 this.player.Money -= this.farm.Price;
-                this.farm.PurchasedState = true;
-                this.farmButton.Enabled = false;
                 this.CheckIfMoneyAreValid();
-                this.farmerButton.Show();
-                this.farmersLabel.Text = string.Format("Price: {0}; Count: {1}", this.farmers.Price, this.farmers.Count);
-                this.farmersLabel.Show();
-                this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
-                this.farmerDamageLabel.Text = string.Format("Damage: {0}", this.farmers.ShowDamage(this.player.BaseClickDamage));
-                this.farmerDamageLabel.Show();
-                this.monasteryButton.Show();
-                this.monasteryPriceLabel.Show();
-                this.farmPriceLabel.Hide();
+                this.farm.PurchasedState = true;
+                this.PurchasedFarm();
                 this.PurchaseSuccesful("Farm");
             }
             else if (this.farm.PurchasedState == false && this.player.Money < this.farm.Price)
@@ -581,23 +599,28 @@
             }
         }
 
+        private void PurchasedFarm()
+        {
+            this.farmButton.Enabled = false;
+            this.farmerButton.Show();
+            this.farmersLabel.Text = string.Format("Price: {0}; Count: {1}", this.farmers.Price, this.farmers.Count);
+            this.farmersLabel.Show();
+            this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
+            this.farmerDamageLabel.Text = string.Format("Damage: {0}", this.farmers.ShowDamage(this.player.BaseClickDamage));
+            this.farmerDamageLabel.Show();
+            this.monasteryButton.Show();
+            this.monasteryPriceLabel.Show();
+            this.farmPriceLabel.Hide();
+        }
+
         private void MonasteryButton_Click(object sender, EventArgs e)
         {
             if (this.monastery.PurchasedState == false && this.player.Money >= this.monastery.Price)
             {
                 this.player.Money -= this.monastery.Price;
-                this.monastery.PurchasedState = true;
-                this.monasteryButton.Enabled = false;
                 this.CheckIfMoneyAreValid();
-                this.monkButton.Show();
-                this.monkLabel.Text = string.Format("Price: {0}; Count: {1}", this.monks.Price, this.monks.Count);
-                this.monkLabel.Show();
-                this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
-                this.monkDamageLabel.Text = string.Format("Damage: {0}", this.monks.ShowDamage(this.player.BaseClickDamage));
-                this.monkDamageLabel.Show();
-                this.dojoButton.Show();
-                this.dojoPriceLabel.Show();
-                this.monasteryPriceLabel.Hide();
+                this.monastery.PurchasedState = true;
+                this.PurchasedMonastery();
                 this.PurchaseSuccesful("Monastery");
             }
             else if (this.monastery.PurchasedState == false && this.player.Money < this.monastery.Price)
@@ -606,21 +629,28 @@
             }
         }
 
+        private void PurchasedMonastery()
+        {
+            this.monasteryButton.Enabled = false;
+            this.monkButton.Show();
+            this.monkLabel.Text = string.Format("Price: {0}; Count: {1}", this.monks.Price, this.monks.Count);
+            this.monkLabel.Show();
+            this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
+            this.monkDamageLabel.Text = string.Format("Damage: {0}", this.monks.ShowDamage(this.player.BaseClickDamage));
+            this.monkDamageLabel.Show();
+            this.dojoButton.Show();
+            this.dojoPriceLabel.Show();
+            this.monasteryPriceLabel.Hide();
+        }
+
         private void DojoButton_Click(object sender, EventArgs e)
         {
             if (this.dojo.PurchasedState == false && this.player.Money >= this.dojo.Price)
             {
                 this.player.Money -= this.dojo.Price;
-                this.dojo.PurchasedState = true;
-                this.dojoButton.Enabled = false;
                 this.CheckIfMoneyAreValid();
-                this.ninjasButton.Show();
-                this.ninjasLabel.Text = string.Format("Price: {0}; Count: {1}", this.ninjas.Price, this.ninjas.Count);
-                this.ninjasLabel.Show();
-                this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
-                this.ninjaDamageLabel.Text = string.Format("Damage: {0}", this.ninjas.ShowDamage(this.player.BaseClickDamage));
-                this.ninjaDamageLabel.Show();
-                this.dojoPriceLabel.Hide();
+                this.dojo.PurchasedState = true;
+                this.PurchasedDojo();
                 this.PurchaseSuccesful("Dojo");
             }
             else if (this.dojo.PurchasedState == false && this.player.Money < this.dojo.Price)
@@ -629,9 +659,21 @@
             }
         }
 
+        private void PurchasedDojo()
+        {
+            this.dojoButton.Enabled = false;
+            this.ninjasButton.Show();
+            this.ninjasLabel.Text = string.Format("Price: {0}; Count: {1}", this.ninjas.Price, this.ninjas.Count);
+            this.ninjasLabel.Show();
+            this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
+            this.ninjaDamageLabel.Text = string.Format("Damage: {0}", this.ninjas.ShowDamage(this.player.BaseClickDamage));
+            this.ninjaDamageLabel.Show();
+            this.dojoPriceLabel.Hide();
+        }
+
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (titleLabel.Visible == true)
+            if (this.titleLabel.Visible == true)
             {
                 DialogResult dialog = MessageBox.Show($"Are you sure?", "Quit", MessageBoxButtons.OK);
             }
@@ -640,24 +682,7 @@
                 DialogResult dialog = MessageBox.Show($"Are you sure?", "Save & Exit", MessageBoxButtons.YesNo);
                 if (dialog == DialogResult.Yes)
                 {
-                    var save = new StringBuilder();
-                    save.Append(this.player.SaveState());
-                    save.AppendLine(this.bossButton.Visible == true ? "Boss" : "Monster");
-                    save.Append(this.monster.SaveState());
-                    if (this.boss != null)
-                    {
-                        save.Append(this.boss.SaveState());
-                    }
-                    else
-                    {
-                        save.Append(this.monster.SaveState());
-                    }
-
-                    save.Append(this.weaponInStore.SaveState());
-                    save.Append(this.farmers.SaveState());
-                    save.Append(this.monks.SaveState());
-                    save.Append(this.ninjas.SaveState());
-                    SaveLoadSystem.SaveGame(save.ToString());
+                    this.SaveGame();
                     Application.ExitThread();
                 }
                 else if (dialog == DialogResult.No)
@@ -665,6 +690,41 @@
                     e.Cancel = true;
                 }
             }
+        }
+
+        private void SaveGame()
+        {
+            var save = new StringBuilder();
+            save.Append(this.player.SaveState());
+            save.AppendLine(this.bossButton.Visible == true ? "Boss" : "Monster");
+            save.Append(this.monster.SaveState());
+            if (this.boss != null)
+            {
+                save.Append(this.boss.SaveState());
+            }
+            else
+            {
+                save.Append(this.monster.SaveState());
+            }
+
+            save.Append(this.weaponInStore.SaveState());
+            save.Append(this.farmers.SaveState());
+            save.Append(this.monks.SaveState());
+            save.Append(this.ninjas.SaveState());
+            save.Append(this.farm.SaveState());
+            save.Append(this.monastery.SaveState());
+            save.Append(this.dojo.SaveState());
+            save.Append(this.achievements.SaveState());
+            save.AppendLine($"MonsterKills: {this.monsterKills}");
+            save.AppendLine($"TotalMoney: {this.totalMoney}");
+            save.AppendLine($"TotalDamage: {this.totalDamage}");
+            save.AppendLine($"ClicksCount: {this.clicksCount}");
+            SaveLoadSystem.SaveGame(save.ToString());
+        }
+
+        private void AutoSaveTimer_Tick(object sender, EventArgs e)
+        {
+            this.SaveGame();
         }
     }
 }

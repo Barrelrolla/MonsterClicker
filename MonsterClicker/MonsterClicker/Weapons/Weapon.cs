@@ -1,10 +1,11 @@
 ﻿namespace MonsterClicker
 {
-    using System.Numerics;
-    using MonsterClicker.Interfaces;
-    using System.Text;
     using System;
     using System.Linq;
+    using System.Numerics;
+    using System.Text;
+    using MonsterClicker.Interfaces;
+
     public abstract class Weapon : IWeapon, ISaveable
     {
         protected BigInteger damagePerClick;

@@ -1,9 +1,10 @@
 ﻿namespace MonsterClicker
 {
+    using System;
     using System.Numerics;
     using Interfaces;
 
-    public abstract class Building : IBuilding
+    public abstract class Building : IBuilding, ISaveable
     {
         private BigInteger price;
         private Unit heldUnit;
@@ -26,5 +27,9 @@
             get { return this.purchasedState; }
             set { this.purchasedState = value; }
         }
+
+        public abstract string SaveState();
+
+        public abstract void LoadState(string text);
     }
 }

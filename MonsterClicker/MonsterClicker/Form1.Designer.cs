@@ -46,6 +46,7 @@
         private System.Windows.Forms.Label farmerDamageLabel;
         private System.Windows.Forms.Label monkDamageLabel;
         private System.Windows.Forms.Label ninjaDamageLabel;
+        private System.Windows.Forms.Timer autoSaveTimer;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -110,6 +111,7 @@
             this.farmerDamageLabel = new System.Windows.Forms.Label();
             this.monkDamageLabel = new System.Windows.Forms.Label();
             this.ninjaDamageLabel = new System.Windows.Forms.Label();
+            this.autoSaveTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // monsterHPlabel
@@ -512,6 +514,11 @@
             this.ninjaDamageLabel.Size = new System.Drawing.Size(50, 13);
             this.ninjaDamageLabel.TabIndex = 53;
             this.ninjaDamageLabel.Text = "Damage:";
+            // 
+            // autoSaveTimer
+            // 
+            this.autoSaveTimer.Interval = 60000;
+            this.autoSaveTimer.Tick += new System.EventHandler(this.AutoSaveTimer_Tick);
             // 
             // Form1
             // 

@@ -1,7 +1,7 @@
 ﻿namespace MonsterClicker
 {
-    using Interfaces;
     using System.Numerics;
+    using Interfaces;
 
     public abstract class Unit : IUnit, ISaveable
     {
