@@ -1,5 +1,7 @@
 ﻿namespace MonsterClicker
 {
+    using System;
+    using System.Linq;
     using System.Numerics;
 
     public class Monster : Creature
@@ -19,6 +21,21 @@
         {
             this.Money += this.Money / 10 < 1 ? 1 : this.Money / 10;
             this.Experience += this.Experience / 20 < 1 ? 1 : this.Experience / 20;
+        }
+
+        public override void LoadCreatureState(string text)
+        {
+            var save = text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+            var line = save[6].Split(' ').ToArray();
+            this.Health = BigInteger.Parse(line[1]);
+            line = save[7].Split(' ').ToArray();
+            this.Money = BigInteger.Parse(line[1]);
+            line = save[8].Split(' ').ToArray();
+            this.Experience = BigInteger.Parse(line[1]);
+            line = save[9].Split(' ').ToArray();
+            this.Name = line[1];
+            line = save[10].Split(' ').ToArray();
+            this.killCount = BigInteger.Parse(line[1]);
         }
     }
 }

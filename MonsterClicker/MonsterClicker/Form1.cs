@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Drawing;
+    using System.Linq;
     using System.Media;
     using System.Numerics;
     using System.Text;
@@ -41,13 +42,7 @@
         ////TODO: save/load system!!
 
         public Form1()
-        {
-            var save = SaveLoadSystem.LoadGame();
-            if (save != string.Empty)
-            {
-                this.player.LoadPlayerState(save);
-            }
-
+        {            
             this.InitializeComponent();
             this.unitsList.Add(this.farmers);
             this.unitsList.Add(this.monks);
@@ -506,9 +501,34 @@
         {
             if (e.KeyCode == Keys.Space)
             {
+                
                 this.titleLabel.Hide();
                 this.namesLabel.Hide();
                 this.startLabel.Hide();
+                var save = SaveLoadSystem.LoadGame();
+                if (save != string.Empty)
+                {
+                    var splitted = save.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+                    this.player.LoadPlayerState(save);
+                    this.monster.LoadCreatureState(save);
+                    if (splitted[5] == "Boss")
+                    {
+                        boss = new Boss(this.monster);
+                        this.boss.LoadCreatureState(save);
+                        this.bossButton.Show();
+                        this.bossHPLabel.Show();
+                    }
+                    else
+                    {
+                        this.monsterButton.Show();
+                        this.monsterHPlabel.Show();
+                    }
+                }
+                else
+                {
+                    this.monsterButton.Show();
+                    this.monsterHPlabel.Show();
+                }
                 this.moneyLabel.Text = string.Format("Money: {0}", this.player.Money);
                 this.moneyLabel.Show();
                 this.weaponLabel.Text = string.Format("Cost: {0}", this.weaponInStore.Cost);
@@ -525,10 +545,8 @@
                 this.monkLabel.Text = string.Format("Price: {0}", this.monastery.Price);
                 this.ninjasLabel.Text = string.Format("Price: {0}", this.dojo.Price);
                 this.creatureName.Text = string.Format("Name: Bebe");
-                this.monsterHPlabel.Show();
                 this.clickMeLabel.Show();
                 this.creatureName.Show();
-                this.monsterButton.Show();
                 this.weaponButton.Show();
                 this.playNstop.Show();
             }
@@ -609,17 +627,35 @@
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult dialog = MessageBox.Show($"Are you sure?", "Save & Exit", MessageBoxButtons.YesNo);
-            if (dialog == DialogResult.Yes)
+            if (titleLabel.Visible == true)
             {
-                var save = new StringBuilder();
-                save.Append(this.player.SavePlayerState());
-                SaveLoadSystem.SaveGame(save.ToString());
-                Application.ExitThread();
+                DialogResult dialog = MessageBox.Show($"Are you sure?", "Quit", MessageBoxButtons.OK);
             }
-            else if (dialog == DialogResult.No)
+            else
             {
-                e.Cancel = true;
+                DialogResult dialog = MessageBox.Show($"Are you sure?", "Save & Exit", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.Yes)
+                {
+                    var save = new StringBuilder();
+                    save.Append(this.player.SavePlayerState());
+                    save.AppendLine(this.bossButton.Visible == true ? "Boss" : "Monster");
+                    save.Append(this.monster.SaveCreatureState());
+                    if (this.boss != null)
+                    {
+                        save.Append(this.boss.SaveCreatureState());
+                    }
+                    else
+                    {
+                        save.Append(this.monster.SaveCreatureState());
+                    }
+
+                    SaveLoadSystem.SaveGame(save.ToString());
+                    Application.ExitThread();
+                }
+                else if (dialog == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
             }
         }
     }

@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using System.Numerics;
+    using System.Text;
     using Interfaces;
 
     public abstract class Creature : ICreature
@@ -61,6 +62,19 @@
             ////TODO: Move the health == 0  check from Form.cs to this method
             this.Health -= damage;
         }
+
+        public string SaveCreatureState()
+        {
+            var save = new StringBuilder();
+            save.AppendLine($"CreatureHP: {this.health}");
+            save.AppendLine($"CreatureMoney: {this.inventory.Money}");
+            save.AppendLine($"CreatureXP: {this.inventory.Experience}");
+            save.AppendLine($"CreatureName: {this.name}");
+            save.AppendLine($"CreatureKillCount: {this.killCount}");
+            return save.ToString();
+        }
+
+        public abstract void LoadCreatureState(string text);
 
         public abstract void GenerateInventory();
 
