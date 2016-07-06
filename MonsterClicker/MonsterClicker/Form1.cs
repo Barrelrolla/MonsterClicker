@@ -511,7 +511,7 @@
                     var splitted = save.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
                     this.player.LoadPlayerState(save);
                     this.monster.LoadCreatureState(save);
-                    if (splitted[5] == "Boss")
+                    if (splitted[6] == "Boss")
                     {
                         boss = new Boss(this.monster);
                         this.boss.LoadCreatureState(save);

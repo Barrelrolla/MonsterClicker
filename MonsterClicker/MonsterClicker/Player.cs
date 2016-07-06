@@ -99,6 +99,7 @@
             save.AppendLine($"PlayerMoney: {this.inventory.Money}");
             save.AppendLine($"PlayerXP: {this.inventory.Experience}");
             save.AppendLine($"PlayerWeapon: {this.weapon.Damage}");
+            save.AppendLine($"PlayerInitialXP: {this.initialExperience}");
             return save.ToString();
         }
 
@@ -115,6 +116,8 @@
             this.inventory.Experience = BigInteger.Parse(line[1]);
             line = save[4].Split(' ').ToArray();
             this.weapon.Damage = BigInteger.Parse(line[1]);
+            line = save[5].Split(' ').ToArray();
+            this.initialExperience = BigInteger.Parse(line[1]);
         }
     }
 }

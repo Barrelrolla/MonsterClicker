@@ -25,13 +25,13 @@
         public override void LoadCreatureState(string text)
         {
             var save = text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
-            var line = save[11].Split(' ').ToArray();
+            var line = save[12].Split(' ').ToArray();
             this.Health = BigInteger.Parse(line[1]);
-            line = save[12].Split(' ').ToArray();
-            this.Money = BigInteger.Parse(line[1]);
             line = save[13].Split(' ').ToArray();
-            this.Experience = BigInteger.Parse(line[1]);
+            this.Money = BigInteger.Parse(line[1]);
             line = save[14].Split(' ').ToArray();
+            this.Experience = BigInteger.Parse(line[1]);
+            line = save[15].Split(' ').ToArray();
             this.Name = line[1];
         }
     }
