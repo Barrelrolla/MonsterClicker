@@ -1,11 +1,11 @@
-﻿namespace MonsterClicker
+﻿namespace MonsterClicker.Creatures
 {
     public class Random : System.Random
     {
-        private static Random randomGenerator = new Random();
+        private static readonly Random randomGenerator = new Random();
         private static int currentNumber;
 
-        public static new int Next(int maxValue)
+        public new static int Next(int maxValue)
         {
             var number = randomGenerator.Next(0, maxValue);
             if (number == currentNumber)

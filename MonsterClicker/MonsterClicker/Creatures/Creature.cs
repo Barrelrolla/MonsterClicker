@@ -1,4 +1,4 @@
-﻿namespace MonsterClicker
+﻿namespace MonsterClicker.Creatures
 {
     using System;
     using System.Linq;

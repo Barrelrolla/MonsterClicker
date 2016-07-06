@@ -47,14 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AchievementArgs.cs" />
-    <Compile Include="Achievements.cs" />
-    <Compile Include="Creature\Boss.cs" />
+    <Compile Include="Achievments\AchievementArgs.cs" />
+    <Compile Include="Achievments\Achievements.cs" />
+    <Compile Include="Creatures\Boss.cs" />
     <Compile Include="Buildings\Building.cs" />
     <Compile Include="Buildings\Dojo.cs" />
     <Compile Include="Buildings\Farm.cs" />
     <Compile Include="Buildings\Monastery.cs" />
-    <Compile Include="Creature\Creature.cs" />
+    <Compile Include="Creatures\Creature.cs" />
+    <Compile Include="Creatures\MonsterInventory.cs" />
     <Compile Include="Exceptions\NoHealthException.cs" />
     <Compile Include="Exceptions\NoMoneyException.cs" />
     <Compile Include="Form1.cs">
@@ -70,12 +71,11 @@
     <Compile Include="Interfaces\ISaveable.cs" />
     <Compile Include="Interfaces\IUnit.cs" />
     <Compile Include="Interfaces\IWeapon.cs" />
-    <Compile Include="Creature\Monster.cs" />
-    <Compile Include="MonsterInventory.cs" />
-    <Compile Include="Creature\MonsterNames.cs" />
+    <Compile Include="Creatures\Monster.cs" />
+    <Compile Include="Creatures\MonsterNames.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayerInventory.cs" />
-    <Compile Include="Creature\Random.cs" />
+    <Compile Include="Creatures\Random.cs" />
     <Compile Include="SaveLoadSystem.cs" />
     <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,7 +1,7 @@
-﻿namespace MonsterClicker
-{
-    using System;
+﻿using System;
 
+namespace MonsterClicker.Achievments
+{
     public class AchievementArgs : EventArgs
     {
         private string message;

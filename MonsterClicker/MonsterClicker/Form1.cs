@@ -1,4 +1,6 @@
-﻿namespace MonsterClicker
+﻿using MonsterClicker.Achievments;
+
+namespace MonsterClicker
 {
     using System;
     using System.Collections.Generic;
@@ -11,6 +13,7 @@
     using Buildings;
     using Exceptions;    
     using Units;
+    using Creatures;
     using Weapons;
 
     public partial class Form1 : Form
@@ -201,7 +204,7 @@
                     this.ninjaDamageLabel.Text = string.Format("Damage: {0}", this.ninjas.ShowDamage(this.player.BaseClickDamage));
                 }
 
-                this.ChangePhotoOfMonster(Random.Next(this.monsterImagesCount));
+                this.ChangePhotoOfMonster(Creatures.Random.Next(this.monsterImagesCount));
             }
 
             this.monsterHPlabel.Text = string.Format("Monster HP: {0}", this.monster.Health);

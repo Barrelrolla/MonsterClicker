@@ -1,4 +1,4 @@
-﻿namespace MonsterClicker
+﻿namespace MonsterClicker.Creatures
 {
     public enum MonsterNames
     {
