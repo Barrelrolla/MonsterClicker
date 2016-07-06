@@ -19,16 +19,23 @@
         public static string LoadGame()
         {
             string filename = @"..\..\save.txt";
-            var reader = new StreamReader(filename);
-            var line = reader.ReadLine();
             var save = new StringBuilder();
-            using (reader)
+            if (File.Exists(filename))
             {
-                while (line != null)
+                var reader = new StreamReader(filename);
+                var line = reader.ReadLine();
+                using (reader)
                 {
-                    save.AppendLine(line);
-                    line = reader.ReadLine();
+                    while (line != null)
+                    {
+                        save.AppendLine(line);
+                        line = reader.ReadLine();
+                    }
                 }
+            }
+            else
+            {
+                File.Create(filename).Dispose();
             }
 
             return save.ToString();

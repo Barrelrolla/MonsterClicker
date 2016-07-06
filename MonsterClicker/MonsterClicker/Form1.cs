@@ -8,7 +8,7 @@
     using System.Text;
     using System.Windows.Forms;
     using Buildings;
-    using Exceptions;
+    using Exceptions;    
     using Units;
     using Weapons;
 
@@ -43,10 +43,11 @@
         public Form1()
         {
             var save = SaveLoadSystem.LoadGame();
-            if (save != "")
+            if (save != string.Empty)
             {
                 this.player.LoadPlayerState(save);
             }
+
             this.InitializeComponent();
             this.unitsList.Add(this.farmers);
             this.unitsList.Add(this.monks);
