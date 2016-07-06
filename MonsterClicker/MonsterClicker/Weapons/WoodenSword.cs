@@ -19,7 +19,7 @@
 
         public override BigInteger DamageIncrease()
         {
-            var damageToAdd = this.Damage / 20;
+            var damageToAdd = this.Damage / 15;
             damageToAdd = damageToAdd < 2 ? 2 : damageToAdd;
             return this.Damage + damageToAdd;
         }

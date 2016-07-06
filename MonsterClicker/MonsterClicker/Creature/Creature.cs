@@ -10,9 +10,9 @@
     {
         private static readonly BigInteger StartHealth = 10;
         private BigInteger health;
-        private BigInteger nextLevelHealth = StartHealth;
+        protected BigInteger nextLevelHealth = StartHealth;
         private MonsterInventory inventory;
-        private BigInteger killCount;
+        protected BigInteger killCount;
         private string name;
         private MonsterNames monsterNames;
 

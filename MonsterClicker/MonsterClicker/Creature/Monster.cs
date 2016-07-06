@@ -7,8 +7,6 @@
     public class Monster : Creature
     {
         private static readonly BigInteger StartHealth = 10;
-        private BigInteger nextLevelHealth = StartHealth;
-        private BigInteger killCount = 1;
 
         public override void GenerateHealth()
         {
