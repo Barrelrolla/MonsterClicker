@@ -4,9 +4,10 @@
     using System.Linq;
     using System.Numerics;
     using System.Text;
+    using MonsterClicker.Interfaces;
     using Weapons;
 
-    public class Player
+    public class Player : ISaveable
     {
         private BigInteger damagePerClick;
         private BigInteger baseClickDamge;
@@ -91,7 +92,7 @@
             }
         }
 
-        public string SavePlayerState()
+        public string SaveState()
         {
             var save = new StringBuilder();
             save.AppendLine($"PlayerBaseClickDamage: {this.baseClickDamge}");
@@ -103,7 +104,7 @@
             return save.ToString();
         }
 
-        public void LoadPlayerState(string text)
+        public void LoadState(string text)
         {
             var save = text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
             var line = save[0].Split(' ').ToArray();

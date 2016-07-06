@@ -1,9 +1,9 @@
 ﻿namespace MonsterClicker
 {
-    using System.Numerics;
     using Interfaces;
+    using System.Numerics;
 
-    public abstract class Unit : IUnit
+    public abstract class Unit : IUnit, ISaveable
     {
         protected BigInteger price;
         protected BigInteger damage;
@@ -48,5 +48,9 @@
         {
             this.Count++;
         }
+
+        public abstract string SaveState();
+
+        public abstract void LoadState(string text);
     }
 }

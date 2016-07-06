@@ -21,7 +21,7 @@
             this.Experience += this.Experience / 20 < 1 ? 1 : this.Experience / 20;
         }
 
-        public override void LoadCreatureState(string text)
+        public override void LoadState(string text)
         {
             var save = text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
             var line = save[7].Split(' ').ToArray();

@@ -6,7 +6,7 @@
     using System.Text;
     using Interfaces;
 
-    public abstract class Creature : ICreature
+    public abstract class Creature : ICreature, ISaveable
     {
         private static readonly BigInteger StartHealth = 10;
         private BigInteger health;
@@ -63,7 +63,7 @@
             this.Health -= damage;
         }
 
-        public string SaveCreatureState()
+        public string SaveState()
         {
             var save = new StringBuilder();
             save.AppendLine($"CreatureHP: {this.health}");
@@ -75,7 +75,7 @@
             return save.ToString();
         }
 
-        public abstract void LoadCreatureState(string text);
+        public abstract void LoadState(string text);
 
         public abstract void GenerateInventory();
 

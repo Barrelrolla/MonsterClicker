@@ -67,6 +67,7 @@
     <Compile Include="Interfaces\ICreature.cs" />
     <Compile Include="Interfaces\IInventory.cs" />
     <Compile Include="Interfaces\IMonster.cs" />
+    <Compile Include="Interfaces\ISaveable.cs" />
     <Compile Include="Interfaces\IUnit.cs" />
     <Compile Include="Interfaces\IWeapon.cs" />
     <Compile Include="Creature\Monster.cs" />

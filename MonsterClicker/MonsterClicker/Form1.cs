@@ -509,13 +509,16 @@
                 if (save != string.Empty)
                 {
                     var splitted = save.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
-                    this.player.LoadPlayerState(save);
-                    this.weaponInStore.LoadWeaponState(save);
-                    this.monster.LoadCreatureState(save);
+                    this.player.LoadState(save);
+                    this.weaponInStore.LoadState(save);
+                    this.farmers.LoadState(save);
+                    this.monks.LoadState(save);
+                    this.ninjas.LoadState(save);
+                    this.monster.LoadState(save);
                     if (splitted[6] == "Boss")
                     {
                         boss = new Boss(this.monster);
-                        this.boss.LoadCreatureState(save);
+                        this.boss.LoadState(save);
                         this.bossButton.Show();
                         this.bossHPLabel.Show();
                     }
@@ -638,19 +641,22 @@
                 if (dialog == DialogResult.Yes)
                 {
                     var save = new StringBuilder();
-                    save.Append(this.player.SavePlayerState());
+                    save.Append(this.player.SaveState());
                     save.AppendLine(this.bossButton.Visible == true ? "Boss" : "Monster");
-                    save.Append(this.monster.SaveCreatureState());
+                    save.Append(this.monster.SaveState());
                     if (this.boss != null)
                     {
-                        save.Append(this.boss.SaveCreatureState());
+                        save.Append(this.boss.SaveState());
                     }
                     else
                     {
-                        save.Append(this.monster.SaveCreatureState());
+                        save.Append(this.monster.SaveState());
                     }
 
-                    save.Append(this.weaponInStore.SaveWeaponState());
+                    save.Append(this.weaponInStore.SaveState());
+                    save.Append(this.farmers.SaveState());
+                    save.Append(this.monks.SaveState());
+                    save.Append(this.ninjas.SaveState());
                     SaveLoadSystem.SaveGame(save.ToString());
                     Application.ExitThread();
                 }

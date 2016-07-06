@@ -5,7 +5,7 @@
     using System.Text;
     using System;
     using System.Linq;
-    public abstract class Weapon : IWeapon
+    public abstract class Weapon : IWeapon, ISaveable
     {
         protected BigInteger damagePerClick;
         protected BigInteger cost;
@@ -26,7 +26,7 @@
             set { this.damagePerClick = value; }
         }
 
-        public string SaveWeaponState()
+        public string SaveState()
         {
             var save = new StringBuilder();
             save.AppendLine($"WeaponInStoreDamage: {this.damagePerClick}");
@@ -34,7 +34,7 @@
             return save.ToString();
         }
 
-        public void LoadWeaponState(string text)
+        public void LoadState(string text)
         {
             var save = text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
             var line = save[19].Split(' ').ToArray();
