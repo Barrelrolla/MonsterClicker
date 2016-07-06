@@ -2,7 +2,9 @@
 {
     using System.Numerics;
     using MonsterClicker.Interfaces;
-
+    using System.Text;
+    using System;
+    using System.Linq;
     public abstract class Weapon : IWeapon
     {
         protected BigInteger damagePerClick;
@@ -22,6 +24,23 @@
         {
             get { return this.damagePerClick; }
             set { this.damagePerClick = value; }
+        }
+
+        public string SaveWeaponState()
+        {
+            var save = new StringBuilder();
+            save.AppendLine($"WeaponInStoreDamage: {this.damagePerClick}");
+            save.AppendLine($"WeaponInStoreCost: {this.cost}");
+            return save.ToString();
+        }
+
+        public void LoadWeaponState(string text)
+        {
+            var save = text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
+            var line = save[19].Split(' ').ToArray();
+            this.damagePerClick = BigInteger.Parse(line[1]);
+            line = save[20].Split(' ').ToArray();
+            this.cost = BigInteger.Parse(line[1]);
         }
 
         public abstract BigInteger CostIncrease();

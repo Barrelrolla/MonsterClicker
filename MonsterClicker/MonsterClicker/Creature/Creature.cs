@@ -71,6 +71,7 @@
             save.AppendLine($"CreatureXP: {this.inventory.Experience}");
             save.AppendLine($"CreatureName: {this.name}");
             save.AppendLine($"CreatureKillCount: {this.killCount}");
+            save.AppendLine($"CreatureNextLevelHealth: {this.nextLevelHealth}");
             return save.ToString();
         }
 

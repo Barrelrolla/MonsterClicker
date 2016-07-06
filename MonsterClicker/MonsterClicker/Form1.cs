@@ -510,6 +510,7 @@
                 {
                     var splitted = save.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
                     this.player.LoadPlayerState(save);
+                    this.weaponInStore.LoadWeaponState(save);
                     this.monster.LoadCreatureState(save);
                     if (splitted[6] == "Boss")
                     {
@@ -649,6 +650,7 @@
                         save.Append(this.monster.SaveCreatureState());
                     }
 
+                    save.Append(this.weaponInStore.SaveWeaponState());
                     SaveLoadSystem.SaveGame(save.ToString());
                     Application.ExitThread();
                 }

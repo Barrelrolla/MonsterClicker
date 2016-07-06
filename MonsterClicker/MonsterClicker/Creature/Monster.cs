@@ -36,6 +36,8 @@
             this.Name = line[1];
             line = save[11].Split(' ').ToArray();
             this.killCount = BigInteger.Parse(line[1]);
+            line = save[12].Split(' ').ToArray();
+            this.nextLevelHealth = BigInteger.Parse(line[1]);
         }
     }
 }
