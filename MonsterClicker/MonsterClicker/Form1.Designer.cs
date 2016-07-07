@@ -517,6 +517,7 @@
             // 
             // autoSaveTimer
             // 
+            this.autoSaveTimer.Enabled = true;
             this.autoSaveTimer.Interval = 60000;
             this.autoSaveTimer.Tick += new System.EventHandler(this.AutoSaveTimer_Tick);
             // 

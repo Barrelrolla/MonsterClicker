@@ -507,6 +507,11 @@ namespace MonsterClicker
                 this.titleLabel.Hide();
                 this.namesLabel.Hide();
                 this.startLabel.Hide();
+                this.farmersLabel.Text = string.Format("Price: {0}", this.farmers.Price);
+                this.farmButton.Show();
+                this.farmPriceLabel.Show();
+                this.monkLabel.Text = string.Format("Price: {0}", this.monastery.Price);
+                this.ninjasLabel.Text = string.Format("Price: {0}", this.dojo.Price);
                 var save = SaveLoadSystem.LoadGame();
                 if (save != string.Empty)
                 {
@@ -522,6 +527,7 @@ namespace MonsterClicker
                     if (this.farm.PurchasedState == true)
                     {
                         this.PurchasedFarm();
+                        this.farmPriceLabel.Hide();
                         this.monastery.LoadState(save);
                         if (this.monastery.PurchasedState == true)
                         {
@@ -572,12 +578,7 @@ namespace MonsterClicker
                 this.damageSecondLabel.Text = string.Format("Damage Per Second: {0}", this.player.DamagePerSecond);
                 this.damageSecondLabel.Show();
                 this.playerLevelLabel.Text = string.Format("Level: {0}", this.player.Level);
-                this.playerLevelLabel.Show();
-                this.farmersLabel.Text = string.Format("Price: {0}", this.farmers.Price);
-                this.farmButton.Show();
-                this.farmPriceLabel.Show();
-                this.monkLabel.Text = string.Format("Price: {0}", this.monastery.Price);
-                this.ninjasLabel.Text = string.Format("Price: {0}", this.dojo.Price);
+                this.playerLevelLabel.Show();                
                 this.creatureName.Text = string.Format("Name: Bebe");
                 this.clickMeLabel.Show();
                 this.creatureName.Show();
@@ -721,7 +722,7 @@ namespace MonsterClicker
             save.AppendLine($"MonsterKills: {this.monsterKills}");
             save.AppendLine($"TotalMoney: {this.totalMoney}");
             save.AppendLine($"TotalDamage: {this.totalDamage}");
-            save.AppendLine($"ClicksCount: {this.clicksCount}");
+            save.Append($"ClicksCount: {this.clicksCount}");
             SaveLoadSystem.SaveGame(save.ToString());
         }
 

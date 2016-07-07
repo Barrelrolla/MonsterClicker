@@ -8,7 +8,7 @@
     {
         public static void SaveGame(string toSave)
         {
-            string filename = @"..\..\save.txt";
+            string filename = @"..\..\game.sav";
             var writer = new StreamWriter(filename);
             using (writer)
             {
@@ -18,7 +18,7 @@
 
         public static string LoadGame()
         {
-            string filename = @"..\..\save.txt";
+            string filename = @"..\..\game.sav";
             var save = new StringBuilder();
             if (File.Exists(filename))
             {
