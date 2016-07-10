@@ -8,14 +8,14 @@
 
     public abstract class Creature : ICreature, ISaveable
     {
-        protected BigInteger nextLevelHealth = StartHealth;
-        protected BigInteger killCount;
         private static readonly BigInteger StartHealth = 10;
+        private BigInteger nextLevelHealth = StartHealth;
+        private BigInteger killCount;
         private BigInteger health;
         private MonsterInventory inventory;
         private string name;
         private MonsterNames monsterNames;
-
+        
         protected Creature()
         {
             this.Health = StartHealth;
@@ -44,6 +44,18 @@
         {
             get { return this.name; }
             set { this.name = value; }
+        }
+
+        protected BigInteger NextLevelHealth
+        {
+            get { return this.nextLevelHealth; }
+            set { this.nextLevelHealth = value; }
+        }
+
+        protected BigInteger KillCount
+        {
+            get { return this.killCount; }
+            set { this.killCount = value; }
         }
 
         public static string GetRandomName()

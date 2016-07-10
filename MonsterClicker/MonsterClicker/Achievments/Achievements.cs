@@ -1,10 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-using MonsterClicker.Interfaces;
-
-namespace MonsterClicker.Achievments
+﻿namespace MonsterClicker.Achievments
 {
+    using System;
+    using System.Linq;
+    using System.Text;
+    using Interfaces;
+
     public class Achievements : ISaveable
     {
         private bool killed100Monsters;

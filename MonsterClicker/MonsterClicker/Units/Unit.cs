@@ -5,29 +5,30 @@
 
     public abstract class Unit : IUnit, ISaveable
     {
-        protected BigInteger price;
-        protected BigInteger damage;
-        protected BigInteger count;
+        private BigInteger price;
+        private BigInteger damage;
+        private BigInteger count;
 
         public Unit()
         {
-        }
+        }        
 
         public BigInteger Price
         {
             get { return this.price; }
-            private set { this.price = value; }
+            protected set { this.price = value; }
         }
 
         public BigInteger Damage
         {
             get { return this.damage * this.count; }
+            protected set { this.damage = value; }
         }
 
         public BigInteger Count
         {
             get { return this.count; }
-            private set { this.count = value; }
+            protected set { this.count = value; }
         }
 
         public BigInteger DealDamage(BigInteger playerDamage)

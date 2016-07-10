@@ -10,9 +10,9 @@
 
         public override void GenerateHealth()
         {
-            this.nextLevelHealth += (this.nextLevelHealth / 9) < 2 ? 2 : this.nextLevelHealth / 9;
-            this.Health = this.nextLevelHealth;
-            this.killCount++;
+            this.NextLevelHealth += (this.NextLevelHealth / 9) < 2 ? 2 : this.NextLevelHealth / 9;
+            this.Health = this.NextLevelHealth;
+            this.KillCount++;
         }
 
         public override void GenerateInventory()
@@ -33,9 +33,9 @@
             line = save[10].Split(' ').ToArray();
             this.Name = line[1];
             line = save[11].Split(' ').ToArray();
-            this.killCount = BigInteger.Parse(line[1]);
+            this.KillCount = BigInteger.Parse(line[1]);
             line = save[12].Split(' ').ToArray();
-            this.nextLevelHealth = BigInteger.Parse(line[1]);
+            this.NextLevelHealth = BigInteger.Parse(line[1]);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿namespace MonsterClicker
 {
     using System.Numerics;
-    using MonsterClicker.Interfaces;
+    using Interfaces;
 
     public class PlayerInventory : IInventory
     {

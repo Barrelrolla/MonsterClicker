@@ -9,23 +9,23 @@
     {
         public Ninja() : base()
         {
-            this.damage = 200;
-            this.price = 100;
-            this.count = 0;
+            this.Damage = 200;
+            this.Price = 100;
+            this.Count = 0;
         }
         
         public override void PriceIncrease()
         {
-            var priceToAdd = this.price / 10 < 2 ? 2 : this.price / 10;
+            var priceToAdd = this.Price / 10 < 2 ? 2 : this.Price / 10;
             priceToAdd = priceToAdd < 1 ? 1 : priceToAdd;
-            this.price += priceToAdd;
+            this.Price += priceToAdd;
         }
 
         public override string SaveState()
         {
             var save = new StringBuilder();
-            save.AppendLine($"NinjasCount: {this.count}");
-            save.AppendLine($"NinjasPrice: {this.price}");
+            save.AppendLine($"NinjasCount: {this.Count}");
+            save.AppendLine($"NinjasPrice: {this.Price}");
             return save.ToString();
         }
 
@@ -33,9 +33,9 @@
         {
             var save = text.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries).ToArray();
             var line = save[25].Split(' ').ToArray();
-            this.count = BigInteger.Parse(line[1]);
+            this.Count = BigInteger.Parse(line[1]);
             line = save[26].Split(' ').ToArray();
-            this.price = BigInteger.Parse(line[1]);
+            this.Price = BigInteger.Parse(line[1]);
         }
     }
 }

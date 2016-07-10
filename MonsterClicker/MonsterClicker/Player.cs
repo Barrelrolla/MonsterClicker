@@ -4,7 +4,7 @@
     using System.Linq;
     using System.Numerics;
     using System.Text;
-    using MonsterClicker.Interfaces;
+    using Interfaces;
     using Weapons;
 
     public class Player : ISaveable

@@ -1,0 +1,38 @@
+PlayerBaseClickDamage: 1
+PlayerLevel: 1
+PlayerMoney: 0
+PlayerXP: 10
+PlayerWeapon: 0
+PlayerInitialXP: 10
+Monster
+CreatureHP: 10
+CreatureMoney: 1
+CreatureXP: 5
+CreatureName: 
+CreatureKillCount: 0
+CreatureNextLevelHealth: 10
+CreatureHP: 10
+CreatureMoney: 1
+CreatureXP: 5
+CreatureName: 
+CreatureKillCount: 0
+CreatureNextLevelHealth: 10
+WeaponInStoreDamage: 1
+WeaponInStoreCost: 1
+FarmersCount: 0
+FarmersPrice: 1
+MonksCount: 0
+MonksPrice: 20
+NinjasCount: 0
+NinjasPrice: 100
+FarmBuilt: False
+MonasteryBuilt: False
+DojoBuilt: False
+Killed100monsters: False
+Collected1mMoney: False
+Dealt1mDamage: False
+Clicked100Times: False
+MonsterKills: 1
+TotalMoney: 0
+TotalDamage: 2
+ClicksCount: 0

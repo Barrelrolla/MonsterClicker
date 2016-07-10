@@ -4,12 +4,12 @@
     using System.Linq;
     using System.Numerics;
     using System.Text;
-    using MonsterClicker.Interfaces;
+    using Interfaces;
 
     public abstract class Weapon : IWeapon, ISaveable
     {
-        protected BigInteger damagePerClick;
-        protected BigInteger cost;
+        private BigInteger damagePerClick;
+        private BigInteger cost;
 
         public Weapon()
         {
