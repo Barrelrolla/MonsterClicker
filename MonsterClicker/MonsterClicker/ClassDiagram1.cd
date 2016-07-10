@@ -1,2 +1,255 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MonsterClicker.Achievments.AchievementArgs" Collapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAACA=</HashCode>
+      <FileName>Achievments\AchievementArgs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Achievments.Achievements" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QhAAAAAAAAAAAAAAABAIAAgAAABIAAAAAAAABEAAAAA=</HashCode>
+      <FileName>Achievments\Achievements.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MonsterClicker.Building" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgABCAAAAQAAAAAAAAAIQAAAAEAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Buildings\Building.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MonsterClicker.Form1" Collapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>bEFxuAEUYTAVMDUAjC6BQkGDIQzVgIwxgJBoggJBBQc=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Player" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAYAAQIAAAAAAQAAAEIAgABCAEAAAADBBAAAAABCAE=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MonsterClicker.PlayerInventory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAUAA=</HashCode>
+      <FileName>PlayerInventory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MonsterClicker.SaveLoadSystem" Collapsed="true">
+    <Position X="13.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>SaveLoadSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.StartUp" Collapsed="true">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>StartUp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Unit" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgABAQSAAQAAgAAABAAIAAQAAAAAAAAAAIAAAAAAEAA=</HashCode>
+      <FileName>Units\Unit.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MonsterClicker.Weapon" Collapsed="true">
+    <Position X="6.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAACIAAAAAAAAAAAIABACAAAQAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Weapons\Weapon.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MonsterClicker.Buildings.Dojo" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Buildings\Dojo.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Buildings.Farm" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Buildings\Farm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Buildings.Monastery" Collapsed="true">
+    <Position X="0.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Buildings\Monastery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Creatures.Boss" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAACAAAAQAAAAA=</HashCode>
+      <FileName>Creatures\Boss.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Creatures.Creature" Collapsed="true">
+    <Position X="1.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgAQCAAgAAAAAAAAAAAIAAQAQAA0AAACGAAAgQCAQAg=</HashCode>
+      <FileName>Creatures\Creature.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="MonsterClicker.Creatures.Monster" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAACAAAAQCAAAA=</HashCode>
+      <FileName>Creatures\Monster.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Creatures.MonsterInventory" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAA=</HashCode>
+      <FileName>Creatures\MonsterInventory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MonsterClicker.Creatures.Random" Collapsed="true">
+    <Position X="10.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Creatures\Random.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Exceptions.NoHealthException" Collapsed="true">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\NoHealthException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Exceptions.NoMoneyException" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Exceptions\NoMoneyException.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Properties.Resources" Collapsed="true">
+    <Position X="12" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAgAAAAAIABkAAAAY4BAAAgAAAAAAIAAJA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Properties.Settings" Collapsed="true">
+    <Position X="15.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Units.Farmer" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAQAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Units\Farmer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Units.Monk" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAQAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Units\Monk.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Units.Ninja" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAQAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Units\Ninja.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Weapons.PlayerWeapon" Collapsed="true">
+    <Position X="5.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Weapons\PlayerWeapon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MonsterClicker.Weapons.WoodenSword" Collapsed="true">
+    <Position X="7.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Weapons\WoodenSword.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="MonsterClicker.Interfaces.IBuilding" Collapsed="true">
+    <Position X="10.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Interfaces\IBuilding.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MonsterClicker.Interfaces.ICreature" Collapsed="true">
+    <Position X="12" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQCAAAAAAAAAAAAAAAAAQAAAAAAAAACAAAgAAAQAA=</HashCode>
+      <FileName>Interfaces\ICreature.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MonsterClicker.Interfaces.IInventory" Collapsed="true">
+    <Position X="13.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Interfaces\IInventory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MonsterClicker.Interfaces.IMonster" Collapsed="true">
+    <Position X="15.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgQAAAAA=</HashCode>
+      <FileName>Interfaces\IMonster.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MonsterClicker.Interfaces.ISaveable" Collapsed="true">
+    <Position X="10.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ISaveable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MonsterClicker.Interfaces.IUnit" Collapsed="true">
+    <Position X="12" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAQAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IUnit.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="MonsterClicker.Interfaces.IWeapon" Collapsed="true">
+    <Position X="13.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAABACAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IWeapon.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="MonsterClicker.Creatures.MonsterNames" Collapsed="true">
+    <Position X="10.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAEUgAEAQBBAAAgIABAAAgAAAAgAABAAIAAAAgAAE=</HashCode>
+      <FileName>Creatures\MonsterNames.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
