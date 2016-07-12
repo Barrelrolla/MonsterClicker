@@ -9,6 +9,9 @@
 
     public class Player : ISaveable
     {
+        private const int DamageModifier = 20;
+        private const int XPModifier = 8;
+
         private BigInteger damagePerClick;
         private BigInteger baseClickDamge;
         private BigInteger damagePerSecond;
@@ -73,11 +76,11 @@
         public void LevelUp()
         {
             this.level++;
-            var damageToAdd = this.baseClickDamge / 20;
+            var damageToAdd = this.baseClickDamge / DamageModifier;
             damageToAdd = damageToAdd < 1 ? 1 : damageToAdd;
             this.baseClickDamge += damageToAdd;
             this.damagePerClick = this.baseClickDamge + this.WeaponDamage;
-            var experienceToAdd = this.initialExperience + (this.initialExperience / 8) < 1 ? 1 : this.initialExperience / 8;
+            var experienceToAdd = this.initialExperience + (this.initialExperience / XPModifier) < 1 ? 1 : this.initialExperience / XPModifier;
             this.ExperiencePointsNeeded = this.initialExperience + experienceToAdd;
             this.initialExperience = this.inventory.Experience;
         }

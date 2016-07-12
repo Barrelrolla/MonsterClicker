@@ -7,9 +7,11 @@
 
     public class Dojo : Building
     {
+        private const int InitialPrice = 1000;
+
         public Dojo()
         {
-            this.Price = 1000;
+            this.Price = InitialPrice;
             this.HeldUnit = new Ninja();
             this.PurchasedState = false;
         }

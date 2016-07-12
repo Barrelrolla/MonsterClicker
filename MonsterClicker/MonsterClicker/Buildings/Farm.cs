@@ -7,9 +7,11 @@
 
     public class Farm : Building
     {
+        private const int InitialPrice = 10;
+
         public Farm()
         {
-            this.Price = 10;
+            this.Price = InitialPrice;
             this.HeldUnit = new Farmer();
             this.PurchasedState = false;
         }

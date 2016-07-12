@@ -7,6 +7,8 @@
 
     public class Farmer : Unit
     {
+        private const int PriceModifier = 10;
+
         public Farmer() : base()
         {
             this.Damage = 2;
@@ -16,8 +18,7 @@
 
         public override void PriceIncrease()
         {
-            var priceToAdd = this.Price / 10 < 2 ? 2 : this.Price / 10;
-            priceToAdd = priceToAdd < 1 ? 1 : priceToAdd;
+            var priceToAdd = this.Price / PriceModifier < 2 ? 2 : this.Price / PriceModifier;
             this.Price += priceToAdd;
         }
 

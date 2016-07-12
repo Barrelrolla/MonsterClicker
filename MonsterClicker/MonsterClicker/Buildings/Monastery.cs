@@ -7,9 +7,11 @@
 
     public class Monastery : Building
     {
+        private const int InitialPrice = 100;
+
         public Monastery()
         {
-            this.Price = 100;
+            this.Price = InitialPrice;
             this.HeldUnit = new Monk();
             this.PurchasedState = false;
         }
